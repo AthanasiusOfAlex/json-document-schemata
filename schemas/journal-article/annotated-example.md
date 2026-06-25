@@ -2,7 +2,8 @@
 
 This is a complete, annotated example of the JSON export format, taken from a real transcription of pages 1-2 of an academic article. Comments (not valid JSON) are included inline for explanation.
 
-See [json-schema.md](json-schema.md) for the formal schema definition.
+See [README.md](README.md) for the formal schema definition, and
+[v1/schema.json](v1/schema.json) for the machine-readable JSON Schema.
 
 ```jsonc
 {

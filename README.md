@@ -30,7 +30,7 @@ that distinction with `if`/`then` constraints. Each paragraph is split into
 `segments` at physical page/column boundaries so that scholarly citation by
 page number is preserved alongside semantic flow.
 
-See [input/aquinas-opera-omnia/README.md](input/aquinas-opera-omnia/README.md)
+See [schemas/aquinas-opera-omnia/README.md](schemas/aquinas-opera-omnia/README.md)
 for the full design notes.
 
 ### Journal Article (PDFTranscriber `TranscribedDocument`)
@@ -43,9 +43,9 @@ of `paragraph`, `heading`, and `blockQuote` (keyed on a `type` field) — and
 breaks. The schema is **permissive** (it does not forbid unknown properties), so
 new fields can be added by the producer without breaking validation.
 
-See [input/journal-article/json-schema.md](input/journal-article/json-schema.md)
+See [schemas/journal-article/README.md](schemas/journal-article/README.md)
 for the prose specification and
-[input/journal-article/json-example-annotated.md](input/journal-article/json-example-annotated.md)
+[schemas/journal-article/annotated-example.md](schemas/journal-article/annotated-example.md)
 for an annotated example.
 
 ### Citation (shared)
@@ -57,17 +57,21 @@ currently referenced by either document schema, but is kept as a stub.
 
 ```
 schemas/
-  aquinas-opera-omnia/v1/
-    schema.json
-    examples/            # instances that MUST validate
-  journal-article/v1/
-    schema.json
-    examples/
+  aquinas-opera-omnia/
+    README.md            # design notes
+    v1/
+      schema.json
+      examples/          # instances that MUST validate
+  journal-article/
+    README.md            # prose specification of the format
+    annotated-example.md # worked example with inline commentary
+    v1/
+      schema.json
+      examples/
   shared/
     citation.json
 scripts/
   validate.py            # validates every example against its schema
-input/                   # source material & human-readable documentation
 index.html               # GitHub Pages landing page
 ```
 
