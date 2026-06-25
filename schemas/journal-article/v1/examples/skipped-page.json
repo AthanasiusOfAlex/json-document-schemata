@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "modelUsage": {
+      "anthropic/claude-sonnet-4-20250514": 2
+    },
+    "processingDate": "2026-04-07T07:41:51Z",
+    "sourceFile": "document.pdf",
+    "totalPages": 3
+  },
+  "pages": [
+    {
+      "id": "page-0003",
+      "pageLabel": "3",
+      "elements": [],
+      "footnotes": [],
+      "skipped": true,
+      "skipReason": "All models failed on page 3, region 1: content was filtered"
+    }
+  ]
+}

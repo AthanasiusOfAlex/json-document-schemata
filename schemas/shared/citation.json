@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yourdomain.com/schemas/shared/citation/v1.0.0.json",
+  "title": "Academic Citation",
+  "type": "object",
+  "properties": {
+    "author": { "type": "string" },
+    "title": { "type": "string" },
+    "year": { "type": "integer" },
+    "publisher": { "type": "string" },
+    "doi": { "type": "string" }
+  },
+  "required": ["author", "title", "year"]
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yourdomain.com/schemas/journal-article/v1.0.0.json",
+  "title": "PDFTranscriber Transcribed Document",
+  "description": "Serialization of the PDFTranscriber `TranscribedDocument` type: a transcribed PDF (e.g. a scholarly journal article) as a metadata object plus an ordered array of pages, each carrying body elements and footnotes. See input/journal-article/json-schema.md for the prose specification.",
+  "type": "object",
+  "required": ["metadata", "pages"],
+  "properties": {
+    "metadata": { "$ref": "#/$defs/documentMetadata" },
+    "pages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/page" }
+    }
+  },
+  "$defs": {
+    "documentMetadata": {
+      "type": "object",
+      "required": ["sourceFile", "totalPages", "processingDate", "modelUsage"],
+      "properties": {
+        "sourceFile": {
+          "type": "string",
+          "description": "Filename of the source PDF (basename, not a full path)."
+        },
+        "totalPages": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of pages that were transcribed."
+        },
+        "processingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp (UTC) of when transcription ran."
+        },
+        "modelUsage": {
+          "type": "object",
+          "description": "Map of \"provider/model\" to the number of API calls made with that model.",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": ["id", "pageLabel", "elements", "footnotes"],
+      "dependentRequired": {
+        "skipReason": ["skipped"]
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^page-\\d{4,}$",
+          "description": "Unique monotonic ID. Format: page-NNNN (zero-padded to at least 4 digits)."
+        },
+        "pageLabel": {
+          "type": "string",
+          "description": "User-readable page label as printed on the physical page. Not necessarily unique across the document."
+        },
+        "runningHeader": {
+          "type": "string",
+          "description": "Running header text if present. Omitted (absent) when there is none."
+        },
+        "elements": {
+          "type": "array",
+          "description": "Body elements (paragraphs, headings, block quotes) in reading order. May be empty.",
+          "items": { "$ref": "#/$defs/pageElement" }
+        },
+        "footnotes": {
+          "type": "array",
+          "description": "Footnotes in reading order. May be empty.",
+          "items": { "$ref": "#/$defs/footnote" }
+        },
+        "skipped": {
+          "type": "boolean",
+          "description": "true if the page could not be transcribed and was recorded as a placeholder."
+        },
+        "skipReason": {
+          "type": "string",
+          "description": "Human-readable error description. Only present when skipped is true."
+        }
+      }
+    },
+    "pageElement": {
+      "description": "Discriminated union over the `type` field.",
+      "oneOf": [
+        { "$ref": "#/$defs/paragraph" },
+        { "$ref": "#/$defs/heading" },
+        { "$ref": "#/$defs/blockQuote" }
+      ]
+    },
+    "paragraph": {
+      "type": "object",
+      "required": ["type", "id", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "type": { "const": "paragraph" },
+        "id": {
+          "type": "string",
+          "pattern": "^para-\\d{4,}$"
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown (**bold**, *italic*) and <sc>small caps</sc> tags."
+        },
+        "continuesFromPrevious": { "type": "boolean" },
+        "continuesToNext": { "type": "boolean" }
+      }
+    },
+    "heading": {
+      "type": "object",
+      "required": ["type", "id", "level", "text"],
+      "properties": {
+        "type": { "const": "heading" },
+        "id": {
+          "type": "string",
+          "pattern": "^heading-\\d{4,}$"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "Heading level. 1 is the document/article title, 2 a major section heading, etc."
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting."
+        }
+      }
+    },
+    "blockQuote": {
+      "type": "object",
+      "required": ["type", "id", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "type": { "const": "blockQuote" },
+        "id": {
+          "type": "string",
+          "pattern": "^quote-\\d{4,}$"
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting and <sc> tags."
+        },
+        "continuesFromPrevious": { "type": "boolean" },
+        "continuesToNext": { "type": "boolean" }
+      }
+    },
+    "footnote": {
+      "type": "object",
+      "required": ["id", "marker", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^fn-\\d{4,}$"
+        },
+        "marker": {
+          "type": "string",
+          "description": "Footnote marker as displayed in the source (e.g. \"1\", \"*\", \"†\"). Not necessarily unique."
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting."
+        },
+        "continuesFromPrevious": { "type": "boolean" },
+        "continuesToNext": { "type": "boolean" }
+      }
+    }
+  }
+}
