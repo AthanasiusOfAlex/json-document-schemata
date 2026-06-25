@@ -100,4 +100,4 @@ folders double as the test suite: every file there is expected to validate.
 
 ## License
 
-No license has been chosen yet. Until one is added, default copyright applies.
+Released under the [MIT License](LICENSE).
