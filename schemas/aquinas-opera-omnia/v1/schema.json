@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/aquinas-opera-omnia/v1/schema.json",
   "title": "Thomistic Aquinas Opera Omnia",
   "description": "A definitive schema for the digital representation of the works of Thomas Aquinas in Latin.",
@@ -29,10 +29,10 @@
     },
     "body": {
       "type": "array",
-      "items": { "$ref": "#/definitions/structural_node" }
+      "items": { "$ref": "#/$defs/structural_node" }
     }
   },
-  "definitions": {
+  "$defs": {
     "structural_node": {
       "type": "object",
       "required": ["node_id", "node_type"],
@@ -59,12 +59,12 @@
         "children": {
           "type": "array",
           "description": "Nested structural divisions or scholastic function nodes",
-          "items": { "$ref": "#/definitions/structural_node" }
+          "items": { "$ref": "#/$defs/structural_node" }
         },
         "paragraphs": {
           "type": "array",
           "description": "Content paragraphs for leaf-level nodes",
-          "items": { "$ref": "#/definitions/paragraph" }
+          "items": { "$ref": "#/$defs/paragraph" }
         }
       },
       "allOf": [
@@ -116,7 +116,7 @@
         "segments": {
           "type": "array",
           "description": "Text broken into typographical chunks at page/column breaks.",
-          "items": { "$ref": "#/definitions/text_segment" }
+          "items": { "$ref": "#/$defs/text_segment" }
         }
       }
     },

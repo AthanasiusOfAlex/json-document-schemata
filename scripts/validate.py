@@ -37,8 +37,8 @@ def main():
     for schema_path in schemas_dir.rglob("schema.json"):
         print(f"\nEvaluating schema: {schema_path.relative_to(root_dir)}")
         schema = load_json(schema_path)
-        # Pick the validator class declared by the schema's "$schema" (e.g.
-        # draft-07 for the Aquinas corpus, 2020-12 for the journal article).
+        # Pick the validator class declared by the schema's "$schema" so the
+        # script keeps working if a schema ever targets a different draft.
         validator_cls = validator_for(schema)
         validator_cls.check_schema(schema)
         validator = validator_cls(schema, registry=registry)

@@ -11,11 +11,13 @@ their `$id`:
 
 ## Schemata
 
-| Schema | Draft | Canonical `$id` |
-|---|---|---|
-| **Aquinas Opera Omnia** | draft-07 | `…/schemas/aquinas-opera-omnia/v1/schema.json` |
-| **Journal Article** (PDFTranscriber) | 2020-12 | `…/schemas/journal-article/v1/schema.json` |
-| **Citation** (shared) | 2020-12 | `…/schemas/shared/citation.json` |
+All schemata are written against JSON Schema **draft 2020-12**.
+
+| Schema | Canonical `$id` |
+|---|---|
+| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1/schema.json` |
+| **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
+| **Citation** (shared) | `…/schemas/shared/citation.json` |
 
 (Each `$id` is prefixed with the site root above.)
 
