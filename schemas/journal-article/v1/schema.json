@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://yourdomain.com/schemas/journal-article/v1.0.0.json",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/journal-article/v1/schema.json",
   "title": "PDFTranscriber Transcribed Document",
   "description": "Serialization of the PDFTranscriber `TranscribedDocument` type: a transcribed PDF (e.g. a scholarly journal article) as a metadata object plus an ordered array of pages, each carrying body elements and footnotes. See input/journal-article/json-schema.md for the prose specification.",
   "type": "object",

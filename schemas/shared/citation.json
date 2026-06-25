@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://yourdomain.com/schemas/shared/citation/v1.0.0.json",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/citation.json",
   "title": "Academic Citation",
   "type": "object",
   "properties": {

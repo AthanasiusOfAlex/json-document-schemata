@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://corpusthomisticum.org/schemas/corpus_final.json",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/aquinas-opera-omnia/v1/schema.json",
   "title": "Thomistic Aquinas Opera Omnia",
   "description": "A definitive schema for the digital representation of the works of Thomas Aquinas in Latin.",
   "type": "object",
