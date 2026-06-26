@@ -1,0 +1,456 @@
+{
+  "metadata": {
+    "modelUsage": {
+      "gemini/gemini-3.1-flash-lite": 25
+    },
+    "processingDate": "2026-06-25T00:00:00Z",
+    "sourceFile": "farrell.2012.pdf",
+    "totalPages": 27
+  },
+  "frontMatter": {
+    "title": "The Ends of the Moral Virtues and the First Principles of Practical Reason in Thomas Aquinas",
+    "authors": [
+      { "name": "Dominic Farrell, L.C." }
+    ]
+  },
+  "publication": {
+    "publisher": "Gregorian & Biblical Press",
+    "publisherLocation": "Roma",
+    "series": "Premio Bellarmino, Facoltà di Filosofia",
+    "isbn": "978-88-7839-230-4",
+    "copyrightYear": 2012,
+    "copyrightHolder": "Pontificio Istituto Biblico",
+    "imprimatur": "Vidimus et approbamus ad normam Statutorum Universitatis Romae, ex Pontificia Universitate Gregoriana. Die 02/12/2011. Rev. P. Kevin Flannery. Rev. P. Jakub Gorczyca."
+  },
+  "pages": [
+    {
+      "id": "page-0001",
+      "pageLabel": "1",
+      "elements": [],
+      "footnotes": []
+    },
+    {
+      "id": "page-0002",
+      "pageLabel": "3",
+      "elements": [
+        { "type": "paragraph", "id": "para-0001", "text": "<sc>Dominic Farrell, L.C.</sc>", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0002", "text": "<sc>The Ends of the Moral Virtues and the First Principles of Practical Reason in Thomas Aquinas</sc>", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0003", "text": "Premio Bellarmino Facoltà Filosofia", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0004", "text": "<sc>Gregorian & Biblical Press</sc>", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0003",
+      "pageLabel": "4",
+      "elements": [
+        { "type": "paragraph", "id": "para-0005", "text": "Vidimus et approbamus ad normam Statutorum Universitatis Romae, ex Pontificia Universitate Gregoriana", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0006", "text": "Die 02/12/2011", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0007", "text": "Rev. P. Kevin Flannery", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0008", "text": "Rev. P. Jakub Gorczyca", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0009", "text": "Progetto grafico di copertina: Serena Aureli", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0010", "text": "Impaginazione: Lisanti Srl - Roma", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0011", "text": "© 2012 Pontificio Istituto Biblico", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0012", "text": "Gregorian & Biblical Press", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0013", "text": "Piazza della Pilotta 35, 00187 - Roma", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0014", "text": "www.gbpress.net - books@biblicum.com", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0015", "text": "ISBN 978-88-7839-230-4", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0004",
+      "pageLabel": "5",
+      "elements": [
+        { "type": "paragraph", "id": "para-0016", "text": "To Mum and Dad.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "blockQuote", "id": "quote-0001", "text": "“Remember that through your parents you were born; and what can you give back to them that equals their gift to you?” Sir 7:29", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0005",
+      "pageLabel": "7",
+      "elements": [
+        { "type": "heading", "id": "heading-0001", "level": 1, "text": "Contents" },
+        { "type": "paragraph", "id": "para-0017", "text": "INTRODUCTION 11", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0018", "text": "1. Problems and Aims 11", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0019", "text": "2. Method and Limitations 18", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0020", "text": "3. Plan 21", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0021", "text": "4. References 24", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0022", "text": "5. Acknowledgements 25", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0023", "text": "PART I. NATURAL REASON AND THE PROXIMATE END OF THE MORAL VIRTUES", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0024", "text": "CHAPTER I: The Historical Background to Aquinas’ Position. Aristotelian Practical Wisdom and the Principles of Practical Reason in Early Thirteenth-Century Theology 29", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0025", "text": "1.1. Thirteenth-Century Theology and the Rehabilitation and Reshaping of Aristotelian Practical Wisdom 29", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0026", "text": "1.1.1 Thomas and a Problem in Aristotle’s Account of Practical Wisdom 29", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0027", "text": "1.1.2 The *status quaestionis* in the Early Thirteenth Century 33", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0028", "text": "1.2. William of Auxerre and Philip the Chancellor 37", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0029", "text": "1.2.1 William of Auxerre 37", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0030", "text": "1.2.2 Philip the Chancellor 45", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0031", "text": "1.3. Albert the Great 47", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0032", "text": "1.3.1 *De bono* 48", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0033", "text": "1.3.2 *Super Ethica* 52", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0006",
+      "pageLabel": "8",
+      "elements": [
+        { "type": "paragraph", "id": "para-0034", "text": "CHAPTER II: Aquinas’ Position on Natural Reason and the Ends of the Moral Virtues 67", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0035", "text": "2.1. The Ends of the Moral Virtues as Principles of Practical Reason 68", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0036", "text": "2.1.1 Ends as the Principles of Practical Reason 68", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0037", "text": "2.1.2 Aristotle on the Ends of the Moral Virtues as the Principles of Practical Wisdom 74", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0038", "text": "2.1.3 The Ends of the Virtues as Naturally Known First Principles of Practical Reason 77", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0039", "text": "2.2. Early Discussions 78", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0040", "text": "2.2.1 *Scriptum* III.33.2.3 78", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0041", "text": "2.2.2 *De veritate* 5.1 83", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0042", "text": "2.3. The Definitive Discussion: *Summa theologiae* II-II.47.6-7 85", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0043", "text": "2.3.1 Groundwork from the Prima Secundae 85", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0044", "text": "2.3.2 *Summa theologiae* II-II.47.6 87", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0045", "text": "2.2.3 *Summa theologiae* II-II.47.7 91", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0046", "text": "2.4. *Sententia libri Ethicorum*: Change or Continuity? 93", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0047", "text": "2.4.1 The Question about SLE: Continuity or Change? 93", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0048", "text": "2.4.2 On Naturally Understood First Principles of Practical Reason 96", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0049", "text": "2.4.3 On the Passages Behind Aquinas’ Position 99", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0050", "text": "2.4.4 Concluding Observations 102", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0051", "text": "CHAPTER III: Reading Aquinas’ Position 103", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0052", "text": "3.1. Ways of Reading of Aquinas’ Position 103", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0053", "text": "3.1.1 Cajetan’s Interpretation 103", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0054", "text": "3.1.2 Natural Reason and the Framework of the Cardinal Virtues 110", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0055", "text": "3.1.3 Natural Reason, Human Goods and the Framework of the Cardinal Virtues 111", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0056", "text": "3.1.4 Natural Reason without the Framework of the Cardinal Virtues 115", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0057", "text": "3.1.5 Addressing the Issues 119", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0058", "text": "3.2. Conformity with Reason as the End of the Moral Virtues 121", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0059", "text": "3.2.1 The Good of Reason as the Proximate End of Human Life 121", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0060", "text": "3.2.2 The Natural Law Precept on Virtue 128", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0061", "text": "3.2.3 The Pre-Existence of the Virtues in Reason 131", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0062", "text": "3.2.4 One Dictate for Forming Many Virtues 134", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0063", "text": "3.2.5 A Condition of Rational Agency 141", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0064", "text": "3.2.6 Further Naturally Known Ends of the Moral Virtues 147", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0065", "text": "3.2.7 Closing Observations 149", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0007",
+      "pageLabel": "9",
+      "elements": [
+        { "type": "paragraph", "id": "para-0066", "text": "PART II. NATURAL REASON, DELIBERATION, AND THE COMMON ENDS OF THE MORAL VIRTUES", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0067", "text": "CHAPTER IV: The Order of Love and the Common Ends of the Moral Virtues 155", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0068", "text": "4.1. The Order of Love, the Common Precepts of Natural Law and the Ends of the Moral Virtues 156", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0069", "text": "4.1.1 Common and Proper Precepts of Natural Law 156", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0070", "text": "4.1.2 Common Precepts and the Ends of the Moral Virtues 163", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0071", "text": "4.1.3 The Common Precepts and the Order of Love 165", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0072", "text": "4.1.4 The Common Ends of the Moral Virtues 174", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0073", "text": "4.2. Our Natural Knowledge of The Order of Love 180", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0074", "text": "4.2.1 Natural Love 180", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0075", "text": "4.2.2 Our Natural Love for Others 187", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0076", "text": "4.2.3 Our Natural Love for God: Implicit or Explicit Knowledge of God? 195", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0077", "text": "4.2.4 Our Natural Love for God Above All Else 200", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0078", "text": "4.2.5 The Order of Love and the Ends of the Moral Virtues 207", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0079", "text": "CHAPTER V: Our Natural Knowledge of God as the End of the Moral Virtues 211", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0080", "text": "5.1. The Fifth Way: The Way to a Natural Knowledge of God 212", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0081", "text": "5.2. The Biblical Commentaries on Man’s Natural Knowledge of God 227", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0082", "text": "5.2.1 Clarifications on Natural Reason 227", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0083", "text": "5.2.2 *Super Epistolam ad Romanos lectura* 228", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0084", "text": "5.2.3 *Postilla super Psalmos* 231", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0085", "text": "5.3. The Theological and Doctrinal Syntheses on Man’s Natural Knowledge of God 235", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0086", "text": "5.3.1 *Summa contra gentiles* III.38 235", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0087", "text": "5.3.2 *Summa theologiae* II-II.85.1 238", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0088", "text": "5.3.3 *Collationes in Symbolum Apostolorum* II 241", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0089", "text": "5.3.4 Love-for-God as a Naturally Known Precept: Some Difficulties 245", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0090", "text": "5.3.5 The Precept’s Emergence at the Outset of Moral Life 248", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0091", "text": "5.3.6 Closing Reflections 260", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0008",
+      "pageLabel": "10",
+      "elements": [
+        { "type": "paragraph", "id": "para-0092", "text": "CHAPTER VI: The Ends of the Moral Virtues and Deliberation: The Decalogue, Natural Law, and Virtue 263", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0093", "text": "6.1. The Augustinian Tradition on the Decalogue’s Relation to Natural Law and Virtue 264", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0094", "text": "6.1.1 Augustine’s Innovative Account of the Decalogue 264", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0095", "text": "6.1.2 The Tradition’s Development Prior to Aquinas 270", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0096", "text": "6.2. The Decalogue and Virtue in Aquinas 282", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0097", "text": "6.2.1 The *Summa theologiae* on the Decalogue 282", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0098", "text": "6.2.2 The Decalogue and the Field of Virtue 284", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0099", "text": "6.2.3 The Decalogue as Precepts on Matters of Justice 291", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0100", "text": "6.2.4 The Rationality of the Ten Commandments: Number 299", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0101", "text": "6.2.5 The Rationality of the Ten Commandments: Order 303", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0102", "text": "6.2.6 The Decalogue and the Ends of the Moral Virtues 307", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0103", "text": "CONCLUSION 309", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0104", "text": "ABBREVIATIONS 317", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0105", "text": "BIBLIOGRAPHY 323", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0106", "text": "INDEX OF NAMES 341", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0107", "text": "INDEX OF REFERENCES TO AQUINAS’ WORKS 345", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0108", "text": "INDEX OF SUBJECTS 353", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0009",
+      "pageLabel": "11",
+      "elements": [
+        { "type": "heading", "id": "heading-0002", "level": 1, "text": "Introduction" },
+        { "type": "blockQuote", "id": "quote-0002", "text": "“Can virtue be taught? If not, is it acquired by practice? And if it is neither acquired by practice nor learnable, do men possess it by nature or in some other way?” PLATO, *Meno* 70a.1-4.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "heading", "id": "heading-0003", "level": 2, "text": "1. Problems and Aims" },
+        { "type": "paragraph", "id": "para-0109", "text": "Thomas Aquinas (1225-1274) holds that the ends of the moral virtues pre-exist in practical reason and that natural reason or synderesis sets the proximate end of moral virtues. This occurs since our intellect by its very nature bids us to act according to reason (*Scriptum* III.33.2.3. *QDV* 5.1. *ST* II-II.47.6-7). This study aims at elucidating these claims and their wider setting: Aquinas’ belief that the overarching ends of the moral virtues are the naturally known first principles of practical reason. A deeper look at these ideas clarifies an important aspect of his moral thought: man’s natural knowledge of moral good and the initial stages of deliberation. It also clarifies to some extent the connection between natural law and virtue.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0110", "text": "This study is mainly concerned with the cognitive foundations of practical reasoning and the moral virtues. Over the last few decades this issue has surfaced repeatedly in discussions of the philosopher who launched reflection on practical reason: Aristotle.[^fn-0001] For Aristotle practical reasoning is deliberative. Deliberation (*boulē*) is the rational determination of the means, specifications or constituents to be pursued in order to achieve some end. Any particular act of deliberation then does not set but is prompted by the end that acts as its starting point.[^fn-0002] That, however, raises a serious challenge for Aristotle’s account of practical reasoning. For deliberation to be beneficial and virtue possible we need to know what our", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0001", "marker": "1", "text": "For a brief survey of the problem and the various interpretations, see D. BOSTOCK, *Aristotle’s Ethics*, 82-84.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0002", "marker": "2", "text": "Cf. *EN* III.5.1112a18-1113a12.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0010",
+      "pageLabel": "12",
+      "elements": [
+        { "type": "paragraph", "id": "para-0111", "text": "ends are. While Aristotle insists that the virtuous person knows and desires the proper ends (*EN* VI.12.1144a29-36), he does not specify clearly enough for the modern reader how non-virtuous and pre-virtuous people are meant to know them. It may be just a matter of luck. In other words, some are fortunate enough to be born into the right families, others are not. Today, however, few are satisfied with such a view. A clearer account of universally accessible cognitive foundations of practical reason and virtue is normally expected.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0112", "text": "This is where Thomas Aquinas makes an important and interesting contribution. He not only provides such an account, but does so from an Aristotelian standpoint.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0113", "text": "First, he advocates an Aristotelian account of practical reason. Like Aristotle, Thomas sees deliberation as the rational inquiry about which course of action we should choose to achieve our ends (*ST* I-II.14.1-4, *SLE* III.8). It consists in discerning which actions are congruent with a certain end and conducive to it (*ST* I-II.14.5.ad 3). It is not so much a matter of logical deduction but of assessing how our proposed acts fit in with the overall end of life. In this sense deliberation is a matter of establishing the connection between a particular act and our ends, just as speculative reasoning is a matter of establishing the connection between some conclusion and the principles of knowledge. Ends then are the equivalent to principles in practical reason.[^fn-0003]", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0114", "text": "Still, all practical reasoning has a common starting point. As happiness is the ultimate end of human life, it is the first principle of practical reason too (*ST* I-II.90.2). All deliberation then is ultimately concerned with determining what constitutes one’s happiness. The problem is that people form for themselves rival and generally erroneous conceptions of human good and happiness (*ST* I-II.2). This occurs because we do not know the universal good and our ultimate end directly. We do not know God directly. Instead, we know him though his effects. This deficient knowledge of the absolute good exposes us to misjudgements about how to relate to God and other goods (*ST* I.60.5.ad 5).", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0115", "text": "On the other hand, Aquinas maintains that deliberation is guided by certain naturally grasped ends. He insists that we naturally form a certain correct conception of happiness at the outset of deliberation. By nature we attain a certain knowledge of our overarching ends, and so of the first principles of practical reason. Deliberation then is neither a matter of sheer luck nor a completely open", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0003", "marker": "3", "text": "Cf. *EN* VI.12.1144a31-33; VII.8.1151a16-17; *ST* I-II.13.3.co.; I-II.14.2.co.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0011",
+      "pageLabel": "13",
+      "elements": [
+        { "type": "paragraph", "id": "para-0116", "text": "question. Nevertheless, this initial conception of our end, like any of our rival conceptions, is questionable. The appeal of certain goods or the fear of certain evils can induce us to question and even ignore these naturally known ends or some of their requirements. Should we ignore them or their inexorable requirements, we have actually adopted some other end.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0117", "text": "It is only natural that a theologian like Aquinas should hold such views. The New Testament teaches that all people have some knowledge of the fundamental demands of the moral life (Romans 2:14-16). Early on the Fathers of the Church adopt the Stoic concept of natural law to explain this biblical teaching and develop a body of reflection on the nature and content of natural law.[^fn-0004] This is the real beginning of the natural law tradition as we know it. That tradition undergoes notable developments from the twelfth to fourteenth centuries. During that period scholars of canon law and then theologians systematize and develop the patristic reflection on natural law. This process culminates in Aquinas, who, due to the sophistication and subsequent influence of his account, is normally regarded as the canonical natural law theorist.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0118", "text": "So Aquinas’ views about the natural cognitive foundations of deliberation merit attention for two reasons. First, his position on this matter constitutes the high-point of the natural law tradition. Second, he believes that such natural cognitive foundations are actually part and parcel of an Aristotelian account of practical reasoning and the moral virtues. Not only is natural law disclosed to us within deliberation and directed towards the formation of the moral virtues. Practical wisdom and the moral virtues are only possible if deliberation rests upon such natural cognitive foundations.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0119", "text": "This insertion of natural law within the framework of practical reasoning is apparent from one of the most innovative aspects of his natural law theory. Drawing on the *Posterior Analytics*, where Aristotle describes how scientific knowledge is structured and comprises different tiers of principles and derived conclusions, Thomas asserts that practical reasoning, and with it natural law, is structured analogously.[^fn-0005] Our natural knowledge of the overarching ends of human life gives rise to corresponding dictates of practical reason. These dictates or precepts have the character of principles too. For this reason they can be called first or primary", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0004", "marker": "4", "text": "At their hands ‘natural law’ comes to designate both the fundamental moral requirements and our natural knowledge of them.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0005", "marker": "5", "text": "For a full discussion of how this distinction is rooted in Aristotelian logic, see K.L. FLANNERY, *Acts amid Precepts*.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0012",
+      "pageLabel": "14",
+      "elements": [
+        { "type": "paragraph", "id": "para-0120", "text": "precepts. Through deliberation we discover subordinate ends. This gives rise to further dictates of practical reason that are subordinate to the primary precepts in the manner of derivative conclusions. These can be called secondary precepts.[^fn-0006]", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0121", "text": "Aquinas’ distinction between primary and secondary precepts also reflects his belief that we have some natural knowledge of our actual end. In fact, the primary precepts of natural law are practical reason’s response to this natural knowledge of our end.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0122", "text": "Unfortunately, Aquinas does not spell out what those precepts are as clearly we would like. He only addresses these matters tangentially during discussions of other problems. For example, his most emblematic text on natural law (*ST* I-II.94.2) describes the order of the first natural law precepts. Rather than provide an exhaustive, clear-cut classification of the first precepts of natural law, Aquinas is more concerned with showing that in a certain sense natural law boils down to just one precept, even though in another sense it comprises a number of precepts. Even his most emblematic text on natural law then leaves us somewhat in the dark as to how he conceives our natural knowledge of our end.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0123", "text": "To some extent this is understandable. Aquinas adopts a very different approach to ethics than most modern moral philosophy. The general approach of the leading movements within modern moral philosophy – those of consequentialist or Kantian inspiration – consists in carefully establishing and specifying some foundational first principles or rules that are universal in scope, and then applying these to the various sectors of moral life. Instead, much like ancient ethics, Aquinas adopts a dialectical approach, determining the nature of human good or happiness first, and then that of the various constituents of happiness, such as virtues, friendship, and the proper social order. He does not suppose that controversial moral issues can be settled by determining or appealing to the foundational rules or principles that any coherent rational agent will acknowledge. Furthermore, he is fully aware that quite a lot of philosophical argumentation is required to show that what one claims to be our naturally known ends actually are our ends and naturally known.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0124", "text": "This does not diminish the importance of Aquinas’ account of the cognitive foundations of practical reason and the moral virtues. Clarifying that account and its actual coherence is important for two reasons.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0125", "text": "First, for his account of natural law and practical reason to be coherent we must possess some natural knowledge of the overarching ends of human action.", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0006", "marker": "6", "text": "Cf. *Scriptum* IV.33.1.1; IV.33.2.2. *ST* I-II.94.2; I-II.94.5-6; I-II.100.1; I-II.100.3.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0013",
+      "pageLabel": "15",
+      "elements": [
+        { "type": "paragraph", "id": "para-0126", "text": "Otherwise, deliberation would be unsuccessful. To be right it needs to establish the connection between a certain act or good and the ultimate end. Should it turn out that our reason does dictate certain ends by nature which are not really our ultimate ends, then our deliberation would aberrant and misguided. If so, we would have to suppose that people are not really responsible for their lack of virtue or bad habits, but simply the victims of bad luck or reason’s irreparable designer defects.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0127", "text": "Second, there must be some connection between the content of natural law precepts and the shape and substance of the moral virtues. The purpose of natural law, like any law, is to make us virtuous (*ST* I-II.92.1). Moreover, natural law is the cognitive foundation of all deliberation and the moral virtues. If so, its primary precepts should give us an initial grasp of virtue and orientation towards it. The occasional commentator claims that considerations about the virtues are not decisive for knowing what to do.[^fn-0007] However, the renewed consciousness of the importance of virtue in recent years has prompted an increasing number of scholars to caution against an excessively deontological reading of Aquinas’ moral philosophy and to favour a more virtue-centred one.[^fn-0008] After all, virtue, and not natural law, predominates in his moral philosophy.[^fn-0009] This study shall contribute to this reading by stressing the connection between the common precepts and the moral virtues.", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": [
+        { "id": "fn-0007", "marker": "7", "text": "For John Finnis the *Summa theologiae*’s classification of moral acts in terms of virtues and vices is not essential and obscures his actual account of the foundations of morality. Considerations about virtue are ancillary to considerations about right action. Cf. J. FINNIS, *Aquinas*, 186-187.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0008", "marker": "8", "text": "Some argue that virtue enjoys priority over natural law in the *Summa*, or that Aquinas’ remarks on naturally known natural law precepts can only be understood in the light of his account of virtue. Cf. G. ABBÀ, *Lex et virtus*; J. PORTER, *The Recovery of Virtue*; D.M. NELSON, *The Priority of Prudence*. Others stress that Aquinas does not set virtue and natural law in antinomy. Rather, the teleological framework of his ethics makes each complementary and equally necessary. Cf. V.J. BOURKE, “Is Aquinas a Natural Law Ethicist?”; M. CARL, *Law, Virtue, and Happiness*. Christopher Toner suggests this indirectly. He argues that the ethics of Aquinas is eudaimonist and virtue-centred. Both the modern deontological approach to ethics, which sees an opposition between eudaimonism and morality, and contemporary objections to virtue-ethics, have their roots in Scotus’ position on the sin of the fallen angels. Cf. C. TONER, “Angelic Sin in Aquinas and Scotus”.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0009", "marker": "9", "text": "Even though the *Summa theologiae* contains Aquinas’ main discussion of natural law, it dedicates comparatively little space to the matter. On the other hand, most of the *Secunda Pars*, the *Summa*’s section of morality, is taken up with an analysis of virtues and vices. Indeed, the different kinds of good and bad human acts are classified as instances of virtues and vices, rather than cases of lawfulness and unlawfulness.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0014",
+      "pageLabel": "16",
+      "elements": [
+        { "type": "paragraph", "id": "para-0128", "text": "So to clarify Aquinas’ account of the cognitive foundations of practical reason and virtue, we must not only clarify the content and cognition of the primary precepts of natural law, but also show that these precepts prescribe the (i) naturally known (ii) overarching ends of human life (iii) and the moral virtues.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0129", "text": "In this sense Aquinas’ claim that natural reason sets the end of the moral virtues is particularly enlightening. He is saying that we attain a natural knowledge (natural reason...) of an overarching end of human action (...sets the end...), indeed the end of the moral virtues (...the end of the moral virtues...). Consequently, reason prescribes this end by issuing a primary precept of natural law (...with the dictate that one act according to reason). Aquinas thereby establishes a connection between the primary precepts of natural law, our overarching ends and the moral virtues. A closer look at this claim then can clarify these two open issues of his account of the cognitive foundations of deliberation and moral virtue.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0130", "text": "If so, this study can make a modest though worthwhile contribution to the ample literature on Aquinas’ moral philosophy and theory of natural law.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0131", "text": "In particular, it will contribute indirectly to the literature on Aquinas’ distinction between primary and secondary precepts.[^fn-0010] It will only do so indirectly since it shall not focus on the precepts as such but on the underlying ends of the moral virtues, which are first principles of practical reason. Even so, the present study hopes to complement them in two ways. First, it aims at providing a more detailed, and in some cases more coherent, account of the content of the primary precepts. Second, it shall explain the connection between those precepts and the shape and substance of the moral virtues.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0132", "text": "Work on this first point is necessary since earlier studies have at times proposed somewhat reductive descriptions of the content of the primary precepts of natural law precepts. Ross Armstrong’s study is a case in point. According to his reading of *ST* I-II.94.2, the primary precepts are necessarily self-evident. This only occurs with the first principle of practical reason (‘good should be done and pursued, evil avoided’ or ‘one should act according to reason’) and with the rules", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0010", "marker": "10", "text": "There are some excellent studies on this distinction. The main monograph is R.A. ARMSTRONG, *Primary and Secondary Precepts*. A later article of Thomas Fay is largely a derivative of Armstrong’s study. Cf. T.A. FAY, “The Development of St. Thomas’s Teaching”. By focussing on the connection between the *Posterior Analytics* and Aquinas’ account of natural law precepts, Fr Kevin Flannery has provided a more careful reconstruction of the levels and content of primary natural law precepts. Cf. K.L. FLANNERY, *Acts amid Precepts*, 25-49.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0015",
+      "pageLabel": "17",
+      "elements": [
+        { "type": "paragraph", "id": "para-0133", "text": "regarding the object of our natural inclinations. In his view these rules are basically: (i) ‘respect and preserve human life’; (ii) ‘sexual intercourse ought to be subject to some restrictions’; (iii) ‘we ought to live together in society according to some rules’.[^fn-0011] This classification is questionable. It leaves us with somewhat fragmentary rules that do not outline what Thomas takes to be the overarching ends of human life: love for God, self, and others. Indeed, these precepts do not seem to prescribe the overarching ends of the moral virtues at all. Armstrong comes up with this somewhat reductive classification of the primary precepts of natural law probably because he focuses too narrowly on a very limited selection of texts and without contextualizing them sufficiently against the wider backdrop of Aquinas’ ethics.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0134", "text": "Other studies do provide a more accurate picture and present love-for-God and love-for-neighbour as the primary precepts of natural law.[^fn-0012] This study, however, will examine this issue in more detail in order to thereby shed more light on the content of the primary precepts and so on our natural knowledge of human good.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0135", "text": "Second, it will consider throughout the connection between these precepts and the shape and substance of the moral virtues. It will offer an explanation of how Aquinas’ account of natural law constitutes the cognitive foundation not only of deliberation but also of the moral virtues. It will do so by focussing on how the ends of the moral virtues are the first principles of practical reason and underlie the common precepts of natural law.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0136", "text": "The first part of this study (Chapters 1-3) will examine the background and meaning of Aquinas’ claims that natural reason sets the end of the moral virtues. These chapters will provide what is to my knowledge the first extensive, systematic study of that claim. While the significance of this claim has been often remarked", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0011", "marker": "11", "text": "Cf. R.A. ARMSTRONG, *Primary and Secondary Precepts*, 28-55, 124-126. On this score, his account is virtually identical to Eric D’Arcy’s earlier proposal. Cf. E. D’ARCY, *Conscience*, 59-65.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0012", "marker": "12", "text": "Fr Martin Rhonheimer, for example, argues that love-of-God and love-for-neighbour constitute both the common precepts of natural law and the common ends of the moral virtues. The ends of the cardinal virtues are the proper principles of natural law. The Decalogue comprises the most immediate secondary precepts. Cf. M. RHONHEIMER, *Natur als Grundlage der Moral*, 394. Douglas Kries provides a similar version of Aquinas’ taxonomy of natural law. The primary precepts prescribe love-for-God and love-for-neighbour. Next comes the Decalogue. It comprises some of the secondary precepts and prescribes some requirements of justice. Then come the remaining secondary precepts. Cf. D. KRIES, *The Problem of Natural Law*, 74. Along the same lines, cf. J. PORTER, *Moral Action and Christian Ethics*, 99-112.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0016",
+      "pageLabel": "18",
+      "elements": [
+        { "type": "heading", "id": "heading-0004", "level": 2, "text": "2. Method and Limitations" },
+        { "type": "paragraph", "id": "para-0137", "text": "by commentators, it is generally mentioned in passing and in connection with other themes.[^fn-0013] It has not been the main object of a study. Nor has it been given a comprehensive treatment, one that takes account of its historical background, reception and actual meaning together.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0138", "text": "The second part (Chapters 4-6) will argue that this claim should be read against the wider setting of Aquinas’ moral thought. He holds that we have a natural knowledge of several overarching ends of the moral virtues. Nevertheless, he does not define these ends, how they are known and then guide deliberation in any one spot. Instead, a full account of his position has to be reconstructed from what he says on a number of separate themes. These themes are largely of biblical and Augustinian inspiration: the order of love, man’s natural knowledge of God and the relation between the Decalogue and natural law. In fact, the overarching ends of the moral virtues are the objects of the order or precepts of love.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0139", "text": "Aquinas is a mediaeval thinker. That would seem to restrict any potential contribution that this study can make to the confines of the history of mediaeval philosophy. Philosophy, however, is a discipline in which the major thinkers of the past are not bygones but voices that contemporary philosophy should still listen to. Indeed, the major figures of the past can arguably make more substantial contributions to contemporary philosophical debates than most living philosophers. There can be little doubt that Aquinas is such a figure. Hence, this study can also count as a potential contribution to contemporary moral philosophy. It will do so if it can show the coherence and value of Aquinas’ conception of the ends of the moral virtues as first principles of practical reason. Hopefully, it will succeed at making both contributions.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0140", "text": "As to method, this study will provide a historically informed reconstruction and assessment of Aquinas’ pertinent arguments through a close reading of the relevant texts.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0141", "text": "The main feature of method is the close reading of the relevant texts on a particular argument or concept. Although this has meant combing through a wide selection of his works, it has been crucial for clarifying the more obscure points", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0013", "marker": "13", "text": "Cf. B. MORRISET, “Le syllogisme prudentiel”, 65-71; Cf. S.M. RAMÍREZ, *La prudencia*, 96-102, 142-154; M. RHONHEIMER, *Praktische Vernunft*, 576-592; A. RODRÍGUEZ LUÑO, *La scelta etica*, 42-55; D.M. NELSON, *The Priority of Prudence*, 91-103; J. PORTER, *The Recovery of Virtue*, 159-162.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0017",
+      "pageLabel": "19",
+      "elements": [
+        { "type": "paragraph", "id": "para-0142", "text": "of some concepts and arguments. Often such points can only be clarified through comparison with apparently insignificant but ultimately highly illuminating statements that are scattered throughout the vast terrain of his work.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0143", "text": "Furthermore, the various statements of the more important arguments will be read in chronological order so as to determine whether his thought undergoes any development. When there is no substantial variation between the various statements of an argument, or one particular work provides a far more detailed and clearer statement of it, I have restricted my attention to the main passage. The reasons for any such decisions will be given in the moment.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0144", "text": "The goal of such textual analysis is to reconstruct Aquinas’ arguments as accurately as possible. This allows for a subsequent assessment of the merits and weaknesses of his arguments. The reconstruction and assessment of both the single arguments and the broader one is indispensable for making his position assimilable within current philosophical inquiry.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0145", "text": "At the same time this is a historically informed study. On different occasions I shall provide a detailed survey of the historical background to the particular aspect of Aquinas’ thought that is under discussion. In particular I shall examine the historical background to his position on the principles of practical reason (Chapter One) and the Ten Commandments as secondary precepts of natural law (Chapter Six). This is important for appreciating, not only the continuity or novelty of Aquinas’ position within a certain tradition, but the actual sense and meaning of his arguments. Attention to the historical background is necessary then for understanding not only what Aquinas was actually saying in his own day, but also what he has to say to any age.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0146", "text": "This study has inevitable limitations. Like any study, it must focus on certain themes and give others scant treatment or none at all. There are five themes that are touched upon to some extent but shall not be delved into: (1) Aquinas’ credentials as an interpreter of Aristotle; (2) his natural law theory and the various interpretations of it; (3) his global theory of practical reasoning; (4) his theory of virtue; (5) the metaphysical underpinnings of his moral philosophy.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0147", "text": "First, this study touches upon Aquinas’ credentials as an interpreter of Aristotle. This is because his remarks about the ends of the moral virtues as principles of practical reason and wisdom are drawn from the *Nicomachean Ethics*.[^fn-0014] Although", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0014", "marker": "14", "text": "Harry Jaffa’s classic study questions the Aristotelian credentials of Aquinas’ approach to the *Nicomachean Ethics*: cf. H. JAFFA, *Thomism and Aristotelianism*.", "continuesFromPrevious": false, "continuesToNext": true }
+      ]
+    },
+    {
+      "id": "page-0018",
+      "pageLabel": "20",
+      "elements": [
+        { "type": "paragraph", "id": "para-0148", "text": "I shall assume that Aquinas either interprets Aristotle correctly or develops his thought coherently, I am not concerned with defending that assumption. My aim rather is to clarify Aquinas’ position and its value.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0149", "text": "Second, this study examines various aspects of Aquinas’ natural law theory. It shall argue that the naturally known, overarching ends of the moral virtues constitute the architectonic principles of natural law and practical deliberation. Indeed these ends underlie the common precepts of natural law. This study then is largely concerned with understanding how he conceives the content, knowledge and workings of the common precepts of natural law. As there is no shortage of studies on Aquinas’ account of natural law and the various issues it raises, I shall abstain from giving an overview of it and the discussions surrounding it.[^fn-0016] The focus of this study rather is the relation between the moral virtues and the content of the primary precepts of natural law. Consequently I shall only consider the interpretative debates that are pertinent to this theme and as the occasion requires.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0150", "text": "Third, this study will not present Aquinas’ full account of practical reason.[^fn-0017] It focuses instead on the content of the principles of practical reason and the initial stages of deliberation.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0151", "text": "A fourth key issue that I shall frequently touch upon but not lay out is Aquinas’ general virtue theory. Once again, even though I shall explain some aspects of it as the occasion requires, I shall presume that the reader is acquainted with it.[^fn-0018]", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0152", "text": "Fifth, the metaphysical underpinnings of Aquinas’ moral philosophy cannot be adequately corroborated within this study. As will emerge in the second part, not only is love-for-God above all else the main goal of our moral life for Aquinas, but also a goal that we are naturally aware of. Chapter Five will explain his", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": [
+        { "id": "fn-0015", "marker": "14", "text": "For a defence of his commentary on the *Nicomachean Ethics*, see L. MELINA, *La conoscenza morale*. For a defence of the consistency of Aquinas’ moral thought with that of Aristotle, see M. RHONHEIMER, *Praktische Vernunft*.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "id": "fn-0016", "marker": "15", "text": "Here are some of the most representative studies: G. ABBA, *Lex et virtus*; S.L. BROCK, *The Legal Character of Natural Law*; M. RHONHEIMER, *Natur als Grundlage der Moral*; P.M. HALL, *Narrative and the Natural Law*; J. FINNIS, *Aquinas*; A.J. LISSKA, *Aquinas’s Theory of Natural Law*; F.J. BORMANN, *Natur als Horizont sittlicher Praxis*; W. KLUXEN, *Lex naturalis*; J. GOYETTE – M.S. LATKOVIC – R.S. MYERS (eds.), *St. Thomas Aquinas*; J. RZIHA, *Perfecting Human Acts*. For the history of natural law theory, see M.B. CROWE, *The Changing Profile*.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0017", "marker": "16", "text": "Once again there are good studies on the matter: see J.E. NAUS, *The Nature of the Practical Intellect*; D. WESTBERG, *Right Practical Reason*; C. SCHRÖER, *Praktische Vernunft*.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "id": "fn-0018", "marker": "17", "text": "For a good general overview, see R. KONYNDYK DEYOUNG – C. MCCLUSKEY – C. VAN DYKE, *Aquinas’s Ethics*, 110-151.", "continuesFromPrevious": false, "continuesToNext": false }
+      ]
+    },
+    {
+      "id": "page-0019",
+      "pageLabel": "21",
+      "elements": [
+        { "type": "paragraph", "id": "para-0153", "text": "account of how we are naturally aware of this. However, this study can neither address all the various objections against this God-centred moral philosophy nor explore all the ways in which Aquinas defends this position. The same can be said for other metaphysically charged concepts, such as end and nature, which underlie his moral philosophy and are widely disputed within contemporary philosophy. This limitation is actually positive in a way. It indicates that moral philosophy is not a free-standing discipline. It can only be articulated in tandem with inquiry in other fundamental areas of philosophy.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0154", "text": "These are the main limitations of this study. There is arguably a sixth. This study will not address the suitability of Aquinas’ classification of the first principles of practical reason for resolving ethical problems. I have not addressed this question since it rests upon a misguided assumption. It supposes that first principles should empower individuals to discern moral good and bad with success and relative autonomy in any situation. As I have already noted, Aquinas does not share this typically modern assumption. Instead, he believes that unaided deliberation leads to a more limited understanding of virtue and vice. We stand in need of the instruction of the wise and above all of divine revelation. For their part the wise need to think long and hard about the various aspects of morality. Since Thomas does not expect the naturally known principles of practical reason to discharge the function that modern moral philosophy attributes to fundamental rules or principles, there is no need to test whether his classification of the ends of the moral virtues perform that task.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "heading", "id": "heading-0005", "level": 2, "text": "3. Plan" },
+        { "type": "paragraph", "id": "para-0155", "text": "This study comprises two parts. The first part is entitled *Natural Reason and the Proximate End of the Moral Virtues*. It will assess the historical background, relevant texts and interpretations of this claim of Aquinas. The second part is entitled *Natural Reason, Deliberation and the Common Ends of the Moral Virtues*. It will argue that for Aquinas natural reason actually sets several overarching ends of the moral virtues. At the basis of his classification and understanding of these overarching ends is Augustine’s teaching on the order of love and the precepts of love.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0156", "text": "The first part comprises three chapters. Chapter One will reconstruct the historical background to Aquinas’ position on the ends of the moral virtues as first principles of practical reason. It shall identify both the general and the specific background. The general background is provided by a group of theologians working at Paris during the first half of the thirteenth-century: William of Auxerre, Philip the Chancellor and Albert the Great. In particular, it is provided by their use of Aristotle to develop a theological account of practical reason and practical", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0020",
+      "pageLabel": "22",
+      "elements": [
+        { "type": "paragraph", "id": "para-0157", "text": "wisdom. This early work suffers from a minimal, indeed deficient acquaintance with the *Nicomachean Ethics* account of practical wisdom. Nevertheless, drawing on Aristotle’s other writings, they argue that practical wisdom is supported by a natural knowledge of certain first principles of practical reason. Furthermore, drawing on their own theological tradition, they identify these naturally understood principles of practical reason with natural law and synderesis. Aquinas bases his account of the ends of the moral virtues on this understanding of practical reason. Neither he nor his predecessors imagine that they are filling some putative gap in Aristotle’s account of practical reason.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0158", "text": "The more specific background is Albert the Great's first commentary on the *Nicomachean Ethics*, and in particular his discussion of the interconnection of prudence and the moral virtues. Aquinas was among the students to whom this, the first complete Latin commentary of the recently translated *Nicomachean Ethics* was delivered. He draws the concept *fines virtutum* from Albert's lessons. From his early work on, however, he takes care to correct a flaw in Albert's account of the relation between practical wisdom and the ends of the moral virtues. He insists instead that natural reason rather than practical wisdom sets the end of the moral virtues.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0159", "text": "Chapter Two will study his various statements of that claim. First it will consider how Thomas assimilates, treats and expands the Aristotelian view that the ends of the moral virtues are the principles of practical wisdom. It will then examine his various statements of the argument that natural reason sets the end of the moral virtues. To determine whether his position undergoes any change these will be examined in chronological order. It is also necessary to consider whether he maintains or changes this position in a later work that should apparently have most to say on the matter: his commentary on the *Nicomachean Ethics*.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0160", "text": "Chapter Three will then present and assess the different readings of Aquinas’ argument. Does he mean that reason naturally apprehends; (i) the specific end of each of the cardinal virtues; (ii) basic human goods; (iii) basic human goods first then the specific ends of the cardinal virtues; (iv) or simply that one should act according to reason? Each of these views has been defended. They can only be assessed adequately by clarifying Aquinas’ argument further still. To do so I shall look closely at what he says elsewhere on the issues and concepts that he appeals to in this argument: the concept of the good of reason (*bonum rationis*); the pre-existence of the moral virtues; the dictate on acting according to reason. This corroborates, I shall argue, the fourth reading. Aquinas’ point is that conformity with reason is both the proximate end of all moral virtues, and a condition of human", "continuesFromPrevious": false, "continuesToNext": true }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0021",
+      "pageLabel": "23",
+      "elements": [
+        { "type": "paragraph", "id": "para-0161", "text": "action. Hence, natural reason sets the end of the moral virtues. The problem is that dictate on acting in accord with reason is a formal condition of human action and lacks material content. Elsewhere, however, Aquinas does talk of our natural knowledge of further ends and a more substantive conception of human good.", "continuesFromPrevious": true, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0162", "text": "Chapter Four will attempt to determine what those ends are. The place to look is his classification of natural law precepts. The problem is that he identifies different levels of natural law precepts. Which level of precepts prescribes the overarching ends of the moral virtues? There are strong grounds for holding that what he terms the common, rather than the proper, precepts do so. After the absolute first precept (*good must be done and pursued, evil avoided*), these precepts are the most important and general ones. Scripture, however, teaches that the most important moral precepts are those on love-for-God and love-for-others. Not surprisingly Aquinas’ classification of the common precepts reflects this Biblical teaching. But do they constitute both a proper conception of our end and the overarching ends of the moral virtues? If so, where does the argument of part one — conformity with reason as the proximate end of the moral virtues — fit in with this? I shall consider whether Thomas resolves these issues by drawing on Augustine's explanation of the aforementioned Biblical teaching as the order of love (*ordo amoris*). Even so, Thomas would still have to show that love-for-God and love-for-others are naturally known ends. There are indications that he does so in his account of the will's natural love (*ST* I.60). The problem is that there he does not explain how we understand by nature that God is meant to be loved above all else.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0163", "text": "Chapter Five will consider then whether Aquinas successfully accounts for this natural knowledge of God as our end in other sections of his writings.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0164", "text": "Still, even if the order of love constitutes the overarching ends of the moral virtues and is known naturally, this is potentially pointless. We would still be unaware of the main things to do or avoid. Aquinas needs to explain then how anyone deliberating on these ends will also recognise their main requirements. In Chapter Six I shall argue that Aquinas does so in his discussion of the Decalogue. This is mainly because he is following the Augustinian tradition’s reflection on the Decalogue, which provides a certain account of this problem. First, that tradition's account of the Decalogue and its relation to natural law and virtue shall be considered. Then the *Summa theologiae*’s more developed reflection on these matters shall be examined. There Aquinas explains how deliberation gets underway on the basis of the naturally known, common ends of the moral virtues, and how we grow in knowledge of the virtues.", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0022",
+      "pageLabel": "24",
+      "elements": [
+        { "type": "heading", "id": "heading-0006", "level": 2, "text": "4. References" },
+        { "type": "paragraph", "id": "para-0165", "text": "Some explanation is required of the conventions that I have used for referencing works.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0166", "text": "In references to patristic and mediaeval works I have eschewed including the standard abbreviations for books, chapters, questions and articles. This is partly to avoid unnecessary clutter, and partly because I shall suppose that the reader is acquainted with how works from these periods are divided. I shall, however, indicate the parts of an article. Roman numerals indicate the books of a work or their equivalent. Arabic numerals indicate the various parts of a work. Colons introduce indications on the page (Arabic numerals) and line numbers (second set of Arabic numerals). When appropriate the page and line number will be preceded by volume number of the work (Roman numerals). Given the frequency of references to Aquinas and Aristotle, I have eschewed introducing references to their works with the name of the author. References to Aristotle cite the book, chapter, page, column and line of the Bekker edition.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0167", "text": "There is a full table of abbreviations at the end. For the reader's convenience here is a list of the abbreviations used for Aquinas’ works.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0168", "text": "CSA: *Collationes in Symbolum Apostolorum*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0169", "text": "In DDN: *In librum Beati Dionysii De divinis nominibus expositio*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0170", "text": "QDA: *Quaestio disputata De anima*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0171", "text": "QDM: *Quaestiones disputatae de malo*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0172", "text": "QDP: *Quaestiones disputatae de potentia*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0173", "text": "QDV: *Quaestiones disputatae de veritate*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0174", "text": "QDvVirt: *Quaestio disputata de virtutibus*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0175", "text": "QQ: *Quaestiones de quolibet I-XII*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0176", "text": "ScG: *Liber de veritate catholicae Fidei contra errores infidelium seu Summa contra Gentiles*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0177", "text": "Scriptum: *Scriptum super Sententiis magistri Petri Lombardi*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0178", "text": "SDA: *Sentencia libri De anima*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0179", "text": "SLE: *Sententia libri Ethicorum*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0180", "text": "SSM: *Sententia super Metaphysica*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0181", "text": "ST: *Summa theologiae*", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0182", "text": "Super+Mt. (Io. etc.): Biblical Commentary (e.g. *Super I Cor.*)", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0183", "text": "TLE: *Tabula libri Ethicorum*", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0023",
+      "pageLabel": "25",
+      "elements": [
+        { "type": "paragraph", "id": "para-0184", "text": "As a rule I have used the Leonine edition. Other editions have been consulted when for works as yet unpublished by the Leonine Commission. The only exception to this rule is the use of the more accurate Marc-Pera-Caramello edition of *ScG* in preference to the existing Leonine edition.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0185", "text": "When referring to Marietti editions of Aquinas’ works, the paragraph number has been indicated between square brackets. I have only given the page and line number for texts where the textual units of the work (questions, articles, chapters, lessons etc.) are not sub-divided into shorter numbered units, but where edition numbers the lines. The *quaestiuncula* of the *Scriptum* are indicated by capital letters (A, B, C).", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0186", "text": "In quotations I have sought to respect the spelling conventions of the edition being cited. As those conventions differ, some proper nouns will begin at times with a capital letter (e.g. Deus) and at other times with a small letter (e.g. deus), and some words (e.g. quae) will sometimes appear with a different spelling (e.g. que).", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0187", "text": "For the sake of both convenience and accuracy, I have preferred to use my own translations throughout for the passages that are reproduced in the body of the study.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0188", "text": "The concept of *phronēsis* or *prudentia* figures prominently in this study. The most obvious English equivalent is ‘prudence’. Unfortunately, that term is normally associated with shrewdness and circumspection. To avoid these undesirable connotations, I render *phronēsis* and *prudentia* as ‘practical wisdom’ instead.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "heading", "id": "heading-0007", "level": 2, "text": "5. Acknowledgements" },
+        { "type": "paragraph", "id": "para-0189", "text": "This study has its remote beginnings in my first and second cycle studies in philosophy. Reading the *Summa*, I was perplexed and intrigued by the contrast between the occasional one-sided presentation of Aquinas as a staunch proponent of natural law, and the fact that Aquinas speaks relatively little about natural law in comparison to virtue. On the one hand I was impressed by the contrast Aquinas’ highly positive and attractive description of moral life in terms of grace and virtue and the more legalistic mindset of much post-Renaissance moral theology and philosophy. I was also impressed by his sensitivity to role that virtue and vice play in our capacity to perceive and respond to moral good. On the other hand, this made me interested in understanding better how virtue and natural law fit together. Studying Aquinas’ concept of practical wisdom I was struck by how *ST* II-II.47.6-7 seemed to describe the content of the synderesis in terms of the moral virtues, namely, the ends of the moral virtues. This is the issue that interested me most when, told to specialize in moral philosophy after ordination, I needed to settle upon a theme for my dissertation.", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0024",
+      "pageLabel": "26",
+      "elements": [
+        { "type": "paragraph", "id": "para-0190", "text": "While dissertations are meant to summarize the results of one’s in-depth research on a particular question, they are probably never the result of the writer’s personal research alone. To a large extent they are also the outcome of the manifold assistance and support that many have lent the author along the way. For this reason I cannot but acknowledge and thank all those who have helped and supported me along the way. God willing, I will not overlook anyone.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0191", "text": "Above all I must thank my supervisor, Fr Kevin Flannery SJ, for his unflagging patience, kindness, availability and invaluable assistance. I have learnt much from his expertise and from his careful observations, criticisms and suggestions on the drafts. In particular he has taught me by example the importance of careful, thoroughgoing scholarship. This study will indicate whether or not I have made any progress in learning this lesson.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0192", "text": "My thanks also go to the following persons. Conversations with Fr Giuseppe Abbà SDB, Fr Stephen Brock and Fr Martin Rhonheimer helped orient my research in the early stages. Along the way I have received useful comments, tips, materials and assistance from Fr José María Antón LC, Fr Lawrence Dewan OP, Fr Jose Antonio Izquierdo Labeaga LC, Fr Ramón Lucas LC, Andrea di Maio, Fr Pedro Mendoza LC, Fr Jason Mitchell LC, Fr Michael Ryan LC and Fr Jesús Villagrasa LC. Then Fr. Jakub Gorczyca SJ and Fr João Vila-Chã SJ gave valuable input as readers of the dissertation. Finally, it was a pleasure to work with Katia Paoletti, Giovanna Ilaria and Antonio Aureli from Gregorian and Biblical Press, who oversaw the typesetting and printing of this volume.", "continuesFromPrevious": false, "continuesToNext": false },
+        { "type": "paragraph", "id": "para-0193", "text": "My parents, Charles and Elizabeth Farrell, have provided me with a very special support. Dad generously financed a good part of my research, and even doggedly tracked down some articles that were hard for me to get my hands on. I dedicate this study to them.", "continuesFromPrevious": false, "continuesToNext": false }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "page-0025",
+      "pageLabel": "27",
+      "elements": [
+        { "type": "heading", "id": "heading-0008", "level": 1, "text": "PART I. NATURAL REASON AND THE PROXIMATE END OF THE MORAL VIRTUES" }
+      ],
+      "footnotes": []
+    }
+  ],
+  "structure": [
+    { "id": "div-0001", "kind": "half-title", "startPageId": "page-0001", "firstPageLabel": "1", "lastPageLabel": "1" },
+    { "id": "div-0002", "kind": "title-page", "startPageId": "page-0002", "firstPageLabel": "3", "lastPageLabel": "3" },
+    { "id": "div-0003", "kind": "copyright", "startPageId": "page-0003", "firstPageLabel": "4", "lastPageLabel": "4" },
+    { "id": "div-0004", "kind": "dedication", "startPageId": "page-0004", "firstPageLabel": "5", "lastPageLabel": "5" },
+    { "id": "div-0005", "kind": "contents", "title": "Contents", "startPageId": "page-0005", "startElementId": "heading-0001", "firstPageLabel": "7", "lastPageLabel": "10" },
+    {
+      "id": "div-0006",
+      "kind": "introduction",
+      "title": "Introduction",
+      "startPageId": "page-0009",
+      "startElementId": "heading-0002",
+      "firstPageLabel": "11",
+      "lastPageLabel": "26",
+      "children": [
+        { "id": "div-0007", "kind": "section", "number": "1", "title": "Problems and Aims", "startPageId": "page-0009", "startElementId": "heading-0003", "firstPageLabel": "11", "lastPageLabel": "17" },
+        { "id": "div-0008", "kind": "section", "number": "2", "title": "Method and Limitations", "startPageId": "page-0016", "startElementId": "heading-0004", "firstPageLabel": "18", "lastPageLabel": "20" },
+        { "id": "div-0009", "kind": "section", "number": "3", "title": "Plan", "startPageId": "page-0019", "startElementId": "heading-0005", "firstPageLabel": "21", "lastPageLabel": "23" },
+        { "id": "div-0010", "kind": "section", "number": "4", "title": "References", "startPageId": "page-0022", "startElementId": "heading-0006", "firstPageLabel": "24", "lastPageLabel": "24" },
+        { "id": "div-0011", "kind": "section", "number": "5", "title": "Acknowledgements", "startPageId": "page-0023", "startElementId": "heading-0007", "firstPageLabel": "25", "lastPageLabel": "26" }
+      ]
+    },
+    { "id": "div-0012", "kind": "part", "number": "I", "title": "Natural Reason and the Proximate End of the Moral Virtues", "startPageId": "page-0025", "startElementId": "heading-0008", "firstPageLabel": "27" }
+  ]
+}

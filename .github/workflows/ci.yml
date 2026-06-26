@@ -24,3 +24,6 @@ jobs:
 
     - name: Run validation script
       run: python scripts/validate.py
+
+    - name: Check footnote integrity (advisory)
+      run: python scripts/footnote_integrity.py

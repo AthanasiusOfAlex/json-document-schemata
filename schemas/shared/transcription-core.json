@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/transcription-core.json",
+  "title": "PDFTranscriber Core Definitions",
+  "description": "Shared `$defs` for PDFTranscriber document schemas. PDFTranscriber output is always page-based: a transcription run plus an ordered array of physical pages, each carrying body elements and footnotes. These definitions capture that common, page-level layer; document-type schemas (journal-article, book, …) reference them and add their own top-level shape. This file is a definitions library and is not a standalone document schema.",
+  "$defs": {
+    "documentMetadata": {
+      "type": "object",
+      "description": "Information about the transcription run. Entirely optional: the whole object, and any field within it, may be omitted or deleted (e.g. for privacy) without affecting the validity of the document.",
+      "properties": {
+        "sourceFile": {
+          "type": "string",
+          "description": "Filename of the source PDF (basename, not a full path)."
+        },
+        "totalPages": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of pages that were transcribed."
+        },
+        "processingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp (UTC) of when transcription ran."
+        },
+        "modelUsage": {
+          "type": "object",
+          "description": "Map of \"provider/model\" to the number of API calls made with that model.",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "frontMatter": {
+      "type": "object",
+      "description": "The work's own front matter as printed: title, optional subtitle, and the people responsible for it. This describes the document's content, as distinct from `documentMetadata`, which describes the transcription run. Every field is optional and the whole object may be omitted — captured here (rather than as body `elements`) so that bibliographic information has one reliable location and can be deleted freely without disturbing the page structure. Used both at the top level of a document and, in collected/edited works, on an individual division (e.g. a chapter author). A footnote attached to the front matter (e.g. an author's acknowledgement note, often marked '*') is anchored from these fields with an inline [^fn-NNNN] reference and stored as an ordinary footnote object on the page where it is printed; such notes are thus distinguishable from numbered body footnotes by the origin of their reference.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the work or division. May contain inline Markdown (**bold**, *italic*), <sc>small caps</sc> tags, and inline footnote references ([^fn-NNNN])."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "Subtitle, if any. May contain inline Markdown and footnote references."
+        },
+        "authors": {
+          "type": "array",
+          "description": "Authors in the order printed. May be empty or omitted. On an edited volume the volume-level authors are usually empty (see `editors`) while each chapter division carries its own authors.",
+          "items": { "$ref": "#/$defs/person" }
+        },
+        "editors": {
+          "type": "array",
+          "description": "Editors in the order printed (e.g. the editors of a collected volume). May be empty or omitted.",
+          "items": { "$ref": "#/$defs/person" }
+        }
+      }
+    },
+    "person": {
+      "type": "object",
+      "description": "A named contributor — an author or editor.",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name as printed, in natural mixed case. May contain <sc> tags and inline footnote references ([^fn-NNNN]). A note printed as a starred/daggered footnote is anchored here, with the note itself stored as a footnote object on the page where it is printed."
+        },
+        "affiliation": {
+          "type": "string",
+          "description": "Institutional affiliation as printed, if given. Contributors who share an affiliation each carry their own copy. May contain inline footnote references."
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": ["id", "pageLabel", "elements", "footnotes"],
+      "dependentRequired": {
+        "skipReason": ["skipped"]
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^page-\\d{4,}$",
+          "description": "Unique monotonic ID. Format: page-NNNN (zero-padded to at least 4 digits)."
+        },
+        "pageLabel": {
+          "type": "string",
+          "description": "User-readable page label as printed on the physical page. Not necessarily unique across the document."
+        },
+        "runningHeader": {
+          "type": "string",
+          "description": "Running header text if present. Omitted (absent) when there is none."
+        },
+        "elements": {
+          "type": "array",
+          "description": "Body elements (paragraphs, headings, block quotes) in reading order. May be empty.",
+          "items": { "$ref": "#/$defs/pageElement" }
+        },
+        "footnotes": {
+          "type": "array",
+          "description": "Footnotes in reading order. May be empty.",
+          "items": { "$ref": "#/$defs/footnote" }
+        },
+        "skipped": {
+          "type": "boolean",
+          "description": "true if the page could not be transcribed and was recorded as a placeholder."
+        },
+        "skipReason": {
+          "type": "string",
+          "description": "Human-readable error description. Only present when skipped is true."
+        }
+      }
+    },
+    "pageElement": {
+      "description": "Discriminated union over the `type` field.",
+      "oneOf": [
+        { "$ref": "#/$defs/paragraph" },
+        { "$ref": "#/$defs/heading" },
+        { "$ref": "#/$defs/blockQuote" }
+      ]
+    },
+    "paragraph": {
+      "type": "object",
+      "required": ["type", "id", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "type": { "const": "paragraph" },
+        "id": {
+          "type": "string",
+          "pattern": "^para-\\d{4,}$"
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown (**bold**, *italic*), <sc>small caps</sc> tags, and inline footnote references of the form [^<footnote-id>] (e.g. [^fn-0003]) marking where a footnote is anchored in the running text. A reference points to a footnote's `id` (not its `marker`, which need not be unique); the symbol displayed at that point is the referenced footnote's `marker`."
+        },
+        "continuesFromPrevious": {
+          "type": "boolean",
+          "description": "true if this paragraph continues the preceding paragraph rather than starting a new (indented) one. The interruption may be a page boundary (the previous paragraph is the last element of the preceding page) or an intervening element on the same page, such as a block quote. When false, this paragraph begins a new logical paragraph."
+        },
+        "continuesToNext": {
+          "type": "boolean",
+          "description": "true if this paragraph's text is continued by a following paragraph — whether on the next page or after an intervening element such as a block quote on the same page."
+        }
+      }
+    },
+    "heading": {
+      "type": "object",
+      "required": ["type", "id", "level", "text"],
+      "properties": {
+        "type": { "const": "heading" },
+        "id": {
+          "type": "string",
+          "pattern": "^heading-\\d{4,}$"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "Heading level for in-body section headings. 1 is the top-most section level, 2 a subsection, etc. The document's own title belongs in `frontMatter.title`, not in a heading."
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting and inline footnote references (see `paragraph.text`)."
+        }
+      }
+    },
+    "blockQuote": {
+      "type": "object",
+      "required": ["type", "id", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "type": { "const": "blockQuote" },
+        "id": {
+          "type": "string",
+          "pattern": "^quote-\\d{4,}$"
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting, <sc> tags, and inline footnote references (see `paragraph.text`)."
+        },
+        "continuesFromPrevious": {
+          "type": "boolean",
+          "description": "true if this block quote continues a block quote interrupted by a page boundary or an intervening element."
+        },
+        "continuesToNext": {
+          "type": "boolean",
+          "description": "true if this block quote is continued by a following block quote across a page boundary or an intervening element."
+        }
+      }
+    },
+    "footnote": {
+      "type": "object",
+      "required": ["id", "marker", "text", "continuesFromPrevious", "continuesToNext"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^fn-\\d{4,}$",
+          "description": "Unique monotonic ID. Format: fn-NNNN. This is the target of inline [^fn-NNNN] references in element text."
+        },
+        "marker": {
+          "type": "string",
+          "description": "Footnote marker as displayed in the source (e.g. \"1\", \"*\", \"†\"). Not necessarily unique. A footnote split across a page boundary repeats the marker on its continuation fragment."
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain inline Markdown formatting and inline footnote references (see `paragraph.text`)."
+        },
+        "continuesFromPrevious": {
+          "type": "boolean",
+          "description": "true if this footnote continues from the previous page."
+        },
+        "continuesToNext": {
+          "type": "boolean",
+          "description": "true if this footnote continues on the next page."
+        }
+      }
+    }
+  }
+}

@@ -7,34 +7,29 @@
     "sourceFile": "boyle.1999.pdf",
     "totalPages": 5
   },
+  "frontMatter": {
+    "title": "The Absolute Prohibition of Lying and the Origins of the Casuistry of Mental Reservation",
+    "authors": [
+      {
+        "name": "Joseph Boyle[^fn-0001]"
+      }
+    ]
+  },
   "pages": [
     {
       "id": "page-0001",
       "pageLabel": "1",
       "elements": [
         {
-          "type": "heading",
-          "id": "heading-0001",
-          "level": 1,
-          "text": "THE ABSOLUTE PROHIBITION OF LYING AND THE ORIGINS OF THE CASUISTRY OF MENTAL RESERVATION"
-        },
-        {
           "type": "paragraph",
           "id": "para-0001",
-          "text": "<sc>Joseph Boyle</sc>*",
-          "continuesFromPrevious": false,
-          "continuesToNext": false
-        },
-        {
-          "type": "paragraph",
-          "id": "para-0002",
           "text": "St. Augustine seems to have been the first important moralist...",
           "continuesFromPrevious": false,
           "continuesToNext": false
         },
         {
           "type": "paragraph",
-          "id": "para-0003",
+          "id": "para-0002",
           "text": "First, perhaps because of the continuing influence of Western Christianity...",
           "continuesFromPrevious": false,
           "continuesToNext": true
@@ -57,15 +52,15 @@
       "elements": [
         {
           "type": "paragraph",
-          "id": "para-0004",
+          "id": "para-0003",
           "text": "Kant's. This body of moral analysis is a likely source...",
           "continuesFromPrevious": true,
           "continuesToNext": false
         },
         {
           "type": "paragraph",
-          "id": "para-0005",
-          "text": "Second, the general approach to the moral evaluation...",
+          "id": "para-0004",
+          "text": "Second, the general approach to the moral evaluation of action found in this literature...[^fn-0002]",
           "continuesFromPrevious": false,
           "continuesToNext": false
         },
@@ -78,14 +73,14 @@
         },
         {
           "type": "heading",
-          "id": "heading-0002",
+          "id": "heading-0001",
           "level": 1,
           "text": "I. Augustine on Lying"
         },
         {
           "type": "paragraph",
-          "id": "para-0006",
-          "text": "To all appearances, Augustine came to the conclusion...",
+          "id": "para-0005",
+          "text": "To all appearances, Augustine came to the conclusion...[^fn-0003]",
           "continuesFromPrevious": false,
           "continuesToNext": false
         }

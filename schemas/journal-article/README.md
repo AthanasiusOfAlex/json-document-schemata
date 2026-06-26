@@ -7,14 +7,18 @@ This document defines the JSON schema produced by `PDFTranscriber`. The format i
 ```json
 {
   "metadata": { ... },
+  "frontMatter": { ... },
   "pages": [ ... ]
 }
 ```
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `metadata` | `DocumentMetadata` | yes | Information about the transcription run. |
+| `metadata` | `DocumentMetadata` | no | Information about the transcription run. May be omitted or deleted (e.g. for privacy) without affecting validity. |
+| `frontMatter` | `FrontMatter` | no | The article's own title, author(s), and affiliation as printed. |
 | `pages` | `[TranscribedPage]` | yes | Array of transcribed pages, in document order. |
+
+Only `pages` is required. `metadata` describes the *transcription run*; `frontMatter` describes the *article's content*. Both are optional and independent of one another.
 
 ---
 
@@ -34,10 +38,48 @@ This document defines the JSON schema produced by `PDFTranscriber`. The format i
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `sourceFile` | `string` | yes | Filename of the source PDF (basename, not a full path). |
-| `totalPages` | `integer` | yes | Number of pages that were transcribed. |
-| `processingDate` | `string` | yes | ISO 8601 timestamp (UTC) of when transcription ran. |
-| `modelUsage` | `object` | yes | Map of `"provider/model"` to the number of API calls made with that model. |
+| `sourceFile` | `string` | no | Filename of the source PDF (basename, not a full path). |
+| `totalPages` | `integer` | no | Number of pages that were transcribed. |
+| `processingDate` | `string` | no | ISO 8601 timestamp (UTC) of when transcription ran. |
+| `modelUsage` | `object` | no | Map of `"provider/model"` to the number of API calls made with that model. |
+
+The entire `metadata` object is optional, and so is every field within it. Omit or delete any of them freely.
+
+---
+
+## `FrontMatter`
+
+The article's own bibliographic information, as printed on the page. This captures title/author/affiliation in one reliable location instead of leaving them as untyped body paragraphs. Every field is optional and the whole object may be omitted.
+
+```json
+{
+  "title": "The Multifarious Moral Object of Thomas Aquinas",
+  "subtitle": "An Essay in Thomistic Action Theory",
+  "authors": [
+    {
+      "name": "Kevin L. Flannery, S.J.",
+      "affiliation": "Pontifical Gregorian University, Rome, Italy"
+    }
+  ]
+}
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `title` | `string` | no | Article title. May contain inline Markdown and `<sc>` tags. |
+| `subtitle` | `string` | no | Article subtitle, if any. |
+| `authors` | `[Author]` | no | Authors in the order printed. May be empty. |
+
+### `Author`
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | `string` | yes | Author's name as printed, in natural mixed case. May contain `<sc>` tags and inline footnote references. |
+| `affiliation` | `string` | no | Institutional affiliation as printed. Authors who share one each carry their own copy. May contain inline footnote references. |
+
+The article title belongs here, **not** in a level-1 `heading`. In-body headings (`heading` elements) are reserved for section headings within the body.
+
+**Front-matter footnotes** (an author's `*` acknowledgement note, a dagger on the title, etc.) are *not* a separate field. They are ordinary footnote objects, stored on the page where they are printed, and anchored by an inline `[^fn-NNNN]` reference placed in the relevant front-matter field (usually `name`). See [Inline footnote references](#inline-footnote-references) below.
 
 ---
 
@@ -162,6 +204,20 @@ Elements are serialized as a **discriminated union** using a `type` field. The `
 | `continuesFromPrevious` | `boolean` | yes | `true` if this footnote continues from the previous page. |
 | `continuesToNext` | `boolean` | yes | `true` if this footnote continues on the next page. |
 
+### Footnotes split across a page boundary
+
+A footnote whose text begins at the foot of page N and finishes at the top of page N+1 is recorded as **two footnote objects**, each with its own `id`:
+
+- The fragment on page N has `continuesToNext: true`.
+- The fragment on page N+1 has `continuesFromPrevious: true`.
+
+Conventions for the split:
+
+- The **continuation fragment repeats the `marker`** of the fragment it continues. A continuation has no separately printed marker, so reusing the original keeps the pair recognizable and the marker field populated.
+- Only the **first** fragment is the target of an inline `[^fn-...]` reference. The reference always points at the `id` of the first fragment (where the marker is actually printed in the body), never the continuation.
+
+Downstream tools join the fragments using the flags, exactly as with paragraphs.
+
 ---
 
 ## ID System
@@ -182,17 +238,25 @@ Each prefix has its own independent counter starting at `0001`. IDs are zero-pad
 
 ## Continuation Flags
 
-Paragraphs and footnotes carry two boolean flags to indicate content that spans page boundaries:
+Paragraphs, block quotes, and footnotes carry two boolean flags that indicate when a single logical unit of running text has been split into more than one element:
 
-- **`continuesFromPrevious: true`** — This element is a continuation of the last element of the same kind on the preceding page.
-- **`continuesToNext: true`** — This element continues on the next page.
+- **`continuesFromPrevious: true`** — This element continues the preceding element of the same kind rather than starting a new one. When `false`, it begins a new logical paragraph (typically signalled in print by a first-line indent).
+- **`continuesToNext: true`** — This element's text is continued by a following element of the same kind.
 
-**This library does not stitch continuations.** Each page is self-contained. Downstream tools are responsible for joining split paragraphs and footnotes using these flags.
+A split can be caused by two things:
+
+1. **A page boundary.** The continued-from element is the last element of its kind on the preceding page, and the continuing element is the first on the next page.
+2. **An intervening element on the same page.** Most commonly a block quote interrupts a paragraph: the running text resumes, un-indented, after the quote. The paragraph *before* the quote has `continuesToNext: true` and the paragraph *after* it has `continuesFromPrevious: true`; the block quote sits between them.
+
+Consumers distinguish the two cases by checking whether the linked elements are on the same page (look at which page's array each lives in). The flags themselves carry the same meaning in both cases.
+
+**This library does not stitch continuations.** Each page is self-contained. Downstream tools are responsible for joining split paragraphs, block quotes, and footnotes using these flags.
 
 Typical continuation patterns:
 - A paragraph split across pages 3-4: page 3's last paragraph has `continuesToNext: true`, page 4's first paragraph has `continuesFromPrevious: true`.
 - A paragraph spanning pages 3-5: page 3 has `continuesToNext: true`, page 4 has both flags `true`, page 5 has `continuesFromPrevious: true`.
-- Footnotes follow the same pattern.
+- A paragraph interrupted by a block quote on one page: the paragraph before the quote has `continuesToNext: true`, the paragraph after has `continuesFromPrevious: true`. A genuinely new (indented) paragraph after a quote has both `false`.
+- Footnotes follow the same pattern across page boundaries.
 
 ---
 
@@ -202,8 +266,37 @@ All `text` fields may contain **inline Markdown** formatting and custom tags:
 - `**bold**` for bold text
 - `*italic*` for italic text
 - `<sc>small caps</sc>` for small-caps text. The original mixed case is preserved as it would appear in normal typesetting (e.g., `<sc>Joseph Boyle</sc>`, not `JOSEPH BOYLE`).
+- `[^fn-NNNN]` for an **inline footnote reference** — the anchor point where a footnote attaches to the running text.
 
 No block-level Markdown (lists, code blocks) is used within text fields. Block quotes are represented as their own element type (`"blockQuote"`), not as Markdown. The document structure is expressed through the JSON hierarchy, not through Markdown.
+
+### Inline footnote references
+
+A footnote's *position* in the text is recorded by an inline reference token, written in the running text exactly where the marker appears:
+
+```json
+{
+  "type": "paragraph",
+  "id": "para-0002",
+  "text": "...a much more complicated affair.[^fn-0001] Of course, the more general virtues...",
+  "continuesFromPrevious": false,
+  "continuesToNext": true
+}
+```
+
+- The token is `[^` + the target footnote's **`id`** + `]` — e.g. `[^fn-0001]`. It references the footnote `id` rather than its `marker` because markers (`"1"`, `"*"`, …) are not unique across the document, whereas `id`s are.
+- The symbol to *display* at that point is the referenced footnote's `marker`.
+- A footnote may be referenced from any text field: an element's `text` (paragraph, heading, block quote), another footnote's `text`, or a **front-matter field** (`frontMatter.title`, `subtitle`, and each author's `name` / `affiliation`). The footnote object itself always lives in the `footnotes` array of the page where it is printed, which need not be the same page — or even the same region — as the reference.
+- This decouples three concerns that used to be conflated: **where** a note is anchored (the inline token), **what symbol** it shows (the `marker`), and **what it says** (the `text`).
+
+#### Front-matter footnotes vs. numbered body footnotes
+
+Because the *origin* of a reference is recorded, the two kinds of footnote stay cleanly separable:
+
+- A footnote anchored from a **front-matter** field is a front-matter note (e.g. an author acknowledgement). For **citation** purposes these are normally ignored — they fall outside the numbered series you cite by number.
+- A footnote anchored from **body** text is a normal numbered note, citable by its `marker`.
+
+This means a single representation serves both use cases: front-matter notes are preserved in full (marker, text, position) for faithful **reproduction**, yet never pollute the numbered footnote sequence used for **citation**. There is no separate "author note" field — one footnote mechanism covers everything.
 
 ---
 

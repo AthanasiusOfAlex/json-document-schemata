@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/book/v1/schema.json",
+  "title": "PDFTranscriber Transcribed Document (Academic Book)",
+  "description": "Serialization of a transcribed academic book (monograph or edited volume). Like a journal article it is page-primary: an ordered array of physical pages carries the transcribed content, and the page-level definitions are shared with other document types in transcription-core.json. A book adds two things on top of that page spine: (1) `publication`, the publishing facts (publisher, ISBN, copyright, series); and (2) `structure`, a logical outline of divisions (front matter, parts, chapters, sections, back matter) that references into the page/element stream by id. The structure overlay never holds prose — it indexes the pages — so any single division can be extracted, together with the page range it spans, as a self-contained quasi-article whose shape matches the journal-article schema. For edited volumes, divisions carry their own `authors`. See the README.md alongside this schema for the prose specification.",
+  "type": "object",
+  "required": ["pages"],
+  "properties": {
+    "metadata": {
+      "$ref": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/transcription-core.json#/$defs/documentMetadata"
+    },
+    "frontMatter": {
+      "$ref": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/transcription-core.json#/$defs/frontMatter"
+    },
+    "publication": { "$ref": "#/$defs/publication" },
+    "pages": {
+      "type": "array",
+      "description": "The physical pages of the book in document order — the citable spine. Front matter, body, and back matter are all pages here; their logical roles are described by `structure`.",
+      "items": {
+        "$ref": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/transcription-core.json#/$defs/page"
+      }
+    },
+    "structure": {
+      "type": "array",
+      "description": "The book's logical outline: the top-level divisions in reading order, each optionally nesting child divisions. This is an overlay on `pages` — it carries structural identity and location pointers, not prose. Optional and may be omitted; when present it need only cover the divisions that actually occur in the transcribed pages.",
+      "items": { "$ref": "#/$defs/division" }
+    }
+  },
+  "$defs": {
+    "publication": {
+      "type": "object",
+      "description": "The publishing facts of the volume, as distinct from `frontMatter` (the work's own title/authors) and `documentMetadata` (the transcription run). Every field is optional and the whole object may be omitted or deleted.",
+      "properties": {
+        "publisher": {
+          "type": "string",
+          "description": "Publisher name as printed (e.g. \"Gregorian & Biblical Press\")."
+        },
+        "publisherLocation": {
+          "type": "string",
+          "description": "Place of publication (e.g. \"Roma\")."
+        },
+        "series": {
+          "type": "string",
+          "description": "Series or collection the volume belongs to, if any."
+        },
+        "isbn": {
+          "type": "string",
+          "description": "ISBN as printed, including hyphens (e.g. \"978-88-7839-230-4\")."
+        },
+        "copyrightYear": {
+          "type": "integer",
+          "description": "Year of the copyright notice (e.g. 2012)."
+        },
+        "copyrightHolder": {
+          "type": "string",
+          "description": "Holder of the copyright as printed."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition statement, if given (e.g. \"2nd ed.\")."
+        },
+        "imprimatur": {
+          "type": "string",
+          "description": "Ecclesiastical or institutional approval notice as printed (e.g. an imprimatur / \"Vidimus et approbamus\" statement)."
+        }
+      }
+    },
+    "division": {
+      "type": "object",
+      "description": "A logical division of the book — a front-matter section, a part, a chapter, an in-chapter section, or a back-matter section. Divisions nest via `children`. A division carries its structural identity (`kind`, `number`, `title`) and pointers into the page spine (`startPageId`, `startElementId`, and the printed page span); it does not contain prose, which lives in `pages`.",
+      "required": ["id", "kind"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^div-\\d{4,}$",
+          "description": "Unique monotonic ID. Format: div-NNNN. Stable target for structural cross-references and citation."
+        },
+        "kind": {
+          "type": "string",
+          "description": "The structural role of the division. Use the most specific applicable value; `other` for anything unlisted.",
+          "enum": [
+            "half-title",
+            "title-page",
+            "copyright",
+            "dedication",
+            "epigraph",
+            "foreword",
+            "preface",
+            "contents",
+            "acknowledgements",
+            "introduction",
+            "part",
+            "chapter",
+            "section",
+            "subsection",
+            "conclusion",
+            "afterword",
+            "appendix",
+            "abbreviations",
+            "bibliography",
+            "glossary",
+            "index",
+            "notes",
+            "other"
+          ]
+        },
+        "number": {
+          "type": "string",
+          "description": "The division's number exactly as printed (e.g. \"I\", \"II\", \"2\", \"2.1.3\"). Omitted for unnumbered divisions (most front/back matter)."
+        },
+        "title": {
+          "type": "string",
+          "description": "The division's title, without its number (e.g. \"Problems and Aims\"). May contain inline Markdown, <sc> tags, and footnote references. Omitted for divisions that have no title (e.g. a bare title page)."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "The division's subtitle, if any."
+        },
+        "authors": {
+          "type": "array",
+          "description": "Contributors responsible for this division. Empty/omitted for a single-author monograph (use top-level `frontMatter.authors`); populated for the chapters of an edited volume, where each chapter has its own author(s).",
+          "items": {
+            "$ref": "https://athanasiusofalex.github.io/json-document-schemata/schemas/shared/transcription-core.json#/$defs/person"
+          }
+        },
+        "startPageId": {
+          "type": "string",
+          "pattern": "^page-\\d{4,}$",
+          "description": "`id` of the page on which this division begins. Together with `startElementId` it anchors the division in the page spine."
+        },
+        "startElementId": {
+          "type": "string",
+          "description": "`id` of the element (usually the division's heading) at which this division begins, within the page named by `startPageId`. Omitted for divisions with no single anchoring element (e.g. a title page)."
+        },
+        "firstPageLabel": {
+          "type": "string",
+          "description": "Printed page label on which the division starts (e.g. \"29\"). Convenience for citation; redundant with the page named by `startPageId`."
+        },
+        "lastPageLabel": {
+          "type": "string",
+          "description": "Printed page label on which the division ends. Convenience for citation; may be omitted when not yet known (e.g. a partial transcription)."
+        },
+        "children": {
+          "type": "array",
+          "description": "Nested sub-divisions in reading order (e.g. the chapters of a part, or the sections of a chapter).",
+          "items": { "$ref": "#/$defs/division" }
+        }
+      }
+    }
+  }
+}

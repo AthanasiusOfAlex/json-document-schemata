@@ -17,6 +17,8 @@ All schemata are written against JSON Schema **draft 2020-12**.
 |---|---|
 | **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1/schema.json` |
 | **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
+| **Academic Book** (PDFTranscriber) | `…/schemas/book/v1/schema.json` |
+| **Transcription Core** (shared) | `…/schemas/shared/transcription-core.json` |
 | **Citation** (shared) | `…/schemas/shared/citation.json` |
 
 (Each `$id` is prefixed with the site root above.)
@@ -37,23 +39,46 @@ for the full design notes.
 
 ### Journal Article (PDFTranscriber `TranscribedDocument`)
 
-The JSON serialization produced by `PDFTranscriber`: a `metadata` object plus an
-ordered `pages` array. Each page carries body `elements` — a discriminated union
-of `paragraph`, `heading`, and `blockQuote` (keyed on a `type` field) — and
-`footnotes`. Paragraphs, block quotes, and footnotes carry
-`continuesFromPrevious` / `continuesToNext` flags for content that spans page
-breaks. The schema is **permissive** (it does not forbid unknown properties), so
-new fields can be added by the producer without breaking validation.
+The JSON serialization produced by `PDFTranscriber`: an optional `metadata`
+object, optional `frontMatter`, plus an ordered `pages` array. Each page carries
+body `elements` — a discriminated union of `paragraph`, `heading`, and
+`blockQuote` (keyed on a `type` field) — and `footnotes`. Paragraphs, block
+quotes, and footnotes carry `continuesFromPrevious` / `continuesToNext` flags for
+content that spans page breaks (or an intervening block quote); inline
+`[^fn-NNNN]` references anchor footnotes within text. The page-level definitions
+live in **Transcription Core** (below). The schema is **permissive** (it does not
+forbid unknown properties), so new fields can be added by the producer without
+breaking validation.
 
 See [schemas/journal-article/README.md](schemas/journal-article/README.md)
 for the prose specification and
 [schemas/journal-article/annotated-example.md](schemas/journal-article/annotated-example.md)
 for an annotated example.
 
+### Academic Book (PDFTranscriber)
+
+A transcribed monograph or edited volume. It reuses the journal article's
+page-primary model (the same shared page/element/footnote definitions) and adds
+two things on top of the page spine: a `publication` object (publisher, ISBN,
+copyright, series) and a `structure` overlay — a tree of `division` nodes (front
+matter, parts, chapters, sections, back matter) that references into the pages by
+`id` rather than holding prose. Any single division can therefore be sliced out
+with the page range it spans as a self-contained "quasi-article". Divisions carry
+their own `authors` for edited volumes.
+
+See [schemas/book/README.md](schemas/book/README.md) for the full design notes.
+
+### Transcription Core (shared)
+
+The page-level definitions shared by the Journal Article and Academic Book
+schemas — `documentMetadata`, `frontMatter`, `person`, `page`, `paragraph`,
+`heading`, `blockQuote`, and `footnote`. A definitions library referenced via
+`$ref`; not a standalone document schema.
+
 ### Citation (shared)
 
 A small bibliographic-reference schema intended for reuse via `$ref`. It is not
-currently referenced by either document schema, but is kept as a stub.
+currently referenced by any document schema, but is kept as a stub.
 
 ## Repository layout
 
@@ -70,10 +95,17 @@ schemas/
     v1/
       schema.json
       examples/
+  book/
+    README.md            # design notes for the academic-book schema
+    v1/
+      schema.json
+      examples/
   shared/
+    transcription-core.json  # page-level $defs shared across document types
     citation.json
 scripts/
   validate.py            # validates every example against its schema
+  footnote_integrity.py  # advisory footnote/reference consistency checks
 index.html               # GitHub Pages landing page
 ```
 
@@ -96,7 +128,14 @@ pip install jsonschema referencing
 python scripts/validate.py
 ```
 
-The same script runs in CI on every push and pull request to `main`
+[`scripts/footnote_integrity.py`](scripts/footnote_integrity.py) adds an advisory
+pass that the JSON Schema cannot express: it checks that inline `[^fn-NNNN]`
+references and the footnotes they anchor are mutually consistent (each reference
+resolves to exactly one footnote, markers run in order, page-split footnotes are
+paired). Findings are split into structural `ERROR`s (which fail the run) and
+`WARN`s tolerated in messy or partial transcriptions.
+
+Both scripts run in CI on every push and pull request to `main`
 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)). The `examples/`
 folders double as the test suite: every file there is expected to validate.
 
