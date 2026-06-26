@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JSON Document Schemata</title>
-  <meta name="description" content="Canonical JSON Schemata for validating structured academic documents: the Latin corpus of Thomas Aquinas and transcribed scholarly articles.">
+  <meta name="description" content="Canonical JSON Schemata for validating structured academic documents: the Latin corpus of Thomas Aquinas and transcribed scholarly articles and books.">
   <style>
     :root {
       --ink: #1c1a17;
@@ -134,9 +134,29 @@
     </div>
 
     <div class="card">
+      <h3>Academic Book</h3>
+      <p class="latin">PDFTranscriber &mdash; monograph or edited volume</p>
+      <p class="desc">A transcribed book. It reuses the journal article's page-primary model and adds a <span class="mono">publication</span> object (publisher, ISBN, copyright, series) plus a <span class="mono">structure</span> overlay — a tree of <span class="mono">division</span> nodes (front matter, parts, chapters, sections, back matter) that references into the pages by <span class="mono">id</span> rather than holding prose, so any division can be sliced out as a self-contained quasi-article. Divisions carry their own authors for edited volumes. Draft&nbsp;2020-12.</p>
+      <div class="links">
+        <a class="primary" href="schemas/book/v1/schema.json">schema.json</a>
+        <a href="schemas/book/v1/examples/farrell-2012-frontmatter-intro.json">example: front matter + introduction</a>
+        <a href="https://github.com/athanasiusofalex/json-document-schemata/blob/main/schemas/book/README.md">documentation</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Shared: Transcription Core</h3>
+      <p class="latin">Shared page-level definitions</p>
+      <p class="desc">The page-level <span class="mono">$defs</span> shared by the Journal Article and Academic Book schemata — <span class="mono">documentMetadata</span>, <span class="mono">frontMatter</span>, <span class="mono">person</span>, <span class="mono">page</span>, <span class="mono">paragraph</span>, <span class="mono">heading</span>, <span class="mono">blockQuote</span>, and <span class="mono">footnote</span>. A definitions library referenced via <span class="mono">$ref</span>; not a standalone document schema.</p>
+      <div class="links">
+        <a class="primary" href="schemas/shared/transcription-core.json">transcription-core.json</a>
+      </div>
+    </div>
+
+    <div class="card">
       <h3>Shared: Citation</h3>
       <p class="latin">Bibliographic reference</p>
-      <p class="desc">A small shared schema for canonical bibliographic references, reusable across documents via <span class="mono">$ref</span>. Currently unused by the two document schemata.</p>
+      <p class="desc">A small shared schema for canonical bibliographic references, reusable across documents via <span class="mono">$ref</span>. Currently unused by the document schemata.</p>
       <div class="links">
         <a class="primary" href="schemas/shared/citation.json">citation.json</a>
       </div>
