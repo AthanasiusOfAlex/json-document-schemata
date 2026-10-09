@@ -27,3 +27,6 @@ jobs:
 
     - name: Check footnote integrity (advisory)
       run: python scripts/footnote_integrity.py
+
+    - name: Check Aquinas segment integrity
+      run: python scripts/aquinas_integrity.py

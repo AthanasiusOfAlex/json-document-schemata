@@ -15,7 +15,7 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 | Schema | Canonical `$id` |
 |---|---|
-| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1/schema.json` |
+| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.1/schema.json` (current; `v1/` superseded) |
 | **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
 | **Academic Book** (PDFTranscriber) | `…/schemas/book/v1/schema.json` |
 | **Transcription Core** (shared) | `…/schemas/shared/transcription-core.json` |
@@ -30,9 +30,11 @@ A recursive tree modelling the complete Latin works of Aquinas. A single
 (*pars → quaestio → articulus*) and the scholastic function of the text
 (*argumentum*, *sed contra*, *respondeo*, *ad argumentum*, …). Structural nodes
 contain `children`; function nodes contain `paragraphs`, and the schema enforces
-that distinction with `if`/`then` constraints. Each paragraph is split into
-`segments` at physical page/column boundaries so that scholarly citation by
-page number is preserved alongside semantic flow.
+that distinction with `if`/`then` constraints. Each paragraph (and each printed
+heading) is split into `segments`, one per citable location: one per line where
+the edition numbers its lines, otherwise one per page/column. Joining the
+segments with a single space gives back the paragraph exactly, so citation down
+to the line is preserved alongside semantic flow.
 
 See [schemas/aquinas-opera-omnia/README.md](schemas/aquinas-opera-omnia/README.md)
 for the full design notes.
@@ -86,9 +88,12 @@ currently referenced by any document schema, but is kept as a stub.
 schemas/
   aquinas-opera-omnia/
     README.md            # design notes
-    v1/
+    v1/                  # superseded by v1.1; kept so its $id stays stable
       schema.json
       examples/          # instances that MUST validate
+    v1.1/
+      schema.json
+      examples/
   journal-article/
     README.md            # prose specification of the format
     annotated-example.md # worked example with inline commentary
@@ -106,12 +111,13 @@ schemas/
 scripts/
   validate.py            # validates every example against its schema
   footnote_integrity.py  # advisory footnote/reference consistency checks
+  aquinas_integrity.py   # Aquinas segment markup and ordering checks
 index.html               # GitHub Pages landing page
 ```
 
 ## Versioning
 
-Schemata are versioned by directory (`/v1/`). Backwards-incompatible changes are
+Schemata are versioned by directory (`/v1/`, `/v1.1/`). Backwards-incompatible changes are
 published under a **new** version directory rather than edited in place — an
 existing `$id` always denotes the same schema.
 
@@ -135,7 +141,13 @@ resolves to exactly one footnote, markers run in order, page-split footnotes are
 paired). Findings are split into structural `ERROR`s (which fail the run) and
 `WARN`s tolerated in messy or partial transcriptions.
 
-Both scripts run in CI on every push and pull request to `main`
+[`scripts/aquinas_integrity.py`](scripts/aquinas_integrity.py) does the same for
+Aquinas documents. It checks that inline markup is balanced in each segment and
+that every `continued_markup` flag matches its text. It also checks that segments
+never run backwards through the edition (volume, page, column, line). Pass it
+file paths to check generated output, e.g. a scraper run.
+
+All three scripts run in CI on every push and pull request to `main`
 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)). The `examples/`
 folders double as the test suite: every file there is expected to validate.
 

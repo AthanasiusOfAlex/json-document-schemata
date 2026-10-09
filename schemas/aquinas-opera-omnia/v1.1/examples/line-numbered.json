@@ -1,0 +1,81 @@
+{
+  "work_metadata": {
+    "id": "QDV",
+    "title_latin": "Quaestiones disputatae de veritate",
+    "siglum": "De ver.",
+    "date_composition": "1256-1259",
+    "critical_edition": {
+      "name": "Editio Leonina, tomus XXII",
+      "publisher": "Editori di San Tommaso",
+      "year": "1975",
+      "notes": "Rome. Pages, line numbers and line breaks in this example are illustrative, not transcribed from the edition. Each segment is one printed line; 'demonstrabilibus' and 'unumquodque' stand for words hyphenated at a line end and healed into the line where they begin."
+    }
+  },
+  "body": [
+    {
+      "node_id": "QDV-Q1",
+      "node_type": "quaestio",
+      "number": "1",
+      "title_latin": "De veritate",
+      "children": [
+        {
+          "node_id": "QDV-Q1-A1",
+          "node_type": "articulus",
+          "number": "1",
+          "title_latin": "Quid est veritas",
+          "children": [
+            {
+              "node_id": "QDV-Q1-A1-respondeo",
+              "node_type": "respondeo",
+              "paragraphs": [
+                {
+                  "paragraph_id": "QDV-Q1-A1-respondeo-p1",
+                  "segments": [
+                    {
+                      "latin_text": "<sc>Responsio</sc>. Dicendum quod sicut in demonstrabilibus",
+                      "edition_location": { "volume": "22/1", "page": "5", "line": 94 }
+                    },
+                    {
+                      "latin_text": "oportet fieri reductionem in aliqua principia per",
+                      "edition_location": { "volume": "22/1", "page": "5", "line": 95 }
+                    },
+                    {
+                      "latin_text": "se intellectui nota, ita investigando quid est unumquodque;",
+                      "edition_location": { "volume": "22/1", "page": "5", "line": 96 }
+                    },
+                    {
+                      "latin_text": "alias utrobique in infinitum iretur, et sic periret",
+                      "edition_location": { "volume": "22/1", "page": "5", "line": 97 }
+                    },
+                    {
+                      "latin_text": "omnino scientia et cognitio rerum.",
+                      "edition_location": { "volume": "22/1", "page": "5", "line": 98 }
+                    }
+                  ]
+                },
+                {
+                  "paragraph_id": "QDV-Q1-A1-respondeo-p2",
+                  "segments": [
+                    {
+                      "latin_text": "Primo ergo modo definitur verum ab Augustino in",
+                      "edition_location": { "volume": "22/1", "page": "6", "line": 150 }
+                    },
+                    {
+                      "latin_text": "libro Soliloquiorum: <i>verum est id</i>",
+                      "continued_markup": ["i"],
+                      "edition_location": { "volume": "22/1", "page": "6", "line": 151 }
+                    },
+                    {
+                      "latin_text": "<i>quod est</i>;",
+                      "edition_location": { "volume": "22/1", "page": "6", "line": 152 }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

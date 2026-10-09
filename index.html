@@ -112,10 +112,12 @@
     <div class="card">
       <h3>Aquinas Opera Omnia</h3>
       <p class="latin">Opera Omnia S. Thomae Aquinatis</p>
-      <p class="desc">A recursive tree modelling the complete Latin works of Aquinas, harmonising the scholastic method (<em>pars → quaestio → articulus → respondeo</em>) with the typographical boundaries of physical critical editions. Draft&nbsp;2020-12.</p>
+      <p class="desc">A recursive tree modelling the complete Latin works of Aquinas, harmonising the scholastic method (<em>pars → quaestio → articulus → respondeo</em>) with the typographical boundaries of physical critical editions. Text is divided into citable segments — one per line where the edition numbers its lines, otherwise one per page or column. Current version 1.1. Draft&nbsp;2020-12.</p>
       <div class="links">
-        <a class="primary" href="schemas/aquinas-opera-omnia/v1/schema.json">schema.json</a>
-        <a href="schemas/aquinas-opera-omnia/v1/examples/st-i-q2-a3.json">example: ST I, q.2, a.3</a>
+        <a class="primary" href="schemas/aquinas-opera-omnia/v1.1/schema.json">schema.json (v1.1)</a>
+        <a href="schemas/aquinas-opera-omnia/v1.1/examples/st-i-q2-a3.json">example: ST I, q.2, a.3</a>
+        <a href="schemas/aquinas-opera-omnia/v1.1/examples/line-numbered.json">example: line-numbered edition</a>
+        <a href="schemas/aquinas-opera-omnia/v1/schema.json">v1 (superseded)</a>
         <a href="https://github.com/athanasiusofalex/json-document-schemata/blob/main/schemas/aquinas-opera-omnia/README.md">documentation</a>
       </div>
     </div>
@@ -167,7 +169,7 @@
     <pre><code>{
   "$ref": "https://athanasiusofalex.github.io/json-document-schemata/schemas/journal-article/v1/schema.json"
 }</code></pre>
-    <p class="note">Schemata are versioned by directory (<span class="mono">/v1/</span>). A breaking change ships as a new version rather than a silent edit to an existing <span class="mono">$id</span>.</p>
+    <p class="note">Schemata are versioned by directory (<span class="mono">/v1/</span>, <span class="mono">/v1.1/</span>). A breaking change ships as a new version rather than a silent edit to an existing <span class="mono">$id</span>.</p>
 
     <footer>
       Source &amp; validation pipeline on

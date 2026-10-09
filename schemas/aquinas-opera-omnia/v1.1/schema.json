@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/aquinas-opera-omnia/v1.1/schema.json",
+  "title": "Thomistic Aquinas Opera Omnia",
+  "description": "A definitive schema for the digital representation of the works of Thomas Aquinas in Latin. Version 1.1: fixes how text is divided into citable segments and how segments are rejoined.",
+  "type": "object",
+  "required": ["work_metadata", "body"],
+  "properties": {
+    "work_metadata": {
+      "type": "object",
+      "required": ["id", "title_latin", "siglum", "critical_edition"],
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier, e.g., 'ST'" },
+        "title_latin": { "type": "string", "description": "e.g., 'Summa Theologiae'" },
+        "title_english": { "type": "string" },
+        "siglum": { "type": "string", "description": "Standard abbreviation, e.g., 'S.Th.'" },
+        "date_composition": { "type": "string", "description": "Estimated dates, e.g., '1265-1273'" },
+        "critical_edition": {
+          "type": "object",
+          "required": ["name", "publisher", "year"],
+          "properties": {
+            "name": { "type": "string" },
+            "publisher": { "type": "string" },
+            "year": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "body": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/structural_node" }
+    }
+  },
+  "$defs": {
+    "structural_node": {
+      "type": "object",
+      "required": ["node_id", "node_type"],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "description": "Hierarchical ID, e.g., 'ST-I-Q2-A3' or 'ST-I-Q2-A3-respondeo'"
+        },
+        "node_type": {
+          "type": "string",
+          "enum": [
+            "pars", "liber", "distinctio", "quaestio",
+            "articulus", "capitulum", "tractatus", "lectio",
+            "prooemium",
+            "argumentum", "sed_contra", "respondeo",
+            "ad_argumentum", "textus_expositus", "expositio", "conclusio"
+          ]
+        },
+        "number": {
+          "type": ["string", "integer"],
+          "description": "Structural number (e.g., 'I', 'II-II', '3') or argument/reply ordinal (e.g., 1, 2)"
+        },
+        "title_latin": {
+          "type": "string",
+          "description": "Normalized title for display and indexing, e.g., 'Utrum Deus sit'. The heading as printed, with its location, is in heading_segments."
+        },
+        "heading_segments": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The node's heading as printed in the edition (e.g., 'ARTICULUS III. UTRUM DEUS SIT.'), divided into segments by the same rules as paragraph text.",
+          "items": { "$ref": "#/$defs/text_segment" }
+        },
+        "children": {
+          "type": "array",
+          "description": "Nested structural divisions or scholastic function nodes",
+          "items": { "$ref": "#/$defs/structural_node" }
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Content paragraphs for leaf-level nodes",
+          "items": { "$ref": "#/$defs/paragraph" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "node_type": {
+                "enum": [
+                  "argumentum", "sed_contra", "respondeo",
+                  "ad_argumentum", "textus_expositus", "expositio", "conclusio"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": ["paragraphs"],
+            "not": { "required": ["children"] }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "node_type": {
+                "enum": [
+                  "pars", "liber", "distinctio", "quaestio",
+                  "articulus", "capitulum", "tractatus", "lectio"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": { "required": ["paragraphs"] }
+          }
+        }
+      ]
+    },
+    "paragraph": {
+      "type": "object",
+      "required": ["paragraph_id", "segments"],
+      "properties": {
+        "paragraph_id": {
+          "type": "string",
+          "description": "e.g., 'ST-I-Q2-A3-respondeo-p1'"
+        },
+        "editorial_id": {
+          "type": "string",
+          "description": "Editorial paragraph number, e.g., 'Marietti n. 1243'"
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The paragraph's text in reading order. A segment is the longest run of text that shares one complete citable location: one line where the edition numbers its lines, otherwise one page/column. The paragraph is the segments joined with a single space (after undoing continued_markup).",
+          "items": { "$ref": "#/$defs/text_segment" }
+        }
+      }
+    },
+    "text_segment": {
+      "type": "object",
+      "required": ["latin_text", "edition_location"],
+      "properties": {
+        "latin_text": {
+          "type": "string",
+          "pattern": "^\\S+( \\S+)*$",
+          "description": "Whitespace-normalized text: words separated by single spaces, no leading or trailing space. A word hyphenated across a break is written whole in the segment where it begins. Inline markup (<i>, <sc>) is balanced within the segment."
+        },
+        "continued_markup": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Inline tags, outermost first, that were closed at the end of this segment only because the segment ended, and are reopened at the start of the next segment. Rejoining removes those closing tags here and the matching opening tags there.",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*$" }
+        },
+        "edition_location": {
+          "type": "object",
+          "required": ["volume", "page"],
+          "properties": {
+            "volume": { "type": "string" },
+            "page": { "type": "string" },
+            "column": {
+              "type": "string",
+              "enum": ["a", "b"],
+              "description": "Omit for single-column editions."
+            },
+            "line": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Line number as printed (or counted from the printed marks) in the edition. Present only for editions that number their lines; omit otherwise."
+            }
+          },
+          "$comment": "v1's line_start/line_end are rejected: a segment is now a single line, given by 'line'.",
+          "not": {
+            "anyOf": [
+              { "required": ["line_start"] },
+              { "required": ["line_end"] }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

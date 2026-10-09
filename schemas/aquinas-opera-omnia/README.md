@@ -8,8 +8,10 @@ The schema uses a unified, recursive tree structure with four layers:
 
 1. **`work_metadata`**: Establishes the work and the critical edition used (e.g., *Editio Leonina* or *Marietti*).
 2. **`structural_node`**: A recursive object defining both the hierarchical structure of the work (e.g., *Pars -> Quaestio -> Articulus*) and the scholastic function of the text (e.g., *respondeo*, *sed contra*). This unified model means every division--from a *Pars* down to a *respondeo*--is represented by the same object type.
-3. **`paragraph`**: A logical paragraph of text within a leaf-level node. Contains the actual Latin text, split into segments at page boundaries.
-4. **`text_segment`**: A fragment of text corresponding to a single physical page (and column) in the critical edition.
+3. **`paragraph`**: A logical paragraph of text within a leaf-level node. Its Latin text is divided into segments.
+4. **`text_segment`**: The text printed at one citable location in the critical edition: a line where the edition numbers its lines, otherwise a page (and column).
+
+The current version is **v1.1** (`v1.1/schema.json`). `v1/` is kept unchanged so its `$id` stays stable; see *Changes from v1* below.
 
 ### The Unified Node Model
 
@@ -27,17 +29,41 @@ The special case is **`prooemium`**, which can serve either role: a section-leve
 
 ## Typographical vs. Semantic Structure (The Segment Array)
 
-Scholarly citation requires exact page numbers, but page breaks often interrupt the semantic flow of Aquinas's arguments. To preserve both:
-* The `paragraph` encapsulates a logical paragraph of text.
-* The `segments` array within each paragraph divides that text exactly where the physical page or column ends.
-* **Concatenation:** To read the full paragraph, an application simply joins the `latin_text` strings within the `segments` array.
+Scholarly citation requires exact page (and, where printed, line) numbers, but page breaks often interrupt the semantic flow of Aquinas's arguments. To preserve both, the `paragraph` holds a logical paragraph and its `segments` array divides that text where the physical location changes.
 
-### The "Healed Word" Convention
-When a word is hyphenated across a page or column break (e.g., `philoso-` [page 6] `phicas` [page 7]), this database adopts the "Healed Word" convention to preserve full-text searchability. The complete word (`philosophicas`) is placed entirely within the segment where the word *begins*. The subsequent segment begins with the next whole word.
+### The segment rule
+**A segment is the longest run of a paragraph's text that shares one complete citable location.**
+* In an edition that numbers its lines (the modern Leonine volumes), the location includes the line, so **each segment is one printed line**, and `edition_location.line` gives its number.
+* In an edition without line numbers (the Leonine *Summa*, vols. 4–12), the location is page and column, so a segment is everything in the paragraph that falls in one column of one page. `line` is omitted.
 
-### Optional Fields in `edition_location`
-* **`column`**: Only present for multi-column editions (e.g., `"a"` or `"b"`). Omit entirely for single-column editions.
-* **`line_start`** and **`line_end`**: Optional, since not all editions feature line numbers.
+Array order is reading order. Segments never run backwards through the edition: (volume, page, column) never decrease in document order, and within one paragraph and column each `line` is greater than the last.
+
+### The "Healed Word" convention
+When a word is hyphenated across a line, column or page break (e.g., `philoso-` | `phicas`), the complete word (`philosophicas`) is placed entirely within the segment where the word *begins*. The next segment begins with the next whole word. A word is cited by the line it starts on, and full-text search is unaffected. A "word" here is any whitespace-delimited token, so punctuation and inline tags belong to the word they touch (`III,`, `<i>ego`).
+
+### Joining segments
+Because every segment boundary falls between two words, **the paragraph is its segments joined with a single space**. To make this exact, `latin_text` is whitespace-normalized: words separated by single spaces, no leading or trailing space, no line breaks. The schema enforces this with the pattern `^\S+( \S+)*$`.
+
+### Inline markup and `continued_markup`
+`latin_text` may carry two inline tags:
+* `<i>…</i>`: italics, which in the Leonine mark quotations;
+* `<sc>…</sc>`: small capitals, used for incipits (*Sed contra*, *Respondeo*, *Ad primum*).
+
+Every segment's markup is balanced, so a single line can be quoted or displayed by itself. When a tagged span crosses a segment boundary, it is closed at the end of the segment and reopened at the start of the next. The segment that was cut is flagged with `continued_markup`, listing the tags closed this way, outermost first:
+
+```json
+{ "latin_text": "libro Soliloquiorum: <i>verum est id</i>", "continued_markup": ["i"], "edition_location": { "volume": "22/1", "page": "6", "line": 151 } },
+{ "latin_text": "<i>quod est</i>;", "edition_location": { "volume": "22/1", "page": "6", "line": 152 } }
+```
+
+To rebuild the paragraph: for each flagged segment, remove its closing tags at the end and the matching opening tags at the start of the next segment. Then join with a single space: `libro Soliloquiorum: <i>verum est id quod est</i>;`. The flag is what tells a cut span apart from two separate spans that happen to meet at a break; without it they would be merged and the difference lost. The last segment of a paragraph never carries the flag. [`scripts/aquinas_integrity.py`](../../scripts/aquinas_integrity.py) has the reference implementation (`join_segments`) and checks every flag against its text.
+
+### Headings
+Headings are part of the printed text and can be cited. A structural node may therefore carry `heading_segments`: the heading as printed (e.g. `ARTICULUS TERTIUS. UTRUM DEUS SIT.`), divided into segments by the same rules. `title_latin` stays as the normalized title used for display and indexing (`Utrum Deus sit`).
+
+### Optional fields in `edition_location`
+* **`column`**: Only present for multi-column editions (`"a"` or `"b"`). Omit entirely for single-column editions.
+* **`line`**: Only present for editions that number their lines. It is the line number as printed, or counted from the printed marks where only every fifth line is numbered. The schema does not care whether the edition numbers lines per page or continuously through a chapter or article; record whatever the edition prints.
 
 ### Editorial IDs
 An optional `editorial_id` field on the `paragraph` object captures structural additions by editors (e.g., "Marietti n. 45"). This sits at the paragraph level because editorial numbering systems (such as Marietti's) correspond to individual paragraphs.
@@ -53,3 +79,15 @@ Every leaf-level `structural_node` is categorized by its scholastic function:
 * `textus_expositus`: The source text being commented on (in scriptural and Aristotelian commentaries).
 * `expositio`: The commentary or exposition on the source text.
 * `conclusio`: Formal conclusions.
+
+## Changes from v1
+
+v1.1 is published as a new `$id` because it rejects some v1 documents:
+
+* **Segment rule:** one segment per citable location, so one per line in line-numbered editions.
+* **`line`** replaces `line_start` / `line_end`, which are now rejected. A segment is always a single line, so a range is never needed.
+* **Joining:** segments are joined with a single space. `latin_text` must be whitespace-normalized; v1's trailing-space style (`"…via est "`) is no longer valid.
+* **`continued_markup`** (new, optional) marks inline markup split across a segment boundary.
+* **`heading_segments`** (new, optional) records the printed heading of a structural node and its location.
+* **`minItems: 1`** on `segments`, `paragraphs` and `heading_segments`.
+* **Ordering and markup checks** that need to compare neighbouring segments live in `scripts/aquinas_integrity.py` and run in CI.
