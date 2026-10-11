@@ -15,7 +15,7 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 | Schema | Canonical `$id` |
 |---|---|
-| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.1/schema.json` (current; `v1/` superseded) |
+| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.2/schema.json` (current; `v1.1/` and `v1/` superseded) |
 | **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
 | **Academic Book** (PDFTranscriber) | `…/schemas/book/v1/schema.json` |
 | **Transcription Core** (shared) | `…/schemas/shared/transcription-core.json` |
@@ -27,8 +27,9 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 A recursive tree modelling the complete Latin works of Aquinas. A single
 `structural_node` type expresses both the hierarchical divisions of a work
-(*pars → quaestio → articulus*) and the scholastic function of the text
-(*argumentum*, *sed contra*, *respondeo*, *ad argumentum*, …). Structural nodes
+(*pars → quaestio → articulus*, and the *quaestiuncula* of the commentary on the
+Sentences) and the scholastic function of the text (*argumentum*, *sed contra*,
+*respondeo*, *ad argumentum*, *divisio textus*, …). Structural nodes
 contain `children`; function nodes contain `paragraphs`, and the schema enforces
 that distinction with `if`/`then` constraints. Each paragraph (and each printed
 heading) is split into `segments`, one per citable location: one per line where

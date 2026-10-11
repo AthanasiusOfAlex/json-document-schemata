@@ -11,21 +11,21 @@ The schema uses a unified, recursive tree structure with four layers:
 3. **`paragraph`**: A logical paragraph of text within a leaf-level node. Its Latin text is divided into segments.
 4. **`text_segment`**: The text printed at one citable location in the critical edition: a line where the edition numbers its lines, otherwise a page (and column).
 
-The current version is **v1.1** (`v1.1/schema.json`). `v1/` is kept unchanged so its `$id` stays stable; see *Changes from v1* below.
+The current version is **v1.2** (`v1.2/schema.json`). `v1.1/` and `v1/` are kept unchanged so their `$id`s stay stable; see *Changes from v1.1* and *Changes from v1* below.
 
 ### The Unified Node Model
 
 All levels of the hierarchy use `structural_node`. The `node_type` enum is divided into two groups:
 
 **Structural types** define the divisions of a work:
-- `pars`, `liber`, `distinctio`, `quaestio`, `articulus`, `capitulum`, `tractatus`, `lectio`
+- `pars`, `liber`, `distinctio`, `quaestio`, `articulus`, `quaestiuncula`, `capitulum`, `tractatus`, `lectio`
 
 **Scholastic function types** define the rhetorical role of the text:
-- `prooemium`, `argumentum`, `sed_contra`, `respondeo`, `ad_argumentum`, `textus_expositus`, `expositio`, `conclusio`
+- `prooemium`, `argumentum`, `sed_contra`, `respondeo`, `ad_argumentum`, `textus_expositus`, `divisio_textus`, `expositio`, `conclusio`
 
 Structural nodes contain `children`; scholastic function nodes contain `paragraphs`. The schema enforces this distinction with `if/then` validation constraints.
 
-The special case is **`prooemium`**, which can serve either role: a section-level *prooemium* (e.g., the introduction to the *Prima Pars*) is a structural node with children, while a text-level *prooemium* within an *articulus* is a leaf node with paragraphs. The tree position disambiguates.
+The special case is **`prooemium`**, which can serve either role: a section-level *prooemium* (e.g., the introduction to the *Prima Pars*) is a structural node with children, while a text-level *prooemium* within an *articulus* is a leaf node with paragraphs. The tree position disambiguates. A prooemium may also hold both, its paragraphs first: the prologue of the first book of the commentary on the Sentences is Thomas's sermon (paragraphs), then the prologue's own question and the exposition of Lombard's prologue (children).
 
 ## Typographical vs. Semantic Structure (The Segment Array)
 
@@ -45,9 +45,10 @@ When a word is hyphenated across a line, column or page break (e.g., `philoso-` 
 Because every segment boundary falls between two words, **the paragraph is its segments joined with a single space**. To make this exact, `latin_text` is whitespace-normalized: words separated by single spaces, no leading or trailing space, no line breaks. The schema enforces this with the pattern `^\S+( \S+)*$`.
 
 ### Inline markup and `continued_markup`
-`latin_text` may carry two inline tags:
+`latin_text` may carry these inline tags:
 * `<i>…</i>`: italics, which in the Leonine mark quotations;
-* `<sc>…</sc>`: small capitals, used for incipits (*Sed contra*, *Respondeo*, *Ad primum*).
+* `<sc>…</sc>`: small capitals, used for incipits (*Sed contra*, *Respondeo*, *Ad primum*);
+* `<lemma>…</lemma>`: in a commentary, the words of the commented text quoted in the exposition (the lemmata).
 
 Every segment's markup is balanced, so a single line can be quoted or displayed by itself. When a tagged span crosses a segment boundary, it is closed at the end of the segment and reopened at the start of the next. The segment that was cut is flagged with `continued_markup`, listing the tags closed this way, outermost first:
 
@@ -77,8 +78,18 @@ Every leaf-level `structural_node` is categorized by its scholastic function:
 * `respondeo`: The master's definitive corpus/answer (*Respondeo dicendum...*).
 * `ad_argumentum`: Replies to specific objections (*Ad primum...*).
 * `textus_expositus`: The source text being commented on (in scriptural and Aristotelian commentaries).
+* `divisio_textus`: Thomas's division of the text commented on (*Divisio textus*, in the commentary on the Sentences).
 * `expositio`: The commentary or exposition on the source text.
 * `conclusio`: Formal conclusions.
+
+## Changes from v1.1
+
+v1.2 is a strict superset of v1.1: every v1.1 document is valid under v1.2. It adds two node types for the commentary on the Sentences:
+
+* **`quaestiuncula`** (structural: `children` only): the sub-question of an article. Each has its own objections, sed contra, respondeo and replies, so folding them into the article would merge several series of arguments.
+* **`divisio_textus`** (function: `paragraphs` only): Thomas's division of the text he comments on ("Divisio textus"), which is not an exposition of its letter; `expositio` stays for the "Expositio textus".
+
+The descriptions also name `<lemma>` among the inline tags of `latin_text`, and say that a `prooemium` may hold paragraphs, children or both. See `v1.2/examples/sentences-quaestiuncula.json`.
 
 ## Changes from v1
 

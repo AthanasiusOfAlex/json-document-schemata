@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1).
+"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1, v1.2).
 
 Schema validation (``validate.py``) proves each segment is *well-formed*. This
 script checks what the JSON Schema cannot, because it needs to compare one
 segment with the next:
 
-  * inline markup (``<i>``, ``<sc>``) is balanced in every segment, and each
+  * inline markup (``<i>``, ``<sc>``, ``<lemma>``) is balanced in every segment, and each
     ``continued_markup`` flag matches the tags it claims were split;
   * segments run forward through the edition (volume, page, column, line).
 
