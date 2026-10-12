@@ -11,17 +11,17 @@ The schema uses a unified, recursive tree structure with four layers:
 3. **`paragraph`**: A logical paragraph of text within a leaf-level node. Its Latin text is divided into segments.
 4. **`text_segment`**: The text printed at one citable location in the critical edition: a line where the edition numbers its lines, otherwise a page (and column).
 
-The current version is **v1.2** (`v1.2/schema.json`). `v1.1/` and `v1/` are kept unchanged so their `$id`s stay stable; see *Changes from v1.1* and *Changes from v1* below.
+The current version is **v1.3** (`v1.3/schema.json`). `v1.2/`, `v1.1/` and `v1/` are kept unchanged so their `$id`s stay stable; see *Changes from v1.2*, *Changes from v1.1* and *Changes from v1* below.
 
 ### The Unified Node Model
 
 All levels of the hierarchy use `structural_node`. The `node_type` enum is divided into two groups:
 
 **Structural types** define the divisions of a work:
-- `pars`, `liber`, `distinctio`, `quaestio`, `articulus`, `quaestiuncula`, `capitulum`, `tractatus`, `lectio`
+- `pars`, `liber`, `distinctio`, `quaestio`, `articulus`, `quaestiuncula`, `capitulum`, `tractatus`, `lectio`, `sectio`
 
 **Scholastic function types** define the rhetorical role of the text:
-- `prooemium`, `argumentum`, `sed_contra`, `respondeo`, `ad_argumentum`, `textus_expositus`, `divisio_textus`, `expositio`, `conclusio`
+- `prooemium`, `argumentum`, `sed_contra`, `respondeo`, `ad_argumentum`, `textus_expositus`, `divisio_textus`, `expositio`, `conclusio`, `textus`
 
 Structural nodes contain `children`; scholastic function nodes contain `paragraphs`. The schema enforces this distinction with `if/then` validation constraints.
 
@@ -69,6 +69,9 @@ Headings are part of the printed text and can be cited. A structural node may th
 ### Editorial IDs
 An optional `editorial_id` field on the `paragraph` object captures structural additions by editors (e.g., "Marietti n. 45"). This sits at the paragraph level because editorial numbering systems (such as Marietti's) correspond to individual paragraphs.
 
+### Citable units and `run_on`
+Nodes are the units a reader cites: a reply is its own `ad_argumentum` even when it is one line ("Unde patet solutio ad tertium"), because it is cited as *ad 3*. Sometimes the printed edition does not give such a unit a paragraph of its own but runs it on at the end of the paragraph before, which may belong to another node (the Leonine prints ST I q.82 a.5's reply to the third objection at the end of the reply to the second). A node cannot hold half a paragraph, so the unit keeps its own paragraph, marked `"run_on": true`. The field is present only when true. To rebuild the printed paragraphs, join each `run_on` paragraph to the one before it in reading order with a single space; [`scripts/aquinas_integrity.py`](../../scripts/aquinas_integrity.py) has the reference implementation (`printed_paragraphs`). A reply that answers all the objections at once is one node numbered for all of them (`"number": "1-3"`); one that closes the respondeo ("Et per hoc patet responsio ad obiecta") belongs to the respondeo, where print has it.
+
 ## The Scholastic Function Types
 
 Every leaf-level `structural_node` is categorized by its scholastic function:
@@ -81,6 +84,17 @@ Every leaf-level `structural_node` is categorized by its scholastic function:
 * `divisio_textus`: Thomas's division of the text commented on (*Divisio textus*, in the commentary on the Sentences).
 * `expositio`: The commentary or exposition on the source text.
 * `conclusio`: Formal conclusions.
+* `textus`: The author's own continuous text in a unit with no scholastic or expository division: a chapter of the *Summa contra Gentiles* or of an opusculum, a sermon, a prayer.
+
+## Changes from v1.2
+
+v1.3 is a strict superset of v1.2: every v1.2 document is valid under v1.3. It adds two node types, for the works beyond the scholastic articles and the commentaries, and one optional paragraph field:
+
+* **`sectio`** (structural: `children` only): a division the other structural types do not name: an entry (*vox*) of the *Tabula libri Ethicorum*, a part of a sermon, a group of prayers.
+* **`textus`** (function: `paragraphs` only): the author's own continuous text, where no function type fits: the chapters of the *Summa contra Gentiles* and of the opuscula, sermons, prayers. Before v1.3 such text could only be misnamed `expositio` or `prooemium`.
+* **`run_on`** (on `paragraph`, `true` or absent): the printed edition runs this paragraph on from the one before; see *Citable units and `run_on`*.
+
+See `v1.3/examples/scg-i-c1.json` (`textus`, with the verse the chapter expounds as `textus_expositus`), `v1.3/examples/tabula-sectio.json` (`sectio`) and `v1.3/examples/st-i-q82-a5-run-on.json` (`run_on`).
 
 ## Changes from v1.1
 

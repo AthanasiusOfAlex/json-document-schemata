@@ -1,0 +1,114 @@
+{
+  "work_metadata": {
+    "id": "TabEth",
+    "title_latin": "Tabula libri Ethicorum",
+    "title_english": "Table of the Ethics",
+    "siglum": "Tab. Eth.",
+    "date_composition": "1270",
+    "critical_edition": {
+      "name": "Sancti Thomae de Aquino Opera omnia iussu Leonis XIII P. M. edita (Editio Leonina), t. 48 B: Tabula libri Ethicorum",
+      "publisher": "Ad Sanctae Sabinae",
+      "year": "1971",
+      "notes": "Latin text from aquinas.cc (The Aquinas Institute), retrieved 2026-10-12, data version 1802. aquinas.cc on its Latin text: \"The Latin text used in this volume is based on the Leonine Edition (1971), transcribed and revised by The Aquinas Institute.\" Paragraph divisions follow aquinas.cc. Footnotes (textual notes of The Aquinas Institute) omitted. Page numbers are not supplied by the source; 'page' holds a placeholder to be resolved downstream. Each entry (vox) is a sectio, numbered and titled with its word, holding its items in textus, one paragraph per aquinas.cc row; the place in the Ethics each item cites is in aquinas.cc's reference only. The entry's word in the items (bold on aquinas.cc) is marked <lemma>...</lemma>; words supplied by the Leonine editors are between ⟨ ⟩; other italics are marked <i>...</i>. Torrell: an unfinished work, an index of the Ethics and of Albert's commentary on it, compiled as file-cards by Thomas's secretaries."
+    }
+  },
+  "body": [
+    {
+      "node_id": "TabEth-C1",
+      "node_type": "capitulum",
+      "number": 1,
+      "children": [
+        {
+          "node_id": "TabEth-C1-V1",
+          "node_type": "sectio",
+          "number": 1,
+          "title_latin": "Actio",
+          "children": [
+            {
+              "node_id": "TabEth-C1-V1-textus",
+              "node_type": "textus",
+              "paragraphs": [
+                {
+                  "paragraph_id": "TabEth-C1-V1-textus-p1",
+                  "segments": [
+                    {
+                      "latin_text": "Quod <lemma>actio</lemma>, id est operatio virtutis, non est alterius gratia, sed propter bonum proprium.",
+                      "edition_location": {
+                        "volume": "48 B",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "paragraph_id": "TabEth-C1-V1-textus-p2",
+                  "segments": [
+                    {
+                      "latin_text": "Quod omnem <lemma>actionem</lemma> sequitur gaudium vel tristitia.",
+                      "edition_location": {
+                        "volume": "48 B",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "node_id": "TabEth-C1-V2",
+          "node_type": "sectio",
+          "number": 2,
+          "title_latin": "Acrocholi (ἀκρόχολοι)",
+          "children": [
+            {
+              "node_id": "TabEth-C1-V2-textus",
+              "node_type": "textus",
+              "paragraphs": [
+                {
+                  "paragraph_id": "TabEth-C1-V2-textus-p1",
+                  "segments": [
+                    {
+                      "latin_text": "Quod <lemma>acrocholi</lemma> sunt in superabundantia irae et ad omne nocumentum iracundi.",
+                      "edition_location": {
+                        "volume": "48 B",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "node_id": "TabEth-C1-V3",
+          "node_type": "sectio",
+          "number": 3,
+          "title_latin": "Agrios (ἄγρῐος)",
+          "children": [
+            {
+              "node_id": "TabEth-C1-V3-textus",
+              "node_type": "textus",
+              "paragraphs": [
+                {
+                  "paragraph_id": "TabEth-C1-V3-textus-p1",
+                  "segments": [
+                    {
+                      "latin_text": "Quod <lemma>agrios</lemma> omnino inutilis est ad ludicras locutiones; nihil enim conferens in omnibus tristatur.",
+                      "edition_location": {
+                        "volume": "48 B",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

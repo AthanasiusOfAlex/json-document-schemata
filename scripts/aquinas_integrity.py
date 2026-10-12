@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1, v1.2).
+"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1, v1.2, v1.3).
 
 Schema validation (``validate.py``) proves each segment is *well-formed*. This
 script checks what the JSON Schema cannot, because it needs to compare one
@@ -7,7 +7,8 @@ segment with the next:
 
   * inline markup (``<i>``, ``<sc>``, ``<lemma>``) is balanced in every segment, and each
     ``continued_markup`` flag matches the tags it claims were split;
-  * segments run forward through the edition (volume, page, column, line).
+  * segments run forward through the edition (volume, page, column, line);
+  * a paragraph marked ``run_on`` (v1.3) has a paragraph before it to run on from.
 
 Findings are split into two levels:
 
@@ -22,6 +23,8 @@ numerals) are skipped by the ordering checks.
 
 ``join_segments`` is the reference implementation of the joining rule: undo
 ``continued_markup``, then join the segments with a single space.
+``printed_paragraphs`` rebuilds the printed edition's paragraphs: each ``run_on``
+paragraph is joined to the one before it, with a single space.
 
 Usage::
 
@@ -86,6 +89,26 @@ def join_segments(segments):
         texts[i] = texts[i][: -len(closing)]
         texts[i + 1] = texts[i + 1][len(opening):]
     return " ".join(texts)
+
+
+def iter_paragraphs(nodes):
+    """Yield every paragraph, in reading order."""
+    for node in nodes or []:
+        yield from node.get("paragraphs", []) or []
+        yield from iter_paragraphs(node.get("children"))
+
+
+def printed_paragraphs(doc):
+    """The printed edition's paragraphs, as text: each ``run_on`` paragraph is joined to
+    the one before it (which may belong to another node) with a single space."""
+    out = []
+    for para in iter_paragraphs(doc.get("body", [])):
+        text = join_segments(para.get("segments", []))
+        if para.get("run_on") and out:
+            out[-1] += " " + text
+        else:
+            out.append(text)
+    return out
 
 
 def iter_runs(nodes):
@@ -154,6 +177,11 @@ def check(doc):
                 errors.append(f"{label} segment {i}: line {lb} does not follow line {la}")
             elif lb != la + 1:
                 warnings.append(f"{label} segment {i}: line {lb} follows line {la} (missing line?)")
+
+    # run_on: the first paragraph of a document has nothing to run on from.
+    first = next(iter_paragraphs(doc.get("body", [])), None)
+    if first is not None and first.get("run_on"):
+        errors.append(f"{first.get('paragraph_id', '?')}: run_on on the document's first paragraph")
 
     return errors, warnings
 

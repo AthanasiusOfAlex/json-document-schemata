@@ -1,0 +1,372 @@
+{
+  "work_metadata": {
+    "id": "InSent",
+    "title_latin": "Scriptum super libros Sententiarum",
+    "title_english": "Commentary on the Sentences of Peter Lombard",
+    "siglum": "In Sent.",
+    "date_composition": "1252-1256",
+    "critical_edition": {
+      "name": "S. Thomae Aquinatis Scriptum super libros Sententiarum magistri Petri Lombardi episcopi Parisiensis, t. 1-2 ed. P. Mandonnet, t. 3-4 ed. M. F. Moos",
+      "publisher": "P. Lethielleux",
+      "year": "1929, 1933",
+      "notes": "An excerpt of the scraper's output (aquinas-cc, from aquinas.cc): In I Sent. d.1, its divisio and expositio textus shortened to two paragraphs each and its question omitted; In III Sent. d.2 q.1 a.1, its first quaestiuncula only. Pages are placeholders."
+    }
+  },
+  "body": [
+    {
+      "node_id": "InSent-I",
+      "node_type": "liber",
+      "number": 1,
+      "title_latin": "Scriptum Super Sententiis I",
+      "children": [
+        {
+          "node_id": "InSent-I-D1",
+          "node_type": "distinctio",
+          "number": 1,
+          "title_latin": "De uti et frui",
+          "children": [
+            {
+              "node_id": "InSent-I-D1-divisio",
+              "node_type": "divisio_textus",
+              "title_latin": "Divisio textus",
+              "paragraphs": [
+                {
+                  "paragraph_id": "InSent-I-D1-divisio-p1",
+                  "segments": [
+                    {
+                      "latin_text": "Finito prooemio, hoc est initium praesentis operis in quo Magister divinorum nobis doctrinam tradere intendit quantum ad inquisitionem veritatis et destructionem erroris: unde et argumentativo modo procedit in toto opere: et praecipue argumentis ex auctoritatibus sumptis. Dividitur autem in duas partes: in quarum prima inquirit ea de quibus agendum est, et ordinem agendi; in secunda prosequitur suam intentionem: et in duas partes dividitur. Secunda ibi: <i>hic considerandum est utrum virtutibus sit utendum, an fruendum</i>.",
+                      "edition_location": {
+                        "volume": "1",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "paragraph_id": "InSent-I-D1-divisio-p2",
+                  "segments": [
+                    {
+                      "latin_text": "Ea autem de quibus in hac doctrina considerandum est, cadunt in considerationem hujus doctrinae, secundum quod ad aliquid unum referuntur, scilicet Deum, a quo et ad quem sunt. Et ideo ea de quibus agendum est dividit per absolutum et relatum: unde dividitur in partes duas. In prima ponit divisionem eorum de quibus agendum est per absolutum et relatum secundum cognitionem, in secunda secundum desiderium, ibi: <i>id ergo in rebus considerandum</i>.",
+                      "edition_location": {
+                        "volume": "1",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node_id": "InSent-I-D1-expositio",
+              "node_type": "expositio",
+              "title_latin": "Expositio textus",
+              "paragraphs": [
+                {
+                  "paragraph_id": "InSent-I-D1-expositio-p1",
+                  "segments": [
+                    {
+                      "latin_text": "Circa litteram quaeritur de hoc quod dicitur: <i>innotuit, sacrae paginae tractatores circa res vel signa praecipue versari</i>. Videtur enim divisio esse incompetens: eo quod contingit idem signum esse et rem; sicut corpus Christi verum et character in baptismo. Praeterea, ipsemet dicit quod omne signum res est; et ita videtur quod divisio non sit per opposita. Item, creaturae omnes sunt signum divinae bonitatis; et ita videtur quod fere omnia quae in hac doctrina traduntur sunt signa. Ad quod dicendum, quod ista divisio non est data per oppositas res, sed per oppositas rationes secundum absolutum et relatum. Signum enim est quod est institutum ad aliud significandum: res autem est quae habet absolutam significationem non ad aliud relatam. Unde non est inconveniens quod idem sit signum et res respectu diversorum; sicut etiam idem homo est pater et filius. Unde patet solutio ad primum. Ad secundum dicendum, quod res dupliciter sumitur in processu hujus locutionis; sumitur enim communiter pro omni ente; et sic omne signum est res: sumitur etiam magis stricte pro eo quod est res tantum et non signum, et sic contra signum dividitur. Ad tertium dicendum, quod quamvis creaturae sint signum alicujus, nihilominus tamen ad hoc principaliter non sunt institutae: et ideo non continentur sub signis, nisi secundum quid.",
+                      "edition_location": {
+                        "volume": "1",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "paragraph_id": "InSent-I-D1-expositio-p2",
+                  "segments": [
+                    {
+                      "latin_text": "Deinde quaeritur de hoc quod dicitur: <i>et primo de rebus, postea de signis disseremus</i>. Videtur enim quod prius agendum est de signis. Res enim per signa discuntur, ut in littera dicitur. Ergo per cognitionem signorum devenimus in cognitionem rerum. Ad quod dicendum, quod hoc sequitur, quando signa et res sunt ejusdem ordinis, scilicet quod prius determinandum est de signis quam de rebus quae per illa signa significantur. Sic autem non se habent signa sacramentalia ad ea de quibus in primis tribus libris agitur. Vel dicendum, quod alius est ordo servandus in accipiendo cognitionem et tradendo. Accipiens enim cognitionem procedit de signis ad signata, quasi modo resolutorio, quia signa magis sunt nota quo ad ipsum; sed tradens cognitionem signorum, oportet quod res ante signa manifestet, eo quod signa sumuntur per similitudinem ad res: unde oportet praecognoscere ad cognitionem signorum res ad quarum similitudinem sumuntur.",
+                      "edition_location": {
+                        "volume": "1",
+                        "page": "[PAGE]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": "InSent-III",
+      "node_type": "liber",
+      "number": 3,
+      "title_latin": "Scriptum Super Sententiis III",
+      "children": [
+        {
+          "node_id": "InSent-III-D2",
+          "node_type": "distinctio",
+          "number": 2,
+          "children": [
+            {
+              "node_id": "InSent-III-D2-Q1",
+              "node_type": "quaestio",
+              "number": 1,
+              "children": [
+                {
+                  "node_id": "InSent-III-D2-Q1-A1",
+                  "node_type": "articulus",
+                  "number": 1,
+                  "title_latin": "Utrum natura humana sit prae aliis assumptibilis",
+                  "children": [
+                    {
+                      "node_id": "InSent-III-D2-Q1-A1-qc1",
+                      "node_type": "quaestiuncula",
+                      "number": 1,
+                      "children": [
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-prooemium",
+                          "node_type": "prooemium",
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-prooemium-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Ad primum</sc> sic proceditur. Videtur quod humana natura non sit magis assumptibilis quam creatura irrationalis.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-arg1",
+                          "node_type": "argumentum",
+                          "number": 1,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-arg1-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Sicut enim</sc> dicit Augustinus <i>Ad Volusianum</i>, in rebus mirabilibus tota ratio facti est potentia facientis. Sed omnium mirabilium mirabilius est creaturam assumi in unitatem personae increatae. Ergo tota assumptibilitatis ratio est ex potentia ejus qui assumptionem facit. Sed cum illa potentia sit infinita, ex parte ipsius aequaliter est humanam naturam, vel etiam irrationalem naturam assumere. Ergo non magis debet dici natura assumptibilis quam natura irrationalis.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-arg2",
+                          "node_type": "argumentum",
+                          "number": 2,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-arg2-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Praeterea</sc>, sicut in humana natura est similitudo Dei ratione imaginis; ita in creatura irrationali est similitudo Dei ratione vestigii. Sed similitudo et convenientia aliquorum ad invicem est causa unibilitatis ipsorum. Ergo sicut humana natura est Deo unibilis; ita et irrationalis creatura.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-arg3",
+                          "node_type": "argumentum",
+                          "number": 3,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-arg3-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Praeterea</sc>, illud videtur esse simillimum alteri in quo maxime proprietates alterius repraesentantur. Sed, sicut dicit Dionysius in 15 capitulo celaestis hierarchiae, <i>in igne inter omnia corporalia magis divinae proprietates repraesentantur</i>; et idem dicit de radio solari in 4 capitulo <i>De divinis nominibus.</i> Ergo istae creaturae videntur Deo simillimae; et ita etiam ei magis unibiles quam humana natura.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-sc",
+                          "node_type": "sed_contra",
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-sc-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Sed contra</sc>, nobilior creatura nobilioris doni est capax. Ergo ad illud donum quod est nobilissimum inter dona nobilioris naturae, inferior natura capacitatem non habet. Sed humana natura est nobilior creatura irrationali. Cum ergo inter omnia quae humanae naturae sunt collata, assumptio ipsius in unitatem divinae personae sit nobilissimum, videtur quod hujus creatura irrationalis capax non sit; et ita non erit assumptibilis.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-respondeo",
+                          "node_type": "respondeo",
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Respondeo</sc> dicendum quod assumptibile dicitur quod potest assumi. Cum autem dicitur, creatura potest assumi, non signatur aliqua potentia activa creaturae; quia sola potentia infinita hoc facere potuit, ut in infinitum distantia conjungerentur in unitatem personae. Similiter etiam non significatur potentia passiva naturalis creaturae, quia nulla potentia passiva naturalis est in natura, cui non respondeat potentia activa alicujus naturalis agentis. Unde relinquitur quod dicat in creatura solam potentiam obedientiae, secundum quam de creatura potest fieri quidquid Deus vult, sicut ex ligno potest fieri vitulus, Deo operante. Haec autem potentia obedientiae correspondet divinae potentiae, secundum quod dicitur, quod ex creatura potest fieri quod Deus ex ea facere potest.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p2",
+                              "segments": [
+                                {
+                                  "latin_text": "Sed potentia Dei dupliciter consideratur: vel ut absoluta vel ut ordinata. Quod qualiter intelligendum sit, ex dictis in 1 d. patet. Loquendo autem de potentia Dei absoluta, Deus potest assumere quamcumque creaturam vult. Unde secundum hoc, non est una creatura magis assumptibilis quam altera. Loquendo autem de potentia ordinata, illam creaturam assumere potest quam congruit eum assumere ex ordine suae sapientiae. Unde illa creatura dicitur assumptibilis in qua hujusmodi congruitas invenitur. Invenitur autem in humana natura congruitas prae aliis, quantum ad tria quae in assumptione requiruntur.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p3",
+                              "segments": [
+                                {
+                                  "latin_text": "Primo, quantum ad similitudinem unibilium. In humana enim natura invenitur expressior similitudo divina quam in aliqua creatura irrationali: quia homo secundum quod habet mentem, ad imaginem Dei factus dicitur; cum in creaturis irrationalibus non nisi similitudo vestigii inveniatur. Et etiam quantum ad quaedam est in ea divina similitudo magis quam in natura angelica, ut post dicetur.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p4",
+                              "segments": [
+                                {
+                                  "latin_text": "Secundo, quantum ad terminum assumptionis. Terminatur enim assumptio ad unitatem personae. Personalitas autem non invenitur in irrationalibus naturis, cum persona sit <i>rationalis naturae individua substantia</i>, ut Boetius dicit in lib. <i>De duab. nat</i>., c. 3. In angelis vero est quidem persona, sed non secundum originem distincta; cum unus angelus ab alio non trahat originem. In humana vero natura est persona distincta etiam secundum originem. Et ideo convenientissime humana natura in unitatem divinae personae assumitur, quae distinguitur secundum relationem originis.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p5",
+                              "segments": [
+                                {
+                                  "latin_text": "Tertio, quantum ad finem assumptionis. Si enim perfectio universi dicatur assumptionis finis praecipuus, ut quidam dicunt, nulla natura particularis assumi potuisset, per quam ita universum perfici posset, sicut per assumptionem humanae naturae; tum quia homo est ultima creaturarum, quasi ultimo creatus, cujus natura assumpta, ultimum conjunctum est principio per modum circuli, quae est figura perfecta ex eo quod additionem non recipit; tum etiam quia in homine quodammodo omnes naturae confluunt: quia <i>cum omnibus creaturis aliquid commune habet</i>, ut dicit Gregorius; unde homine unito, quodammodo omnis creatura unita est.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p6",
+                              "segments": [
+                                {
+                                  "latin_text": "Si vero finis assumptionis ponatur liberatio a peccato, sic etiam sola humana natura congrue assumi potuit: quia in irrationali creatura peccatum non erat; in angelica vero erat quidem peccatum, sed irremediabile, ut patet ex dictis in 1 d.; in homine vero erat remediabile. Et ideo solam humanam naturam congruum fuit assumere. Et sic, ea reparata, creatura irrationalis, quae propter ejus peccatum quodammodo deteriorata dicitur, secundum quod in usum hominis cedit, restaurata est.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-respondeo-p7",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Ad primam ergo quaestionem</sc> dicendum quod Deus de potentia absoluta creaturam irrationalem assumere potuit. Nec impedit quod creatura irrationalis personalitatem non habet: quia personalitas non debetur etiam humanae naturae assumptae ratione sui, ut infra patebit, sed ratione assumentis; unde non est ibi nisi personalitas increata. Et praeterea quamvis in natura irrationali non inveniatur persona, invenitur tamen in ea hypostasis et suppositum. Unio autem non tantum facta est in persona, sed etiam in supposito et hypostasi. Sed congruum non erat ut assumeretur, et praecipue quia natura assumpta maxime beatificatur, ut in Psalm. 64:5, dicitur: <i>beatus quem elegisti et assumpsisti.</i> Beatitudinis vero, quae in actu mentis consistit, creatura irrationalis particeps esse non potest.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-ad1",
+                          "node_type": "ad_argumentum",
+                          "number": 1,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-ad1-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Unde patet</sc> responsio ad primam objectionem, quae procedit de potentia absoluta, et non de potentia ordinata.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-ad2",
+                          "node_type": "ad_argumentum",
+                          "number": 2,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-ad2-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Ad secundum</sc> dicendum quod ad congruitatem assumptibilitatis requiritur similitudo imaginis, quia per hanc creatura rationalis particeps est divinae beatitudinis. Unde ad hanc congruitatem non sufficit similitudo vestigii, qualis in creaturis irrationalibus invenitur.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "node_id": "InSent-III-D2-Q1-A1-qc1-ad3",
+                          "node_type": "ad_argumentum",
+                          "number": 3,
+                          "paragraphs": [
+                            {
+                              "paragraph_id": "InSent-III-D2-Q1-A1-qc1-ad3-p1",
+                              "segments": [
+                                {
+                                  "latin_text": "<sc>Ad tertium</sc> dicendum quod duplex est similitudo creaturae ad Deum. Una secundum participationem alicujus divinae bonitatis, sicut ab eo vivente omnia vitam participant. Et sic creatura rationalis in qua invenitur esse, vivere et intelligere, maxime Deo assimilatur. Et haec similitudo requiritur ad assumptibilitatem. Alia similitudo est secundum proportionalitatem, ut si dicatur similitudo inter Deum et ignem, quia sicut ignis consumit corpus, ita Deus consumit nequitiam. Et haec similitudo requiritur in figurativis locutionibus et appropriationibus, quam Dionysius in 2 cap. <i>Cael. hier</i>., vocat <i>dissimilem similitudinem</i>. Et de hac similitudine procedit objectio.",
+                                  "edition_location": {
+                                    "volume": "3",
+                                    "page": "[PAGE]"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

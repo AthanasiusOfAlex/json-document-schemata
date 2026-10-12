@@ -15,7 +15,7 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 | Schema | Canonical `$id` |
 |---|---|
-| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.2/schema.json` (current; `v1.1/` and `v1/` superseded) |
+| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.3/schema.json` (current; `v1.2/`, `v1.1/` and `v1/` superseded) |
 | **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
 | **Academic Book** (PDFTranscriber) | `…/schemas/book/v1/schema.json` |
 | **Transcription Core** (shared) | `…/schemas/shared/transcription-core.json` |
@@ -27,15 +27,18 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 A recursive tree modelling the complete Latin works of Aquinas. A single
 `structural_node` type expresses both the hierarchical divisions of a work
-(*pars → quaestio → articulus*, and the *quaestiuncula* of the commentary on the
-Sentences) and the scholastic function of the text (*argumentum*, *sed contra*,
-*respondeo*, *ad argumentum*, *divisio textus*, …). Structural nodes
+(*pars → quaestio → articulus*, the *quaestiuncula* of the commentary on the
+Sentences, and a generic *sectio*) and the scholastic function of the text (*argumentum*,
+*sed contra*, *respondeo*, *ad argumentum*, *divisio textus*, and *textus* for continuous
+text such as a chapter of the Summa contra Gentiles, …). Structural nodes
 contain `children`; function nodes contain `paragraphs`, and the schema enforces
 that distinction with `if`/`then` constraints. Each paragraph (and each printed
 heading) is split into `segments`, one per citable location: one per line where
 the edition numbers its lines, otherwise one per page/column. Joining the
 segments with a single space gives back the paragraph exactly, so citation down
-to the line is preserved alongside semantic flow.
+to the line is preserved alongside semantic flow. Nodes are the units a reader
+cites; where the printed edition runs a cited unit on in the paragraph before (a short
+reply), its paragraph is marked `run_on`, so print's paragraphs can be rebuilt.
 
 See [schemas/aquinas-opera-omnia/README.md](schemas/aquinas-opera-omnia/README.md)
 for the full design notes.
