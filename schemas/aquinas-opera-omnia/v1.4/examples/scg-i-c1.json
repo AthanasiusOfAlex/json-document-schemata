@@ -1,0 +1,137 @@
+{
+  "work_metadata": {
+    "id": "SCG",
+    "title_latin": "Summa contra Gentiles",
+    "title_english": "Summa against the Gentiles",
+    "siglum": "SCG",
+    "date_composition": "1259-1265",
+    "critical_edition": {
+      "name": "S. Thomae Aquinatis Liber de veritate catholicae Fidei contra errores infidelium seu Summa contra Gentiles, textus Leoninus diligenter recognitus, t. 2-3, ed. P. Marc, C. Pera, P. Caramello",
+      "publisher": "Marietti",
+      "year": "1961",
+      "notes": "Latin text from aquinas.cc (The Aquinas Institute), retrieved 2026-10-12, data version 1613. aquinas.cc on its Latin text: \"The Latin source for the Summa Contra Gentiles is the 1961 Marietti edition: Liber de veritate catholicae Fidei contra errores infidelium seu Summa contra Gentiles, textus Leoninus diligenter recognitus, cura et studio P. Marc, coadiuv. C. Pera et P. Caramello (Marietti, Taurini-Romae, 1961). The 1961 Marietti edition is a reproduction of the text of the earlier Leonine editions of 1918, 1926, and 1930, with some small corrections. It has been further revised and edited by the Aquinas Institute.\" Paragraph divisions follow aquinas.cc. Footnotes (textual notes of The Aquinas Institute) omitted. Page numbers are not supplied by the source; 'page' holds a placeholder to be resolved downstream. Each chapter's text is in textus, one paragraph per aquinas.cc row; the verse of Scripture that opens a book, which chapter 1 expounds, is the chapter's textus_expositus, titled with its citation. Italic quotations are marked <i>...</i>. The tractatus are aquinas.cc's thematic sections (\"Introductio\", \"Fides et ratio\" …), not divisions of the edition; --no-tractatus omits them."
+    }
+  },
+  "body": [
+    {
+      "node_id": "SCG-I",
+      "node_type": "liber",
+      "number": 1,
+      "children": [
+        {
+          "node_id": "SCG-I-T1",
+          "node_type": "tractatus",
+          "number": 1,
+          "title_latin": "Introductio",
+          "children": [
+            {
+              "node_id": "SCG-I-C1",
+              "node_type": "capitulum",
+              "number": 1,
+              "title_latin": "Quod sit officium sapientis",
+              "children": [
+                {
+                  "node_id": "SCG-I-C1-textus_expositus",
+                  "node_type": "textus_expositus",
+                  "title_latin": "Proverbia 8:7",
+                  "paragraphs": [
+                    {
+                      "paragraph_id": "SCG-I-C1-textus_expositus-p1",
+                      "segments": [
+                        {
+                          "latin_text": "Veritatem meditabitur guttur meum, et labia mea detestabuntur impium.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "node_id": "SCG-I-C1-textus",
+                  "node_type": "textus",
+                  "paragraphs": [
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p1",
+                      "segments": [
+                        {
+                          "latin_text": "Multitudinis usus, quem in rebus nominandis sequendum Philosophus censet, communiter obtinuit ut \"sapientes\" dicantur qui res directe ordinant et eas bene gubernant. Unde inter alia quae homines de sapiente concipiunt, a Philosopho ponitur quod <i>sapientis est ordinare</i>. Omnium autem ordinatorum ad finem, gubernationis et ordinis regulam ex fine sumi necesse est: tunc enim unaquaeque res optime disponitur cum ad suum finem convenienter ordinatur; finis enim est bonum uniuscuiusque. Unde videmus in artibus unam alterius esse gubernativam et quasi principem, ad quam pertinet eius finis: sicut medicinalis ars pigmentariae principatur et eam ordinat, propter hoc quod sanitas, circa quam medicinalis versatur, finis est omnium pigmentorum, quae arte pigmentaria conficiuntur. Et simile apparet in arte gubernatoria respectu navifactivae; et in militari respectu equestris et omnis bellici apparatus. Quae quidem artes aliis principantes \"architectonicae\" nominantur, quasi \"principales artes\": unde et earum artifices, qui \"architectores\" vocantur, nomen sibi vindicant sapientum.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p2",
+                      "segments": [
+                        {
+                          "latin_text": "Quia vero praedicti artifices, singularium quarundam rerum fines pertractantes, ad finem universalem omnium non pertingunt, dicuntur quidem sapientes huius vel illius rei, secundum quem modum dicitur 1 Cor. 3, 10, <i>ut sapiens architectus, fundamentum posui</i>; nomen autem simpliciter sapientis illi soli reservatur cuius consideratio circa finem universi versatur, qui item est universitatis principium; unde secundum Philosophum, sapientis est <i>causas altissimas</i> considerare.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p3",
+                      "segments": [
+                        {
+                          "latin_text": "Finis autem ultimus uniuscuiusque rei est qui intenditur a primo auctore vel motore ipsius. Primus autem auctor et motor universi est intellectus, ut infra ostendetur. Oportet igitur ultimum finem universi esse bonum intellectus. Hoc autem est veritas. Oportet igitur veritatem esse ultimum finem totius universi; et circa eius considerationem principaliter sapientiam insistere. Et ideo ad veritatis manifestationem divina sapientia carne induta se venisse in mundum testatur, dicens, Ioan. 18, 37: <i>ego in hoc natus sum, et ad hoc veni in mundum, ut testimonium perhibeam veritati</i>.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p4",
+                      "segments": [
+                        {
+                          "latin_text": "Sed et primam philosophiam Philosophus determinat esse <i>scientiam veritatis</i>; non cuiuslibet, sed eius veritatis quae est origo omnis veritatis, scilicet quae pertinet ad primum principium essendi omnibus; unde et sua veritas est omnis veritatis principium; sic enim est dispositio rerum in veritate sicut in esse.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p5",
+                      "segments": [
+                        {
+                          "latin_text": "Eiusdem autem est unum contrariorum prosequi et aliud refutare sicut medicina, quae sanitatem operatur, aegritudinem excludit. Unde sicut sapientis est veritatem praecipue de primo principio meditari et aliis disserere, ita eius est falsitatem contrariam impugnare.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "SCG-I-C1-textus-p6",
+                      "segments": [
+                        {
+                          "latin_text": "Convenienter ergo ex ore sapientiae duplex sapientis officium in verbis propositis demonstratur: scilicet veritatem divinam, quae antonomastice est veritas, meditatam eloqui, quod tangit cum dicit, <i>veritatem meditabitur guttur meum</i>; et errorem contra veritatem impugnare, quod tangit cum dicit, <i>et labia mea detestabuntur impium</i>, per quod falsitas contra divinam veritatem designatur, quae religioni contraria est, quae etiam ‘pietas’ nominatur, unde et falsitas contraria ei ‘impietatis’ sibi nomen assumit.",
+                          "edition_location": {
+                            "volume": "2",
+                            "page": "[PAGE]"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

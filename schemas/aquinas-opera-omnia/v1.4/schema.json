@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athanasiusofalex.github.io/json-document-schemata/schemas/aquinas-opera-omnia/v1.4/schema.json",
+  "title": "Thomistic Aquinas Opera Omnia",
+  "description": "A definitive schema for the digital representation of the works of Thomas Aquinas in Latin. Version 1.1: fixes how text is divided into citable segments and how segments are rejoined. Version 1.2: adds the quaestiuncula (structural) and divisio_textus (function) node types for the commentary on the Sentences. Version 1.3: adds the sectio (structural) and textus (function) node types for continuous text that is neither a scholastic article nor an exposition (the chapters of the Summa contra Gentiles and of the opuscula, sermons, prayers), and the run_on flag of a paragraph that the printed edition does not set as a paragraph of its own. Version 1.4: adds the apparatus of a paragraph and of a structural node: a proposed correction of a slip that stands in the text, the reading of aquinas.cc where the edition is followed against it in substance, a reference aquinas.cc has in the sentence and the edition in the margin, and text of aquinas.cc that the edition does not print.",
+  "type": "object",
+  "required": ["work_metadata", "body"],
+  "properties": {
+    "work_metadata": {
+      "type": "object",
+      "required": ["id", "title_latin", "siglum", "critical_edition"],
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier, e.g., 'ST'" },
+        "title_latin": { "type": "string", "description": "e.g., 'Summa Theologiae'" },
+        "title_english": { "type": "string" },
+        "siglum": { "type": "string", "description": "Standard abbreviation, e.g., 'S.Th.'" },
+        "date_composition": { "type": "string", "description": "Estimated dates, e.g., '1265-1273'" },
+        "critical_edition": {
+          "type": "object",
+          "required": ["name", "publisher", "year"],
+          "properties": {
+            "name": { "type": "string" },
+            "publisher": { "type": "string" },
+            "year": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "body": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/structural_node" }
+    }
+  },
+  "$defs": {
+    "structural_node": {
+      "type": "object",
+      "required": ["node_id", "node_type"],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "description": "Hierarchical ID, e.g., 'ST-I-Q2-A3' or 'ST-I-Q2-A3-respondeo'"
+        },
+        "node_type": {
+          "type": "string",
+          "enum": [
+            "pars", "liber", "distinctio", "quaestio",
+            "articulus", "quaestiuncula", "capitulum", "tractatus", "lectio", "sectio",
+            "prooemium",
+            "argumentum", "sed_contra", "respondeo",
+            "ad_argumentum", "textus_expositus", "divisio_textus", "expositio", "conclusio", "textus"
+          ],
+          "description": "Structural divisions (pars … lectio, including quaestiuncula, the sub-question of an article in the commentary on the Sentences, and sectio, a division the other types do not name: a part of a sermon, an entry of an index) hold children only; function nodes (argumentum … conclusio, including divisio_textus, the division of the text commented on, and textus, the author's own continuous text in a unit that has no scholastic or expository division) hold paragraphs only; a prooemium may hold paragraphs, children or both (its paragraphs first)."
+        },
+        "number": {
+          "type": ["string", "integer"],
+          "description": "Structural number (e.g., 'I', 'II-II', '3') or argument/reply ordinal (e.g., 1, 2)"
+        },
+        "title_latin": {
+          "type": "string",
+          "description": "Normalized title for display and indexing, e.g., 'Utrum Deus sit'. The heading as printed, with its location, is in heading_segments."
+        },
+        "heading_segments": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The node's heading as printed in the edition (e.g., 'ARTICULUS III. UTRUM DEUS SIT.'), divided into segments by the same rules as paragraph text.",
+          "items": { "$ref": "#/$defs/text_segment" }
+        },
+        "children": {
+          "type": "array",
+          "description": "Nested structural divisions or scholastic function nodes",
+          "items": { "$ref": "#/$defs/structural_node" }
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Content paragraphs for leaf-level nodes",
+          "items": { "$ref": "#/$defs/paragraph" }
+        },
+        "apparatus": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Editorial notes on this node: a correction proposed for a word of its title (lemma and reading, no place), or text that the witness has here and the edition does not print (after, label and text).",
+          "items": { "$ref": "#/$defs/apparatus_entry" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "node_type": {
+                "enum": [
+                  "argumentum", "sed_contra", "respondeo",
+                  "ad_argumentum", "textus_expositus", "divisio_textus", "expositio", "conclusio", "textus"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": ["paragraphs"],
+            "not": { "required": ["children"] }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "node_type": {
+                "enum": [
+                  "pars", "liber", "distinctio", "quaestio",
+                  "articulus", "quaestiuncula", "capitulum", "tractatus", "lectio", "sectio"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": { "required": ["paragraphs"] }
+          }
+        }
+      ]
+    },
+    "paragraph": {
+      "type": "object",
+      "required": ["paragraph_id", "segments"],
+      "properties": {
+        "paragraph_id": {
+          "type": "string",
+          "description": "e.g., 'ST-I-Q2-A3-respondeo-p1'"
+        },
+        "editorial_id": {
+          "type": "string",
+          "description": "Editorial paragraph number, e.g., 'Marietti n. 1243'"
+        },
+        "run_on": {
+          "type": "boolean",
+          "const": true,
+          "description": "Present (true) when the printed edition does not begin a new paragraph here: this paragraph's text runs on from the end of the paragraph before it in document order, which may belong to another node (e.g. a short reply, 'Et per hoc patet solutio ad tertium', printed at the end of the reply before). It is a paragraph of its own because it is cited separately. To reproduce the printed paragraphs, join it to the previous paragraph with a single space."
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The paragraph's text in reading order. A segment is the longest run of text that shares one complete citable location: one line where the edition numbers its lines, otherwise one page/column. The paragraph is the segments joined with a single space (after undoing continued_markup).",
+          "items": { "$ref": "#/$defs/text_segment" }
+        },
+        "apparatus": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Editorial notes on this paragraph's words, in the order of the text. An entry stands at a place (at, words) and gives the words as the text has them (lemma) and the other reading.",
+          "items": { "$ref": "#/$defs/apparatus_entry" }
+        }
+      }
+    },
+    "apparatus_entry": {
+      "type": "object",
+      "required": ["kind", "witness"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["correction", "variant", "reference"],
+          "description": "correction: the text has a slip (of the edition, or of aquinas.cc where the edition was not compared) or a gap that the edition marks, and 'reading' is the correction proposed. variant: the witness reads otherwise in substance (another word, more words, fewer, another order, or text the edition does not print). reference: the witness has in the sentence a reference or a figure that the edition has in the margin or not at all."
+        },
+        "witness": {
+          "type": "string",
+          "enum": ["aquinas.cc", "editor"],
+          "description": "Whose reading 'reading' is: the text of aquinas.cc, or the editor of this document (a proposed correction)."
+        },
+        "at": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Paragraph entries: the place of the lemma's first word, counted from 0 among the paragraph's words (the segments' latin_text joined in order and split at spaces). With 'words' 0, the reading stands before this word (at the paragraph's end, 'at' is the number of its words)."
+        },
+        "words": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many words of the text the lemma holds; 0 where the witness has words and the text none."
+        },
+        "lemma": {
+          "type": "string",
+          "description": "The words as the text has them at the place, without the punctuation and markup around them; empty with 'words' 0."
+        },
+        "reading": {
+          "type": "string",
+          "description": "The other reading: the correction proposed, or the witness's words; empty where the witness has no word for the lemma."
+        },
+        "after": {
+          "type": "string",
+          "description": "Node entries for text the edition does not print: the node_id or paragraph_id after which the witness has it; absent where it stands first."
+        },
+        "label": {
+          "type": "string",
+          "description": "Node entries: what the text is in the witness, e.g. 'aquinas.cc a. 3: Utrum …'."
+        },
+        "text": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Node entries: the witness's paragraphs in order, each with the witness's own reference. They have no place in the edition.",
+          "items": {
+            "type": "object",
+            "required": ["latin_text"],
+            "properties": {
+              "ref": { "type": "string", "description": "The witness's reference, e.g. 'ST.IIISup.Q64.A3.Obj1'" },
+              "latin_text": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "text_segment": {
+      "type": "object",
+      "required": ["latin_text", "edition_location"],
+      "properties": {
+        "latin_text": {
+          "type": "string",
+          "pattern": "^\\S+( \\S+)*$",
+          "description": "Whitespace-normalized text: words separated by single spaces, no leading or trailing space. A word hyphenated across a break is written whole in the segment where it begins. Inline markup (<i>, <sc>, <lemma>) is balanced within the segment."
+        },
+        "continued_markup": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Inline tags, outermost first, that were closed at the end of this segment only because the segment ended, and are reopened at the start of the next segment. Rejoining removes those closing tags here and the matching opening tags there.",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*$" }
+        },
+        "edition_location": {
+          "type": "object",
+          "required": ["volume", "page"],
+          "properties": {
+            "volume": { "type": "string" },
+            "page": { "type": "string" },
+            "column": {
+              "type": "string",
+              "enum": ["a", "b"],
+              "description": "Omit for single-column editions."
+            },
+            "line": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Line number as printed (or counted from the printed marks) in the edition. Present only for editions that number their lines; omit otherwise."
+            }
+          },
+          "$comment": "v1's line_start/line_end are rejected: a segment is now a single line, given by 'line'.",
+          "not": {
+            "anyOf": [
+              { "required": ["line_start"] },
+              { "required": ["line_end"] }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "work_metadata": {
+    "id": "QDM",
+    "title_latin": "Quaestiones disputatae De malo",
+    "title_english": "Disputed Questions on Evil",
+    "siglum": "QDM",
+    "date_composition": "1270-1271",
+    "critical_edition": {
+      "name": "Sancti Thomae de Aquino Opera omnia iussu Leonis XIII P. M. edita (Editio Leonina), t. 23: Quaestiones disputatae de malo",
+      "publisher": "Commissio Leonina; J. Vrin",
+      "year": "1982",
+      "notes": "Excerpts for the apparatus of v1.4, from a document built from the Latin text of aquinas.cc and collated with a scan of Leonine t. 23: the text is the edition's, in modern spelling, and each segment is a printed line with its page, column and line. Words the Leonine editors supplied, and a gap they mark, are between ⟨ ⟩. A paragraph's apparatus gives, at its place, aquinas.cc's reading where the edition reads otherwise in substance (variant), a reference aquinas.cc has in the sentence and the edition has not (reference), and a correction proposed by this document's editor where the text keeps a slip of the edition or a gap it marks (correction). An articulus's apparatus gives text of aquinas.cc that the edition does not print: at q. 9 a. 2 the edition prints \"5. deest.\", so the number 5 is unused and the argument after the fourth is the sixth."
+    }
+  },
+  "body": [
+    {
+      "node_id": "QDM-Q3",
+      "node_type": "quaestio",
+      "number": 3,
+      "title_latin": "De causa peccati",
+      "children": [
+        {
+          "node_id": "QDM-Q3-A3",
+          "node_type": "articulus",
+          "number": 3,
+          "title_latin": "Utrum Diabolus sit causa peccati",
+          "children": [
+            {
+              "node_id": "QDM-Q3-A3-arg11",
+              "node_type": "argumentum",
+              "number": 11,
+              "paragraphs": [
+                {
+                  "paragraph_id": "QDM-Q3-A3-arg11-p1",
+                  "segments": [
+                    {
+                      "latin_text": "<sc>Praeterea</sc>, philosophus in ⟨...⟩ Ethicae Eudemicae,",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 71
+                      }
+                    },
+                    {
+                      "latin_text": "inquirit quod sit principium operationis",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 72
+                      }
+                    },
+                    {
+                      "latin_text": "in anima, et ostendit quod oportet esse aliquid",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 73
+                      }
+                    },
+                    {
+                      "latin_text": "extrinsecum. Omne enim quod incipit de novo,",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 74
+                      }
+                    },
+                    {
+                      "latin_text": "habet aliquam causam; incipit enim homo operari,",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 75
+                      }
+                    },
+                    {
+                      "latin_text": "quia vult; incipit autem velle, quia praeconsiliatur.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 76
+                      }
+                    },
+                    {
+                      "latin_text": "Si autem praeconsilietur propter aliquod consilium",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 77
+                      }
+                    },
+                    {
+                      "latin_text": "praecedens, aut est procedere in infinitum, aut",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 78
+                      }
+                    },
+                    {
+                      "latin_text": "oportet ponere aliquod principium extrinsecum,",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 79
+                      }
+                    },
+                    {
+                      "latin_text": "quod primo movet hominem ad consiliandum;",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 80
+                      }
+                    },
+                    {
+                      "latin_text": "nisi forte aliquis dicat, quod hoc est a fortuna;",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 81
+                      }
+                    },
+                    {
+                      "latin_text": "ex quo sequeretur omnes actus humanos esse",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 82
+                      }
+                    },
+                    {
+                      "latin_text": "fortuitos. Hoc autem principium in bonis quidem",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 83
+                      }
+                    },
+                    {
+                      "latin_text": "dicit esse Deum, qui non est causa peccati, ut",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 84
+                      }
+                    },
+                    {
+                      "latin_text": "supra ostensum est. Cum ergo homo incipiat",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 85
+                      }
+                    },
+                    {
+                      "latin_text": "agere, velle et consiliari ad peccandum, videtur",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 86
+                      }
+                    },
+                    {
+                      "latin_text": "quod oporteat huius esse aliquam extrinsecam",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 87
+                      }
+                    },
+                    {
+                      "latin_text": "causam, quae non potest esse alia nisi Diabolus.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 88
+                      }
+                    },
+                    {
+                      "latin_text": "Ipse igitur est causa peccati.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "71",
+                        "column": "b",
+                        "line": 89
+                      }
+                    }
+                  ],
+                  "apparatus": [
+                    {
+                      "at": 2,
+                      "words": 4,
+                      "lemma": "in ⟨...⟩ Ethicae Eudemicae",
+                      "kind": "correction",
+                      "reading": "in II Ethicae Eudemicae",
+                      "witness": "editor"
+                    },
+                    {
+                      "at": 7,
+                      "words": 1,
+                      "lemma": "quod",
+                      "kind": "variant",
+                      "reading": "quid",
+                      "witness": "aquinas.cc"
+                    },
+                    {
+                      "at": 125,
+                      "words": 1,
+                      "lemma": "igitur",
+                      "kind": "variant",
+                      "reading": "ergo",
+                      "witness": "aquinas.cc"
+                    }
+                  ],
+                  "source_ref": "QDeMalo.Q3.A3.Obj11"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": "QDM-Q9",
+      "node_type": "quaestio",
+      "number": 9,
+      "title_latin": "De inani gloria",
+      "children": [
+        {
+          "node_id": "QDM-Q9-A2",
+          "node_type": "articulus",
+          "number": 2,
+          "title_latin": "Utrum inanis gloria sit peccatum mortale",
+          "children": [
+            {
+              "node_id": "QDM-Q9-A2-arg4",
+              "node_type": "argumentum",
+              "number": 4,
+              "paragraphs": [
+                {
+                  "paragraph_id": "QDM-Q9-A2-arg4-p1",
+                  "segments": [
+                    {
+                      "latin_text": "<sc>Praeterea</sc>, Hieronymus dicit, quod nihil est tam",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 22
+                      }
+                    },
+                    {
+                      "latin_text": "periculosum quam gloriae cupiditas et iactantiae",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 23
+                      }
+                    },
+                    {
+                      "latin_text": "vitium, et animus de conscientia virtutum tumens.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 24
+                      }
+                    },
+                    {
+                      "latin_text": "Sed illud quod est maxime periculosum, videtur",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 25
+                      }
+                    },
+                    {
+                      "latin_text": "esse mortale. Ergo inanis gloria est peccatum",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 26
+                      }
+                    },
+                    {
+                      "latin_text": "mortale.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 27
+                      }
+                    }
+                  ],
+                  "apparatus": [
+                    {
+                      "at": 8,
+                      "words": 1,
+                      "lemma": "quam",
+                      "kind": "variant",
+                      "reading": "quantum",
+                      "witness": "aquinas.cc"
+                    }
+                  ],
+                  "source_ref": "QDeMalo.Q9.A2.Obj4"
+                }
+              ]
+            },
+            {
+              "node_id": "QDM-Q9-A2-arg6",
+              "node_type": "argumentum",
+              "number": 6,
+              "paragraphs": [
+                {
+                  "paragraph_id": "QDM-Q9-A2-arg6-p1",
+                  "segments": [
+                    {
+                      "latin_text": "<sc>Praeterea</sc>, quicumque surripit quod est Dei",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 29
+                      }
+                    },
+                    {
+                      "latin_text": "proprium mortaliter peccat, multo magis quam",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 30
+                      }
+                    },
+                    {
+                      "latin_text": "qui furatur rem proximi. Sed quicumque appetit",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 31
+                      }
+                    },
+                    {
+                      "latin_text": "inanem gloriam, usurpat sibi illud quod est",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 32
+                      }
+                    },
+                    {
+                      "latin_text": "proprium Dei; dicitur enim Is., XLII: <i>gloriam</i>",
+                      "continued_markup": [
+                        "i"
+                      ],
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 33
+                      }
+                    },
+                    {
+                      "latin_text": "<i>meam alteri non dabo</i>; et I ad Tim., ult.: <i>soli</i>",
+                      "continued_markup": [
+                        "i"
+                      ],
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 34
+                      }
+                    },
+                    {
+                      "latin_text": "<i>Deo honor et gloria</i>. Ergo videtur quod inanis",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 35
+                      }
+                    },
+                    {
+                      "latin_text": "gloria sit peccatum mortale.",
+                      "edition_location": {
+                        "volume": "23",
+                        "page": "212",
+                        "column": "a",
+                        "line": 36
+                      }
+                    }
+                  ],
+                  "apparatus": [
+                    {
+                      "at": 31,
+                      "words": 1,
+                      "lemma": "XLII",
+                      "kind": "reference",
+                      "reading": "XLII, 8",
+                      "witness": "aquinas.cc"
+                    },
+                    {
+                      "at": 41,
+                      "words": 1,
+                      "lemma": "ult",
+                      "kind": "variant",
+                      "reading": "I, 17",
+                      "witness": "aquinas.cc"
+                    }
+                  ],
+                  "source_ref": "QDeMalo.Q9.A2.Obj6"
+                }
+              ]
+            }
+          ],
+          "apparatus": [
+            {
+              "kind": "variant",
+              "witness": "aquinas.cc",
+              "after": "QDM-Q9-A2-arg4",
+              "label": "aquinas.cc arg. 5",
+              "text": [
+                {
+                  "ref": "QDeMalo.Q9.A2.Obj5",
+                  "latin_text": "<sc>Praeterea</sc>, omne vitium capitale est peccatum mortale. Sed inanis gloria est vitium capitale. Ergo inanis gloria est mortale peccatum."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

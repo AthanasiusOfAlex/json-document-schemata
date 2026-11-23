@@ -11,7 +11,7 @@ The schema uses a unified, recursive tree structure with four layers:
 3. **`paragraph`**: A logical paragraph of text within a leaf-level node. Its Latin text is divided into segments.
 4. **`text_segment`**: The text printed at one citable location in the critical edition: a line where the edition numbers its lines, otherwise a page (and column).
 
-The current version is **v1.3** (`v1.3/schema.json`). `v1.2/`, `v1.1/` and `v1/` are kept unchanged so their `$id`s stay stable; see *Changes from v1.2*, *Changes from v1.1* and *Changes from v1* below.
+The current version is **v1.4** (`v1.4/schema.json`). `v1.3/`, `v1.2/`, `v1.1/` and `v1/` are kept unchanged so their `$id`s stay stable; see *Changes from v1.3*, *Changes from v1.2*, *Changes from v1.1* and *Changes from v1* below.
 
 ### The Unified Node Model
 
@@ -72,6 +72,19 @@ An optional `editorial_id` field on the `paragraph` object captures structural a
 ### Citable units and `run_on`
 Nodes are the units a reader cites: a reply is its own `ad_argumentum` even when it is one line ("Unde patet solutio ad tertium"), because it is cited as *ad 3*. Sometimes the printed edition does not give such a unit a paragraph of its own but runs it on at the end of the paragraph before, which may belong to another node (the Leonine prints ST I q.82 a.5's reply to the third objection at the end of the reply to the second). A node cannot hold half a paragraph, so the unit keeps its own paragraph, marked `"run_on": true`. The field is present only when true. To rebuild the printed paragraphs, join each `run_on` paragraph to the one before it in reading order with a single space; [`scripts/aquinas_integrity.py`](../../scripts/aquinas_integrity.py) has the reference implementation (`printed_paragraphs`). A reply that answers all the objections at once is one node numbered for all of them (`"number": "1-3"`); one that closes the respondeo ("Et per hoc patet responsio ad obiecta") belongs to the respondeo, where print has it.
 
+### The apparatus
+Where a document's text follows one printed edition and was made by collating another witness with it (the text of a website, say, compared with the Leonine), the differences that matter to a reader are kept beside the text, never in it. A `paragraph` and a `structural_node` may each carry an optional `apparatus`, an array of entries. Every entry has a `kind` and a `witness` (whose reading it gives: `aquinas.cc`, or `editor` for the editor of the document).
+
+A paragraph's entry stands at a place in the paragraph. Join the segments (see *Joining segments*) and split the result at spaces: `at` is the place of the lemma's first word, counted from 0; `words` is how many words the lemma holds; `lemma` repeats those words as the text has them, without the punctuation and markup around them; `reading` is the other reading. With `words` 0 the witness has words where the text has none, and the reading stands before the word at `at`. The kinds:
+
+* **`variant`**: the witness reads otherwise in substance: another word, more words, fewer (`reading` is then empty), another order.
+* **`reference`**: the witness has in the sentence a reference or a figure that the edition has in the margin or not at all ("Is. XLII, 8" where the edition prints "Is. XLII").
+* **`correction`**: the text keeps a slip of the edition (or of the witness, where the edition was not compared), or a gap that the edition marks, and `reading` is the correction proposed. The text itself is never corrected: a document that stands in for the printed volume reports what the volume prints.
+
+A node's entry gives text of the witness that the edition does not print at all, such as an objection where the edition prints only "5. deest.": `text` holds the witness's paragraphs (each with its own `ref` and `latin_text`), `label` says what the text is in the witness, and `after` names the `node_id` or `paragraph_id` after which the witness has it (absent where it stands first). Such text has no place in the edition, and so no segments.
+
+Only differences of substance are listed. Differences of spelling, of abbreviation and of the notation of numbers belong in the edition's `notes`, described once. [`scripts/aquinas_integrity.py`](../../scripts/aquinas_integrity.py) checks that every lemma is found at its place and that every `after` names an id of the document.
+
 ## The Scholastic Function Types
 
 Every leaf-level `structural_node` is categorized by its scholastic function:
@@ -85,6 +98,14 @@ Every leaf-level `structural_node` is categorized by its scholastic function:
 * `expositio`: The commentary or exposition on the source text.
 * `conclusio`: Formal conclusions.
 * `textus`: The author's own continuous text in a unit with no scholastic or expository division: a chapter of the *Summa contra Gentiles* or of an opusculum, a sermon, a prayer.
+
+## Changes from v1.3
+
+v1.4 is a strict superset of v1.3: every v1.3 document is valid under v1.4. It adds one optional field:
+
+* **`apparatus`** (on `paragraph` and on `structural_node`): the readings of another witness, the references it adds, the corrections proposed for the edition's slips, and text of the witness that the edition does not print; see *The apparatus*.
+
+See `v1.4/examples/de-malo-apparatus.json`: an argument of *De malo* with a correction and two variants, and an article where the edition prints "5. deest." and the witness has a fifth argument.
 
 ## Changes from v1.2
 

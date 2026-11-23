@@ -1,0 +1,212 @@
+{
+  "work_metadata": {
+    "id": "ST",
+    "title_latin": "Summa Theologiae",
+    "title_english": "Summa of Theology",
+    "siglum": "S.Th.",
+    "date_composition": "1265-1273",
+    "critical_edition": {
+      "name": "Sancti Thomae Aquinatis Opera omnia iussu Leonis XIII P. M. edita (Editio Leonina), tt. 4-12",
+      "publisher": "Ex Typographia Polyglotta S. C. de Propaganda Fide",
+      "year": "1888-1906",
+      "notes": "Latin text from aquinas.cc (The Aquinas Institute), retrieved 2026-10-12, data version 11403. aquinas.cc on its Latin text: \"The Latin text used in this volume is based on the Leonine Edition, transcribed and revised by The Aquinas Institute.\" Paragraph divisions follow aquinas.cc. Critical apparatus omitted. Page numbers are not supplied by the source; 'page' holds a placeholder to be resolved downstream. Italic quotations are marked <i>...</i>; small-capital incipits (Sed contra, Respondeo, Ad primum, ...) are marked <sc>...</sc>. A paragraph marked run_on is not a paragraph of its own in the printed edition: its text runs on from the paragraph before. It is separate here because it is cited separately (a reply printed at the end of the reply before)."
+    }
+  },
+  "body": [
+    {
+      "node_id": "ST-I",
+      "node_type": "pars",
+      "number": "I",
+      "title_latin": "Summa Theologiae Prima Pars",
+      "children": [
+        {
+          "node_id": "ST-I-T9",
+          "node_type": "tractatus",
+          "number": 9,
+          "title_latin": "De homine",
+          "children": [
+            {
+              "node_id": "ST-I-Q82",
+              "node_type": "quaestio",
+              "number": 82,
+              "title_latin": "De voluntate",
+              "children": [
+                {
+                  "node_id": "ST-I-Q82-A5",
+                  "node_type": "articulus",
+                  "number": 5,
+                  "title_latin": "Utrum irascibilis et concupiscibilis distingui debeant in appetitu superiori",
+                  "children": [
+                    {
+                      "node_id": "ST-I-Q82-A5-arg1",
+                      "node_type": "argumentum",
+                      "number": 1,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-arg1-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Ad quintum sic proceditur</sc>. Videtur quod irascibilis et concupiscibilis distingui debeant in appetitu superiori, qui est voluntas. Vis enim concupiscibilis dicitur a concupiscendo; et irascibilis ab irascendo. Sed aliqua concupiscentia est quae non potest pertinere ad appetitum sensitivum, sed solum ad intellectivum, qui est voluntas; sicut concupiscentia sapientiae, de qua dicitur Sap. VI, <i>concupiscentia sapientiae perducit ad regnum perpetuum</i>. Est etiam quaedam ira quae non potest pertinere ad appetitum sensitivum, sed intellectivum tantum; sicut cum irascimur contra vitia. Unde et Hieronymus, super Matth., monet ut <i>odium vitiorum possideamus in irascibili</i>. Ergo irascibilis et concupiscibilis distingui debent in appetitu intellectivo, sicut et in sensitivo.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-arg2",
+                      "node_type": "argumentum",
+                      "number": 2,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-arg2-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Praeterea</sc>, secundum quod communiter dicitur, caritas est in concupiscibili, spes autem in irascibili. Non autem possunt esse in appetitu sensitivo, quia non sunt sensibilium obiectorum, sed intelligibilium. Ergo concupiscibilis et irascibilis sunt ponenda in parte intellectiva.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-arg3",
+                      "node_type": "argumentum",
+                      "number": 3,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-arg3-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Praeterea</sc>, in libro <i>de Spiritu et Anima</i> dicitur quod <i>has potentias</i> (scilicet irascibilem et concupiscibilem, et rationalem) <i>habet anima antequam corpori misceatur</i>. Sed nulla potentia sensitivae partis est animae tantum, sed coniuncti, ut supra dictum est. Ergo irascibilis et concupiscibilis sunt in voluntate, quae est appetitus intellectivus.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-sc",
+                      "node_type": "sed_contra",
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-sc-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Sed contra</sc> est quod Gregorius Nyssenus, dicit, quod irrationalis pars animae dividitur in desiderativum et irascitivum; et idem dicit Damascenus, in libro II. Et philosophus dicit, in III <i>de Anima</i> quod <i>voluntas in ratione est, in irrationali autem parte animae concupiscentia et ira, vel desiderium et animus</i>.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-respondeo",
+                      "node_type": "respondeo",
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-respondeo-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Respondeo</sc> dicendum quod irascibilis et concupiscibilis non sunt partes intellectivi appetitus, qui dicitur voluntas. Quia, sicut supra dictum est, potentia quae ordinatur ad aliquod obiectum secundum communem rationem, non diversificatur per differentias speciales sub illa ratione communi contentas. Sicut quia visus respicit visibile secundum rationem colorati, non multiplicantur visivae potentiae secundum diversas species colorum, si autem esset aliqua potentia quae esset albi inquantum est album, et non inquantum est coloratum, diversificaretur a potentia quae esset nigri inquantum est nigrum.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-respondeo-p2",
+                          "segments": [
+                            {
+                              "latin_text": "Appetitus autem sensitivus non respicit communem rationem boni, quia nec sensus apprehendit universale. Et ideo secundum diversas rationes particularium bonorum, diversificantur partes appetitus sensitivi, nam concupiscibilis respicit propriam rationem boni, inquantum est delectabile secundum sensum, et conveniens naturae; irascibilis autem respicit rationem boni, secundum quod est repulsivum et impugnativum eius quod infert nocumentum. Sed voluntas respicit bonum sub communi ratione boni. Et ideo non diversificantur in ipsa, quae est appetitus intellectivus, aliquae potentiae appetitivae, ut sit in appetitu intellectivo alia potentia irascibilis, et alia concupiscibilis, sicut etiam ex parte intellectus non multiplicantur vires apprehensivae, licet multiplicentur ex parte sensus.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-ad1",
+                      "node_type": "ad_argumentum",
+                      "number": 1,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-ad1-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Ad primum</sc> ergo dicendum quod amor, concupiscentia, et huiusmodi, dupliciter accipiuntur. Quandoque quidem secundum quod sunt quaedam passiones, cum quadam scilicet concitatione animi provenientes. Et sic communiter accipiuntur, et hoc modo sunt solum in appetitu sensitivo. Alio modo significant simplicem affectum, absque passione vel animi concitatione. Et sic sunt actus voluntatis. Et hoc etiam modo attribuuntur angelis et Deo. Sed prout sic accipiuntur, non pertinent ad diversas potentias, sed ad unam tantum potentiam, quae dicitur voluntas.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-ad2",
+                      "node_type": "ad_argumentum",
+                      "number": 2,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-ad2-p1",
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Ad secundum</sc> dicendum quod ipsa voluntas potest dici irascibilis, prout vult impugnare malum, non ex impetu passionis, sed ex iudicio rationis. Et eodem modo potest dici concupiscibilis, propter desiderium boni. Et sic in irascibili et concupiscibili sunt caritas et spes; idest in voluntate secundum quod habet ordinem ad huiusmodi actus. Sic etiam potest intelligi quod dicitur in libro <i>de Spiritu et Anima</i>, quod irascibilis et concupiscibilis sunt animae antequam uniatur corpori (ut tamen intelligatur ordo naturae, et non temporis), licet non sit necessarium verbis illius libri fidem adhibere.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "node_id": "ST-I-Q82-A5-ad3",
+                      "node_type": "ad_argumentum",
+                      "number": 3,
+                      "paragraphs": [
+                        {
+                          "paragraph_id": "ST-I-Q82-A5-ad3-p1",
+                          "run_on": true,
+                          "segments": [
+                            {
+                              "latin_text": "<sc>Unde patet</sc> solutio ad tertium.",
+                              "edition_location": {
+                                "volume": "5",
+                                "page": "[PAGE]"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

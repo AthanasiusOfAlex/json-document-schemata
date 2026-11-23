@@ -1,0 +1,116 @@
+{
+  "work_metadata": {
+    "id": "ST",
+    "title_latin": "Summa Theologiae",
+    "siglum": "S.Th.",
+    "date_composition": "1265-1273",
+    "critical_edition": {
+      "name": "Editio Leonina",
+      "publisher": "Ex Typographia Polyglotta S. C. de Propaganda Fide",
+      "year": "1888",
+      "notes": "Rome. Leonine Commission. Pages and columns in this example are illustrative; this edition does not number its lines."
+    }
+  },
+  "body": [
+    {
+      "node_id": "ST-I",
+      "node_type": "pars",
+      "number": "I",
+      "title_latin": "Prima Pars",
+      "children": [
+        {
+          "node_id": "ST-I-Q2",
+          "node_type": "quaestio",
+          "number": "2",
+          "title_latin": "De Deo, an Deus sit",
+          "heading_segments": [
+            {
+              "latin_text": "QUAESTIO II. DE DEO, AN DEUS SIT.",
+              "edition_location": { "volume": "4", "page": "27", "column": "a" }
+            }
+          ],
+          "children": [
+            {
+              "node_id": "ST-I-Q2-A3",
+              "node_type": "articulus",
+              "number": "3",
+              "title_latin": "Utrum Deus sit",
+              "heading_segments": [
+                {
+                  "latin_text": "ARTICULUS TERTIUS. UTRUM DEUS SIT.",
+                  "edition_location": { "volume": "4", "page": "31", "column": "a" }
+                }
+              ],
+              "children": [
+                {
+                  "node_id": "ST-I-Q2-A3-argumentum-1",
+                  "node_type": "argumentum",
+                  "number": 1,
+                  "paragraphs": [
+                    {
+                      "paragraph_id": "ST-I-Q2-A3-argumentum-1-p1",
+                      "segments": [
+                        {
+                          "latin_text": "<sc>Ad tertium sic proceditur</sc>. Videtur quod Deus non sit. Quia si unum contrariorum fuerit infinitum, totaliter destruetur aliud. Sed hoc intelligitur in hoc nomine Deus, scilicet quod sit quoddam bonum infinitum. Si ergo Deus esset, nullum malum inveniretur. Invenitur autem malum in mundo. Ergo Deus non est.",
+                          "edition_location": { "volume": "4", "page": "31", "column": "a" }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ST-I-Q2-A3-sed_contra",
+                  "node_type": "sed_contra",
+                  "paragraphs": [
+                    {
+                      "paragraph_id": "ST-I-Q2-A3-sed_contra-p1",
+                      "segments": [
+                        {
+                          "latin_text": "<sc>Sed contra</sc> est quod dicitur Exodi III, ex persona Dei, <i>ego sum</i>",
+                          "continued_markup": ["i"],
+                          "edition_location": { "volume": "4", "page": "31", "column": "a" }
+                        },
+                        {
+                          "latin_text": "<i>qui sum</i>.",
+                          "edition_location": { "volume": "4", "page": "31", "column": "b" }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ST-I-Q2-A3-respondeo",
+                  "node_type": "respondeo",
+                  "paragraphs": [
+                    {
+                      "paragraph_id": "ST-I-Q2-A3-respondeo-p1",
+                      "segments": [
+                        {
+                          "latin_text": "<sc>Respondeo</sc> dicendum quod Deum esse quinque viis probari potest.",
+                          "edition_location": { "volume": "4", "page": "31", "column": "b" }
+                        }
+                      ]
+                    },
+                    {
+                      "paragraph_id": "ST-I-Q2-A3-respondeo-p2",
+                      "segments": [
+                        {
+                          "latin_text": "Prima autem et manifestior via est, quae sumitur ex parte motus. Certum est enim, et sensu constat, aliqua moveri",
+                          "edition_location": { "volume": "4", "page": "31", "column": "b" }
+                        },
+                        {
+                          "latin_text": "in hoc mundo. Omne autem quod movetur, ab alio movetur.",
+                          "edition_location": { "volume": "4", "page": "32", "column": "a" }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

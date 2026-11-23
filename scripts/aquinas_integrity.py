@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1, v1.2, v1.3).
+"""Integrity checks for Aquinas Opera Omnia JSON (aquinas-opera-omnia/v1.1 to v1.4).
 
 Schema validation (``validate.py``) proves each segment is *well-formed*. This
 script checks what the JSON Schema cannot, because it needs to compare one
@@ -8,7 +8,9 @@ segment with the next:
   * inline markup (``<i>``, ``<sc>``, ``<lemma>``) is balanced in every segment, and each
     ``continued_markup`` flag matches the tags it claims were split;
   * segments run forward through the edition (volume, page, column, line);
-  * a paragraph marked ``run_on`` (v1.3) has a paragraph before it to run on from.
+  * a paragraph marked ``run_on`` (v1.3) has a paragraph before it to run on from;
+  * an entry of a paragraph's ``apparatus`` (v1.4) finds its ``lemma`` at its place, and a
+    node's entry names in ``after`` an id of the document.
 
 Findings are split into two levels:
 
@@ -25,6 +27,8 @@ numerals) are skipped by the ordering checks.
 ``continued_markup``, then join the segments with a single space.
 ``printed_paragraphs`` rebuilds the printed edition's paragraphs: each ``run_on``
 paragraph is joined to the one before it, with a single space.
+``lemma_at`` is the reference implementation of an apparatus entry's place: the words of
+the joined paragraph from ``at``, without the punctuation and markup around them.
 
 Usage::
 
@@ -111,6 +115,49 @@ def printed_paragraphs(doc):
     return out
 
 
+def lemma_at(segments, at, words):
+    """The words an apparatus entry stands at: ``words`` words of the joined paragraph
+    from word ``at`` (counted from 0, the text split at spaces), without the markup and
+    without the punctuation at either end. None if the place is beyond the paragraph."""
+    text = join_segments(segments).split(" ")
+    if at > len(text) or at + words > len(text):
+        return None
+    return TAG_RE.sub("", " ".join(text[at:at + words])).strip(" ,.;:?!()")
+
+
+def iter_nodes(nodes):
+    """Yield every node, in reading order."""
+    for node in nodes or []:
+        yield node
+        yield from iter_nodes(node.get("children"))
+
+
+def check_apparatus(doc):
+    """Errors in the apparatus (v1.4): a lemma that is not at its place, an ``after`` that
+    names no node or paragraph of the document."""
+    errors = []
+    nodes = list(iter_nodes(doc.get("body", [])))
+    ids = {n.get("node_id") for n in nodes} | {p.get("paragraph_id") for p in iter_paragraphs(doc.get("body", []))}
+    for node in nodes:
+        for entry in node.get("apparatus", []) or []:
+            if "after" in entry and entry["after"] not in ids:
+                errors.append(f"{node.get('node_id', '?')}: apparatus names {entry['after']!r}, which is not in the document")
+        for para in node.get("paragraphs", []) or []:
+            label = para.get("paragraph_id", "?")
+            for entry in para.get("apparatus", []) or []:
+                if "at" not in entry or "words" not in entry:
+                    continue
+                try:
+                    found = lemma_at(para.get("segments", []), entry["at"], entry["words"])
+                except ValueError:
+                    continue        # reported with the paragraph's markup
+                if found is None:
+                    errors.append(f"{label}: apparatus entry at word {entry['at']} is beyond the paragraph")
+                elif "lemma" in entry and found != entry["lemma"]:
+                    errors.append(f"{label}: apparatus lemma {entry['lemma']!r} is not at word {entry['at']} (found {found!r})")
+    return errors
+
+
 def iter_runs(nodes):
     """Yield ``(label, segments)`` for every heading and paragraph, in reading order."""
     for node in nodes or []:
@@ -182,6 +229,8 @@ def check(doc):
     first = next(iter_paragraphs(doc.get("body", [])), None)
     if first is not None and first.get("run_on"):
         errors.append(f"{first.get('paragraph_id', '?')}: run_on on the document's first paragraph")
+
+    errors.extend(check_apparatus(doc))
 
     return errors, warnings
 

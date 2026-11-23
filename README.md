@@ -15,7 +15,7 @@ All schemata are written against JSON Schema **draft 2020-12**.
 
 | Schema | Canonical `$id` |
 |---|---|
-| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.3/schema.json` (current; `v1.2/`, `v1.1/` and `v1/` superseded) |
+| **Aquinas Opera Omnia** | `…/schemas/aquinas-opera-omnia/v1.4/schema.json` (current; `v1.3/`, `v1.2/`, `v1.1/` and `v1/` superseded) |
 | **Journal Article** (PDFTranscriber) | `…/schemas/journal-article/v1/schema.json` |
 | **Academic Book** (PDFTranscriber) | `…/schemas/book/v1/schema.json` |
 | **Transcription Core** (shared) | `…/schemas/shared/transcription-core.json` |
@@ -38,7 +38,10 @@ the edition numbers its lines, otherwise one per page/column. Joining the
 segments with a single space gives back the paragraph exactly, so citation down
 to the line is preserved alongside semantic flow. Nodes are the units a reader
 cites; where the printed edition runs a cited unit on in the paragraph before (a short
-reply), its paragraph is marked `run_on`, so print's paragraphs can be rebuilt.
+reply), its paragraph is marked `run_on`, so print's paragraphs can be rebuilt. A
+paragraph or a node may carry an `apparatus`: the readings of another witness where
+the edition reads otherwise, references the witness adds, corrections proposed for the
+edition's slips, and text of the witness that the edition does not print.
 
 See [schemas/aquinas-opera-omnia/README.md](schemas/aquinas-opera-omnia/README.md)
 for the full design notes.
