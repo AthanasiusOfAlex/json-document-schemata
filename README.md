@@ -151,8 +151,10 @@ paired). Findings are split into structural `ERROR`s (which fail the run) and
 [`scripts/aquinas_integrity.py`](scripts/aquinas_integrity.py) does the same for
 Aquinas documents. It checks that inline markup is balanced in each segment and
 that every `continued_markup` flag matches its text. It also checks that segments
-never run backwards through the edition (volume, page, column, line). Pass it
-file paths to check generated output, e.g. a scraper run.
+never run backwards through the edition (volume, page, line). A column that goes
+back on one page is counted and not taken for an error: the editions have pages
+divided across their width, where the columns start again below a block set over
+both. Pass it file paths to check generated output, e.g. a scraper run.
 
 All three scripts run in CI on every push and pull request to `main`
 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)). The `examples/`

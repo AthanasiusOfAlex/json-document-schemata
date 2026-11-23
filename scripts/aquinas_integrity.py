@@ -7,7 +7,8 @@ segment with the next:
 
   * inline markup (``<i>``, ``<sc>``, ``<lemma>``) is balanced in every segment, and each
     ``continued_markup`` flag matches the tags it claims were split;
-  * segments run forward through the edition (volume, page, column, line);
+  * segments run forward through the edition (volume, page, line), and the column goes
+    back on one page only where the page is divided across its width;
   * a paragraph marked ``run_on`` (v1.3) has a paragraph before it to run on from;
   * an entry of a paragraph's ``apparatus`` (v1.4) finds its ``lemma`` at its place, and a
     node's entry names in ``after`` an id of the document.
@@ -19,6 +20,11 @@ Findings are split into two levels:
     run.
   * ``WARN``  — something that is *usually* a mistake: a skipped line number
     inside a paragraph. Reported, but never fails the run.
+
+A column that goes back on one page (b, then a again) is neither: the editions have pages
+divided across their width, by a question's prologue or a note of the editors set over
+both columns, and the columns start again below it. Such places are counted in one line
+per document. Where the edition numbers its lines, the lines must still go forward there.
 
 Locations that are not numeric (the scraper's ``"[PAGE]"`` placeholder, roman
 numerals) are skipped by the ordering checks.
@@ -179,6 +185,10 @@ def place(seg):
     return volume, int(page), loc.get("column") or ""
 
 
+def line(seg):
+    return (seg.get("edition_location") or {}).get("line")
+
+
 def describe(seg):
     loc = seg.get("edition_location") or {}
     parts = [f"vol. {loc.get('volume')}", f"p. {loc.get('page')}{loc.get('column', '')}"]
@@ -188,9 +198,11 @@ def describe(seg):
 
 
 def check(doc):
-    """Return ``(errors, warnings)`` lists of human-readable strings."""
+    """Return ``(errors, warnings, divided)``: two lists of human-readable strings, and the
+    number of places where the column goes back on one page."""
     errors, warnings = [], []
-    last_place, last_where = None, None
+    last_place, last_where, last_seg = None, None, None
+    divided = 0     # a column that goes back on one page: the page is divided across its width
 
     for label, segments in iter_runs(doc.get("body", [])):
         # Markup: each segment balanced, each flag consistent, the whole run balanced.
@@ -205,14 +217,23 @@ def check(doc):
         except ValueError as e:
             errors.append(f"{label}: {e}")
 
-        # Location: (volume, page, column) never runs backwards in reading order.
+        # Location: (volume, page) never runs backwards in reading order. The column may, on
+        # one page: a block set over both columns divides the page, and the columns start
+        # again below it. If the two segments are of one paragraph and have lines, the
+        # lines go on.
         for i, seg in enumerate(segments, 1):
             here = place(seg)
             if here is None:
                 continue
-            if last_place is not None and here < last_place:
+            if last_place is not None and here[:2] < last_place[:2]:
                 errors.append(f"{label} segment {i} ({describe(seg)}) comes before {last_where}")
-            last_place, last_where = here, f"{label} ({describe(seg)})"
+            elif last_place is not None and here < last_place:
+                la, lb = line(last_seg), line(seg)
+                if i > 1 and la is not None and lb is not None and lb <= la:
+                    errors.append(f"{label} segment {i} ({describe(seg)}) comes before {last_where}")
+                else:
+                    divided += 1
+            last_place, last_where, last_seg = here, f"{label} ({describe(seg)})", seg
 
         # Lines: within a run and a single column, each line follows the last.
         for i, (a, b) in enumerate(zip(segments, segments[1:]), 2):
@@ -232,7 +253,7 @@ def check(doc):
 
     errors.extend(check_apparatus(doc))
 
-    return errors, warnings
+    return errors, warnings, divided
 
 
 def main(argv):
@@ -243,10 +264,12 @@ def main(argv):
 
     ok = True
     for path in paths:
-        errors, warnings = check(load(path))
+        errors, warnings, divided = check(load(path))
         print(f"\n{path}")
         if not errors and not warnings:
             print("  [OK] Aquinas integrity clean")
+        if divided:
+            print(f"  [NOTE]  {divided} place(s) where the column goes back on one page (a page divided across its width)")
         for w in warnings:
             print(f"  [WARN]  {w}")
         for e in errors:

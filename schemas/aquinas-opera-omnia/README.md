@@ -36,7 +36,7 @@ Scholarly citation requires exact page (and, where printed, line) numbers, but p
 * In an edition that numbers its lines (the modern Leonine volumes), the location includes the line, so **each segment is one printed line**, and `edition_location.line` gives its number.
 * In an edition without line numbers (the Leonine *Summa*, vols. 4–12), the location is page and column, so a segment is everything in the paragraph that falls in one column of one page. `line` is omitted.
 
-Array order is reading order. Segments never run backwards through the edition: (volume, page, column) never decrease in document order, and within one paragraph and column each `line` is greater than the last.
+Array order is reading order. Segments never run backwards through the edition: (volume, page) never decrease in document order, and within one paragraph and column each `line` is greater than the last. The column goes from `a` to `b`, with one exception: where a page is divided across its width (a question's prologue, a heading or a note of the editors set over both columns), the columns start again below the division, so on that page `a` follows `b`.
 
 ### The "Healed Word" convention
 When a word is hyphenated across a line, column or page break (e.g., `philoso-` | `phicas`), the complete word (`philosophicas`) is placed entirely within the segment where the word *begins*. The next segment begins with the next whole word. A word is cited by the line it starts on, and full-text search is unaffected. A "word" here is any whitespace-delimited token, so punctuation and inline tags belong to the word they touch (`III,`, `<i>ego`).
